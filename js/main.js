@@ -44,20 +44,43 @@
   }
 
   /* Mobile nav */
+  const navBackdrop = document.getElementById("nav-backdrop");
+
+  function setMobileNavOpen(open) {
+    if (!navToggle || !siteNav) return;
+    navToggle.setAttribute("aria-expanded", String(open));
+    siteNav.classList.toggle("open", open);
+    document.body.classList.toggle("nav-open", open);
+    document.body.style.overflow = open ? "hidden" : "";
+    if (navBackdrop) {
+      navBackdrop.hidden = !open;
+      navBackdrop.classList.toggle("is-visible", open);
+      navBackdrop.setAttribute("aria-hidden", String(!open));
+    }
+  }
+
   if (navToggle && siteNav) {
     navToggle.addEventListener("click", function () {
       const expanded = navToggle.getAttribute("aria-expanded") === "true";
-      navToggle.setAttribute("aria-expanded", String(!expanded));
-      siteNav.classList.toggle("open");
-      document.body.style.overflow = expanded ? "" : "hidden";
+      setMobileNavOpen(!expanded);
     });
+
+    if (navBackdrop) {
+      navBackdrop.addEventListener("click", function () {
+        setMobileNavOpen(false);
+      });
+    }
 
     navLinks.forEach(function (link) {
       link.addEventListener("click", function () {
-        navToggle.setAttribute("aria-expanded", "false");
-        siteNav.classList.remove("open");
-        document.body.style.overflow = "";
+        setMobileNavOpen(false);
       });
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 768) {
+        setMobileNavOpen(false);
+      }
     });
   }
 

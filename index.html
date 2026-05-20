@@ -20,9 +20,7 @@
         <img src="images/logo.svg" alt="EVERM Surgery Clinic" class="logo-img" width="1000" height="333" decoding="async" />
       </a>
 
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n-aria="nav_toggle" aria-label="เปิดเมนู">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true"></div>
 
       <nav class="site-nav" id="site-nav" data-i18n-aria="nav_menu_aria" aria-label="เมนูหลัก">
         <ul>
@@ -34,52 +32,57 @@
           <li><a href="#team" data-i18n="nav_team">ทีมแพทย์</a></li>
           <li><a href="#faq" data-i18n="nav_faq">คำถามที่พบบ่อย</a></li>
         </ul>
-        <div class="lang-dropdown">
-          <button
-            type="button"
-            class="lang-dropdown-toggle"
-            id="lang-dropdown-toggle"
-            aria-haspopup="listbox"
-            aria-expanded="false"
-            aria-controls="lang-dropdown-menu"
-            data-i18n-aria="lang_aria"
-            aria-label="เลือกภาษา"
-          >
-            <span class="lang-flag lang-dropdown-flag" aria-hidden="true">
-              <img src="images/flags/th.svg" alt="" width="22" height="15" decoding="async" />
-            </span>
-            <span class="lang-dropdown-label">ไทย</span>
-            <span class="lang-dropdown-chevron" aria-hidden="true"></span>
-          </button>
-          <ul class="lang-dropdown-menu" id="lang-dropdown-menu" role="listbox" aria-labelledby="lang-dropdown-toggle" hidden>
-            <li role="presentation">
-              <button type="button" class="lang-option" role="option" data-lang="ko" aria-selected="false">
-                <span class="lang-flag" aria-hidden="true">
-                  <img src="images/flags/kr.svg" alt="" width="22" height="15" decoding="async" />
-                </span>
-                <span class="lang-option-label">한국어</span>
-              </button>
-            </li>
-            <li role="presentation">
-              <button type="button" class="lang-option" role="option" data-lang="en" aria-selected="false">
-                <span class="lang-flag" aria-hidden="true">
-                  <img src="images/flags/us.svg" alt="" width="22" height="15" decoding="async" />
-                </span>
-                <span class="lang-option-label">English</span>
-              </button>
-            </li>
-            <li role="presentation">
-              <button type="button" class="lang-option" role="option" data-lang="th" aria-selected="true">
-                <span class="lang-flag" aria-hidden="true">
-                  <img src="images/flags/th.svg" alt="" width="22" height="15" decoding="async" />
-                </span>
-                <span class="lang-option-label">ไทย</span>
-              </button>
-            </li>
-          </ul>
-        </div>
         <a class="btn btn-primary btn-sm nav-cta" href="#contact" data-i18n="nav_contact">นัดปรึกษา</a>
       </nav>
+
+      <div class="lang-dropdown header-lang">
+        <button
+          type="button"
+          class="lang-dropdown-toggle"
+          id="lang-dropdown-toggle"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-controls="lang-dropdown-menu"
+          data-i18n-aria="lang_aria"
+          aria-label="เลือกภาษา"
+        >
+          <span class="lang-flag lang-dropdown-flag" aria-hidden="true">
+            <img src="images/flags/th.svg" alt="" width="22" height="15" decoding="async" />
+          </span>
+          <span class="lang-dropdown-label">ไทย</span>
+          <span class="lang-dropdown-chevron" aria-hidden="true"></span>
+        </button>
+        <ul class="lang-dropdown-menu" id="lang-dropdown-menu" role="listbox" aria-labelledby="lang-dropdown-toggle" hidden>
+          <li role="presentation">
+            <button type="button" class="lang-option" role="option" data-lang="ko" aria-selected="false">
+              <span class="lang-flag" aria-hidden="true">
+                <img src="images/flags/kr.svg" alt="" width="22" height="15" decoding="async" />
+              </span>
+              <span class="lang-option-label">한국어</span>
+            </button>
+          </li>
+          <li role="presentation">
+            <button type="button" class="lang-option" role="option" data-lang="en" aria-selected="false">
+              <span class="lang-flag" aria-hidden="true">
+                <img src="images/flags/us.svg" alt="" width="22" height="15" decoding="async" />
+              </span>
+              <span class="lang-option-label">English</span>
+            </button>
+          </li>
+          <li role="presentation">
+            <button type="button" class="lang-option" role="option" data-lang="th" aria-selected="true">
+              <span class="lang-flag" aria-hidden="true">
+                <img src="images/flags/th.svg" alt="" width="22" height="15" decoding="async" />
+              </span>
+              <span class="lang-option-label">ไทย</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n-aria="nav_toggle" aria-label="เปิดเมนู">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -979,18 +982,20 @@
                 data-i18n-aria="logo_aria"
                 aria-label="EVERM Surgery Clinic"
               >
-                <div class="contact-logo-marquee__track">
-                  <div class="contact-logo-marquee__group">
-                    <img src="images/logo.svg" alt="" width="1000" height="333" decoding="async" />
-                    <img src="images/logo.svg" alt="" width="1000" height="333" decoding="async" />
-                    <img src="images/logo.svg" alt="" width="1000" height="333" decoding="async" />
-                    <img src="images/logo.svg" alt="" width="1000" height="333" decoding="async" />
-                  </div>
-                  <div class="contact-logo-marquee__group" aria-hidden="true">
-                    <img src="images/logo.svg" alt="" width="1000" height="333" decoding="async" />
-                    <img src="images/logo.svg" alt="" width="1000" height="333" decoding="async" />
-                    <img src="images/logo.svg" alt="" width="1000" height="333" decoding="async" />
-                    <img src="images/logo.svg" alt="" width="1000" height="333" decoding="async" />
+                <div class="contact-logo-marquee__viewport">
+                  <div class="contact-logo-marquee__track">
+                    <div class="contact-logo-marquee__group">
+                      <img src="images/logo.svg" alt="" decoding="async" />
+                      <img src="images/logo.svg" alt="" decoding="async" />
+                      <img src="images/logo.svg" alt="" decoding="async" />
+                      <img src="images/logo.svg" alt="" decoding="async" />
+                    </div>
+                    <div class="contact-logo-marquee__group" aria-hidden="true">
+                      <img src="images/logo.svg" alt="" decoding="async" />
+                      <img src="images/logo.svg" alt="" decoding="async" />
+                      <img src="images/logo.svg" alt="" decoding="async" />
+                      <img src="images/logo.svg" alt="" decoding="async" />
+                    </div>
                   </div>
                 </div>
               </div>
