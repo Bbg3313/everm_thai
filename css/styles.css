@@ -746,18 +746,75 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .tech-grid {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: start;
+  align-items: stretch;
 }
 
-.tech-photo {
-  width: 100%;
+.tech-intro {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.tech-slider {
+  position: relative;
   margin-top: 1.5rem;
   border-radius: var(--radius);
   border: 1px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  aspect-ratio: 13 / 9;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.tech-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.55s ease;
+  pointer-events: none;
+}
+
+.tech-slide.active {
+  opacity: 1;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.tech-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
   object-fit: cover;
-  max-height: 280px;
+  object-position: center center;
+}
+
+.tech-slider-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.75rem;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.tech-slider-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.tech-slider-dots button:hover,
+.tech-slider-dots button.active {
+  background: #fff;
+  transform: scale(1.15);
 }
 
 /* Facilities gallery */
@@ -848,20 +905,49 @@ ul { margin: 0; padding: 0; list-style: none; }
 .technology .section-label { color: var(--color-blue-light); }
 .technology .lead { color: rgba(255, 255, 255, 0.75); }
 
+.tech-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
 .tech-list li {
-  padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.25rem 0;
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: left;
+}
+
+.tech-list li:first-child {
+  padding-top: 0;
+}
+
+.tech-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .tech-list h3 {
   color: var(--color-blue-light);
-  margin-bottom: 0.35rem;
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
 }
 
 .tech-list p {
   margin: 0;
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.95rem;
+  line-height: 1.55;
+  max-width: none;
 }
 
 /* Process */
@@ -918,10 +1004,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .doctor-card--director,
 .doctor-card--specialist {
-  display: grid;
-  grid-template-columns: minmax(280px, 380px) 1fr;
-  gap: 0;
-  align-items: stretch;
+  display: flex;
+  flex-direction: column;
   background: var(--color-surface);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -931,46 +1015,30 @@ ul { margin: 0; padding: 0; list-style: none; }
   text-align: left;
 }
 
-.doctor-card--specialist {
-  grid-template-columns: 1fr minmax(280px, 380px);
-}
-
-.doctor-card--specialist .doctor-photo {
-  order: 2;
-  border-right: none;
-  border-left: 1px solid var(--color-border);
-}
-
-.doctor-card--specialist .doctor-info {
-  order: 1;
-}
-
 .doctor-card--director .doctor-photo,
 .doctor-card--specialist .doctor-photo {
   margin: 0;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  min-height: 100%;
+  padding: 1.5rem 1.5rem 0;
   background: linear-gradient(180deg, #f0f2f8 0%, #e4e8f2 100%);
-  border-bottom: none;
-  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .doctor-photo-img {
   width: 100%;
+  max-width: 940px;
   height: auto;
-  max-height: 420px;
   display: block;
   object-fit: contain;
-  object-position: center bottom;
+  object-position: center center;
 }
 
 .doctor-info {
   padding: 2rem 2.25rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .doctor-badge {
@@ -1229,13 +1297,15 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: grid;
   grid-template-columns: minmax(300px, 400px) 1fr;
   gap: 2rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .contact-aside {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  height: 100%;
+  min-height: 0;
 }
 
 .contact-visual {
@@ -1279,10 +1349,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .contact-info-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: 1.5rem 1.75rem;
+  min-height: 0;
 }
 
 .contact-info {
@@ -1325,6 +1399,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .contact-form-wrap {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .contact-form {
@@ -1433,54 +1510,44 @@ ul { margin: 0; padding: 0; list-style: none; }
 .footer-social {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  gap: 0.75rem;
   margin-top: 1.25rem;
 }
 
 .footer-social-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.55rem 1rem;
-  font-size: 0.875rem;
-  font-weight: 600;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
-  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
 }
 
-.footer-social-btn--youtube {
-  background: #ff0000;
+.footer-social-btn:hover {
+  transform: translateY(-2px);
 }
 
 .footer-social-btn--youtube:hover {
   color: #fff;
-  background: #cc0000;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-}
-
-.footer-social-btn--facebook {
-  background: #1877f2;
+  background: #ff0000;
+  border-color: #ff0000;
 }
 
 .footer-social-btn--facebook:hover {
   color: #fff;
-  background: #0d65d9;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-}
-
-.footer-social-btn--instagram {
-  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+  background: #1877f2;
+  border-color: #1877f2;
 }
 
 .footer-social-btn--instagram:hover {
   color: #fff;
-  filter: brightness(1.08);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  background: #c13584;
+  border-color: #c13584;
 }
 
 .footer-social-btn:focus-visible {
@@ -1490,6 +1557,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .footer-social-btn__icon {
   flex-shrink: 0;
+  display: block;
 }
 
 .footer-nav h4,
@@ -1704,6 +1772,20 @@ ul { margin: 0; padding: 0; list-style: none; }
     grid-template-columns: 1fr;
   }
 
+  .tech-list {
+    height: auto;
+    margin-top: 0.5rem;
+  }
+
+  .tech-list li {
+    flex: none;
+    padding: 1.25rem 0;
+  }
+
+  .tech-list li:first-child {
+    padding-top: 0;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
     max-width: 640px;
@@ -1826,38 +1908,13 @@ ul { margin: 0; padding: 0; list-style: none; }
     gap: 0.25rem;
   }
 
-  .doctor-card--director,
-  .doctor-card--specialist {
-    grid-template-columns: 1fr;
-  }
-
-  .doctor-card--specialist .doctor-photo,
-  .doctor-card--specialist .doctor-info {
-    order: unset;
-  }
-
   .doctor-card--director .doctor-photo,
   .doctor-card--specialist .doctor-photo {
-    border-right: none;
-    border-left: none;
-    border-bottom: 1px solid var(--color-border);
-    min-height: auto;
     padding: 1rem 1rem 0;
-  }
-
-  .doctor-photo-img {
-    max-height: 360px;
   }
 
   .doctor-info {
     padding: 1.5rem;
-    text-align: center;
-  }
-
-  .doctor-credentials {
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .doctor-card--director h3,

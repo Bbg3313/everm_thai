@@ -98,9 +98,46 @@
     startReviewTimer();
   }
 
+  /* Technology image slider */
+  const techSlides = document.querySelectorAll(".tech-slide");
+  const techDots = document.querySelectorAll(".tech-slider-dots button");
+  let techIndex = 0;
+  let techTimer;
+
+  function showTechSlide(index) {
+    if (!techSlides.length) return;
+    techIndex = (index + techSlides.length) % techSlides.length;
+    techSlides.forEach(function (slide, i) {
+      slide.classList.toggle("active", i === techIndex);
+    });
+    techDots.forEach(function (dot, i) {
+      dot.classList.toggle("active", i === techIndex);
+      dot.setAttribute("aria-selected", i === techIndex ? "true" : "false");
+    });
+  }
+
+  function startTechTimer() {
+    clearInterval(techTimer);
+    techTimer = setInterval(function () {
+      showTechSlide(techIndex + 1);
+    }, 5000);
+  }
+
+  techDots.forEach(function (dot, i) {
+    dot.addEventListener("click", function () {
+      showTechSlide(i);
+      startTechTimer();
+    });
+  });
+
+  if (techSlides.length) {
+    showTechSlide(0);
+    startTechTimer();
+  }
+
   /* Scroll reveal */
   const revealEls = document.querySelectorAll(
-    ".section-head, .service-card, .video-card, .process-steps li, .doctor-card, .team-duo, .case-card, .facility-card, .tech-list li, .about-panel, .hero-photo, .tech-photo"
+    ".section-head, .service-card, .video-card, .process-steps li, .doctor-card, .team-duo, .case-card, .facility-card, .tech-list li, .about-panel, .hero-photo, .tech-slider"
   );
 
   revealEls.forEach(function (el) {
