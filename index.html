@@ -20,10 +20,31 @@
         <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="EVERM Surgery Clinic" class="logo-img" width="974" height="296" decoding="async" />
       </a>
 
-      <div class="lang-switcher" role="group" data-i18n-aria="lang_aria" aria-label="เลือกภาษา">
-        <button type="button" class="lang-btn" data-lang="ko" aria-pressed="false">한국어</button>
-        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
-        <button type="button" class="lang-btn active" data-lang="th" aria-pressed="true">ไทย</button>
+      <div class="lang-dropdown">
+        <button
+          type="button"
+          class="lang-dropdown-toggle"
+          id="lang-dropdown-toggle"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-controls="lang-dropdown-menu"
+          data-i18n-aria="lang_aria"
+          aria-label="เลือกภาษา"
+        >
+          <span class="lang-dropdown-label">ไทย</span>
+          <span class="lang-dropdown-chevron" aria-hidden="true"></span>
+        </button>
+        <ul class="lang-dropdown-menu" id="lang-dropdown-menu" role="listbox" aria-labelledby="lang-dropdown-toggle" hidden>
+          <li role="presentation">
+            <button type="button" class="lang-option" role="option" data-lang="ko" aria-selected="false">한국어</button>
+          </li>
+          <li role="presentation">
+            <button type="button" class="lang-option" role="option" data-lang="en" aria-selected="false">EN</button>
+          </li>
+          <li role="presentation">
+            <button type="button" class="lang-option" role="option" data-lang="th" aria-selected="true">ไทย</button>
+          </li>
+        </ul>
       </div>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n-aria="nav_toggle" aria-label="เปิดเมนู">
         <span></span><span></span><span></span>
@@ -40,7 +61,7 @@
           <li><a href="#team" data-i18n="nav_team">ทีมแพทย์</a></li>
           <li><a href="#faq" data-i18n="nav_faq">คำถามที่พบบ่อย</a></li>
         </ul>
-        <a class="btn btn-primary btn-sm" href="#contact" data-i18n="nav_contact">นัดปรึกษา</a>
+        <a class="btn btn-primary btn-sm nav-cta" href="#contact" data-i18n="nav_contact">นัดปรึกษา</a>
       </nav>
     </div>
   </header>
