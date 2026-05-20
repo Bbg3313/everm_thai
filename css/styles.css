@@ -856,6 +856,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: linear-gradient(165deg, #dce6f8 0%, #edf2fb 55%, #e8eef8 100%);
 }
 
+.treatment-card__visual--dark {
+  background: linear-gradient(165deg, #141820 0%, #252a35 55%, #1e2430 100%);
+}
+
 .treatment-card__img {
   display: block;
   width: auto;
@@ -989,9 +993,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .tech-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: stretch;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 2.5rem 2rem;
+  align-items: start;
 }
 
 .tech-intro {
@@ -1152,45 +1156,34 @@ ul { margin: 0; padding: 0; list-style: none; }
   margin: 0;
   padding: 0;
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.25rem;
+  align-content: start;
+  width: 100%;
 }
 
 .tech-list li {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1.25rem 0;
   margin: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 1.1rem 1.15rem;
   text-align: left;
-}
-
-.tech-list li:first-child {
-  padding-top: 0;
-}
-
-.tech-list li:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
 
 .tech-list h3 {
   color: var(--color-blue-light);
-  margin: 0 0 0.4rem;
-  font-size: 1.05rem;
+  margin: 0 0 0.45rem;
+  font-size: 1rem;
   line-height: 1.35;
 }
 
 .tech-list p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.88rem;
   line-height: 1.55;
-  max-width: none;
 }
 
 /* Process */
@@ -1198,7 +1191,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
-  counter-reset: step;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .process-steps li {
@@ -1207,6 +1202,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding: 1.5rem;
   border: 1px solid var(--color-border);
   position: relative;
+  list-style: none;
 }
 
 .step-num {
@@ -1275,71 +1271,43 @@ ul { margin: 0; padding: 0; list-style: none; }
   z-index: 1;
 }
 
-.doctor-card--director,
-.doctor-card--specialist {
+.doctor-profile {
   --doctor-accent: var(--color-primary);
-  display: grid;
-  grid-template-columns: clamp(220px, 30%, 300px) 1fr;
-  align-items: stretch;
   background: var(--color-surface);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  border: 1px solid rgba(0, 48, 128, 0.1);
   box-shadow: 0 2px 8px rgba(0, 32, 128, 0.05), 0 16px 40px rgba(0, 32, 128, 0.08);
-  border: 1px solid rgba(0, 48, 128, 0.08);
-  text-align: left;
 }
 
-.doctor-card--specialist {
-  grid-template-columns: 1fr clamp(220px, 30%, 300px);
-}
-
-.doctor-card--specialist .doctor-photo {
-  grid-column: 2;
-  grid-row: 1;
-  border-left: 1px solid rgba(0, 48, 128, 0.06);
-  border-right: none;
-}
-
-.doctor-card--specialist .doctor-info {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.doctor-card--director .doctor-photo,
-.doctor-card--specialist .doctor-photo {
-  margin: 0;
+.doctor-profile__photo {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1.25rem;
+  width: 100%;
+  min-height: clamp(280px, 38vw, 420px);
+  padding: 1.5rem 2rem;
   background: #f4f6fa;
-  border-right: 1px solid rgba(0, 48, 128, 0.06);
+  border-bottom: 1px solid rgba(0, 48, 128, 0.08);
 }
 
-.doctor-photo-img {
-  width: 100%;
-  max-width: 260px;
-  height: auto;
-  max-height: 400px;
+.doctor-profile__photo img {
   display: block;
+  width: 100%;
+  max-width: min(920px, 100%);
+  height: auto;
+  max-height: clamp(260px, 34vw, 380px);
   object-fit: contain;
   object-position: center center;
 }
 
-.doctor-info {
-  padding: 2.25rem 2.5rem 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+.doctor-profile__body {
+  padding: 2rem 2.25rem 2.5rem;
 }
 
-.doctor-profile-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 1rem 1.25rem;
-  margin-bottom: 1.75rem;
-  padding-bottom: 1.75rem;
+.doctor-profile__header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -1363,21 +1331,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: rgba(0, 48, 128, 0.05);
 }
 
-.doctor-title-block {
-  flex: 1;
-  min-width: 12rem;
-}
-
-.doctor-card--director h3,
-.doctor-card--specialist h3 {
+.doctor-profile__header h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 4vw, 2.35rem);
+  font-size: clamp(1.65rem, 3.5vw, 2.1rem);
   font-weight: 600;
-  line-height: 1.15;
-  margin: 0 0 0.4rem;
-  padding: 0;
+  line-height: 1.2;
+  margin: 0.5rem 0 0.35rem;
   color: var(--color-navy);
-  letter-spacing: 0.01em;
 }
 
 .doctor-role {
@@ -1457,18 +1417,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: var(--color-primary-light);
 }
 
-.doctor-cta-wrap {
-  margin-top: 2rem;
-  padding-top: 1.75rem;
-  border-top: 1px solid var(--color-border);
-}
-
 .doctor-cta {
-  width: 100%;
+  margin-top: 2rem;
   max-width: 320px;
-  padding: 0.95rem 1.5rem;
-  font-size: 0.92rem;
-  letter-spacing: 0.02em;
 }
 
 .doctor-bio {
@@ -2399,17 +2350,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   }
 
   .tech-list {
-    height: auto;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
     margin-top: 0.5rem;
   }
 
   .tech-list li {
-    flex: none;
-    padding: 1.25rem 0;
-  }
-
-  .tech-list li:first-child {
-    padding-top: 0;
+    padding: 1rem 1.1rem;
   }
 
   .contact-grid {
@@ -2555,39 +2502,17 @@ ul { margin: 0; padding: 0; list-style: none; }
     gap: 0.75rem;
   }
 
-  .doctor-card--director,
-  .doctor-card--specialist {
-    grid-template-columns: 1fr;
+  .doctor-profile__photo {
+    min-height: 240px;
+    padding: 1.25rem 1rem;
   }
 
-  .doctor-card--specialist .doctor-photo,
-  .doctor-card--specialist .doctor-info {
-    grid-column: 1;
+  .doctor-profile__photo img {
+    max-height: 280px;
   }
 
-  .doctor-card--director .doctor-photo,
-  .doctor-card--specialist .doctor-photo {
-    padding: 1.5rem 1.25rem;
-    min-height: 0;
-    border-right: none;
-    border-left: none;
-    border-bottom: 1px solid rgba(0, 48, 128, 0.06);
-  }
-
-  .doctor-photo-img {
-    max-width: 220px;
-    max-height: 300px;
-  }
-
-  .doctor-info {
+  .doctor-profile__body {
     padding: 1.5rem 1.25rem 1.75rem;
-  }
-
-  .doctor-profile-header {
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1.25rem;
-    padding-bottom: 1.25rem;
   }
 
   .doctor-credentials {
@@ -2595,19 +2520,9 @@ ul { margin: 0; padding: 0; list-style: none; }
     padding: 1rem;
   }
 
-  .doctor-highlights li {
-    font-size: 0.85rem;
-    padding-left: 2.5rem;
-  }
-
   .doctor-cta {
     max-width: none;
     width: 100%;
-  }
-
-  .doctor-card--director h3,
-  .doctor-card--specialist h3 {
-    font-size: 1.65rem;
   }
 
   .facility-card--wide {
