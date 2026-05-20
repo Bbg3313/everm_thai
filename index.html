@@ -3,37 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Maxillofacial M Surgery Clinic — คลินิกศัลยกรรมโครงหน้าและขากรรไกร กรุงเทพฯ วางแผนด้วย 3D และทีมศัลยแพทย์ช่องปากเฉพาะทาง" />
+  <meta name="description" content="คลินิก EVERM — ศัลยกรรมโครงหน้าและขากรรไกรเฉพาะทาง วางแผนด้วย 3D ที่โซล เกาหลี" />
   <title>EVERM Surgery Clinic | Maxillofacial &amp; Facial Contour Surgery</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main">ข้ามไปยังเนื้อหาหลัก</a>
+  <a class="skip-link" href="#main" data-i18n="skip_link">ข้ามไปยังเนื้อหาหลัก</a>
 
   <header class="site-header" id="top">
     <div class="header-inner">
-      <a href="#top" class="logo" aria-label="EVERM Surgery Clinic home">
-        <img src="images/logo.png" alt="EVERM Surgery Clinic" class="logo-img" width="320" height="99" decoding="async" />
+      <a href="#top" class="logo" data-i18n-aria="logo_aria" aria-label="EVERM Surgery Clinic home">
+        <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="EVERM Surgery Clinic" class="logo-img" width="460" height="148" decoding="async" />
       </a>
 
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="เปิดเมนู">
+      <div class="lang-switcher" role="group" data-i18n-aria="lang_aria" aria-label="เลือกภาษา">
+        <button type="button" class="lang-btn" data-lang="ko" aria-pressed="false">한국어</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" class="lang-btn active" data-lang="th" aria-pressed="true">ไทย</button>
+      </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n-aria="nav_toggle" aria-label="เปิดเมนู">
         <span></span><span></span><span></span>
       </button>
 
-      <nav class="site-nav" id="site-nav" aria-label="เมนูหลัก">
+      <nav class="site-nav" id="site-nav" data-i18n-aria="nav_menu_aria" aria-label="เมนูหลัก">
         <ul>
-          <li><a href="#about">เกี่ยวกับเรา</a></li>
-          <li><a href="#services">บริการ</a></li>
-          <li><a href="#technology">เทคโนโลยี</a></li>
-          <li><a href="#facilities">สถานที่</a></li>
-          <li><a href="#process">ขั้นตอนการรักษา</a></li>
-          <li><a href="#team">ทีมแพทย์</a></li>
-          <li><a href="#faq">คำถามที่พบบ่อย</a></li>
+          <li><a href="#about" data-i18n="nav_about">เกี่ยวกับเรา</a></li>
+          <li><a href="#services" data-i18n="nav_services">บริการ</a></li>
+          <li><a href="#technology" data-i18n="nav_technology">เทคโนโลยี</a></li>
+          <li><a href="#facilities" data-i18n="nav_facilities">สถานที่</a></li>
+          <li><a href="#process" data-i18n="nav_process">ขั้นตอนการรักษา</a></li>
+          <li><a href="#team" data-i18n="nav_team">ทีมแพทย์</a></li>
+          <li><a href="#faq" data-i18n="nav_faq">คำถามที่พบบ่อย</a></li>
         </ul>
-        <a class="btn btn-primary btn-sm" href="#contact">นัดปรึกษา</a>
+        <a class="btn btn-primary btn-sm" href="#contact" data-i18n="nav_contact">นัดปรึกษา</a>
       </nav>
     </div>
   </header>
@@ -43,55 +49,55 @@
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-content">
-          <p class="eyebrow">ศัลยกรรมโครงหน้า · ขากรรไกร · ทันตกรรมเฉพาะทาง</p>
-          <h1 id="hero-title">
+          <p class="eyebrow" data-i18n="hero_eyebrow">ศัลยกรรมโครงหน้า · ขากรรไกร · ทันตกรรมเฉพาะทาง</p>
+          <h1 id="hero-title" data-i18n-html="hero_title">
             โครงหน้าที่สมดุล<br />
             <em>เริ่มจากการวางแผนที่แม่นยำ</em>
           </h1>
-          <p class="hero-lead">
-            Maxillofacial M Surgery Clinic มุ่งเน้นการแก้ไขโครงใบหน้าและขากรรไกรอย่างปลอดภัย
+          <p class="hero-lead" data-i18n="hero_lead">
+            EVERM Surgery Clinic มุ่งเน้นการแก้ไขโครงใบหน้าและขากรรไกรอย่างปลอดภัย
             โดยทีมศัลยแพทย์ช่องปากและแม็กซิลโลเฟเชียล ผสานการวินิจฉัย 3D
             และแผนการรักษาเฉพาะบุคคล
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">จองปรึกษาฟรี</a>
-            <a class="btn btn-ghost" href="#services">ดูบริการของเรา</a>
+            <a class="btn btn-primary" href="#contact" data-i18n="hero_cta_primary">จองปรึกษาฟรี</a>
+            <a class="btn btn-ghost" href="#services" data-i18n="hero_cta_secondary">ดูบริการของเรา</a>
           </div>
-          <ul class="hero-stats" aria-label="จุดเด่นของคลินิก">
-            <li><strong>15+</strong><span>ปีประสบการณ์ศัลยกรรมช่องปาก</span></li>
-            <li><strong>3D</strong><span>วางแผนก่อนผ่าตัด</span></li>
-            <li><strong>24/7</strong><span>ดูแลหลังผ่าตัด</span></li>
+          <ul class="hero-stats" data-i18n-aria="hero_stats_aria" aria-label="จุดเด่นของคลินิก">
+            <li data-i18n="hero_stat1">ประสบการณ์ศัลยกรรมช่องปาก 15+ ปี</li>
+            <li data-i18n="hero_stat2">วางแผน 3D ก่อนผ่าตัด</li>
+            <li data-i18n="hero_stat3">ดูแลหลังผ่าตัด</li>
           </ul>
         </div>
         <figure class="hero-visual">
           <img
             src="images/clinic/reception-lounge.png"
-            alt="พื้นที่ต้อนรับและห้องรอ Maxillofacial M Surgery Clinic"
-            class="hero-photo"
+            alt="พื้นที่ต้อนรับและห้องรอ EVERM Surgery Clinic"
+            data-i18n-alt="hero_img_alt" class="hero-photo"
             width="640"
             height="480"
             loading="eager"
           />
-          <figcaption class="hero-photo-caption">สภาพแวดล้อมพรีเมียม · มาตรฐานโรงพยาบาล</figcaption>
+          <figcaption class="hero-photo-caption" data-i18n="hero_caption">สภาพแวดล้อมพรีเมียม · มาตรฐานโรงพยาบาล</figcaption>
         </figure>
       </div>
       <div class="hero-scroll" aria-hidden="true">
-        <span>เลื่อนลง</span>
+        <span data-i18n="hero_scroll">เลื่อนลง</span>
       </div>
     </section>
 
-    <section class="trust-bar" aria-label="พันธมิตรและมาตรฐาน">
+    <section class="trust-bar" data-i18n-aria="trust_aria" aria-label="พันธมิตรและมาตรฐาน">
       <div class="container trust-inner">
-        <p>มาตรฐานสากล · ห้องผ่าตัดมาตรฐานโรงพยาบาล · ทีมวิสัญญีและพยาบาลเฉพาะทาง</p>
+        <p data-i18n="trust_bar">มาตรฐานสากล · ห้องผ่าตัดมาตรฐานโรงพยาบาล · ทีมวิสัญญีและพยาบาลเฉพาะทาง</p>
       </div>
     </section>
 
     <section class="section about" id="about" aria-labelledby="about-title">
       <div class="container about-grid">
-        <div class="section-label">เกี่ยวกับคลินิก</div>
+        <div class="section-label" data-i18n="about_label">เกี่ยวกับคลินิก</div>
         <div>
-          <h2 id="about-title">ทันตกรรมที่มองโครงหน้า<br />เป็นภาพรวมเดียว</h2>
-          <p class="lead">
+          <h2 id="about-title" data-i18n-html="about_title">ทันตกรรมที่มองโครงหน้า<br />เป็นภาพรวมเดียว</h2>
+          <p class="lead" data-i18n="about_lead">
             เราไม่ได้มองเพียงแค่ “ฟันสวย” แต่ให้ความสำคัญกับสมดุลของโหนกแก้ม คาง ขากรรไกร
             และท่อหายใจ เพื่อผลลัพธ์ที่ดูเป็นธรรมชาติและใช้งานได้จริงในระยะยาว
           </p>
@@ -99,41 +105,41 @@
             <li>
               <span class="feature-icon" aria-hidden="true">01</span>
               <div>
-                <h3>Integrated Facial Analysis</h3>
-                <p>วิเคราะห์โครงสร้างใบหน้า ฟัน และข้อต่อขากรรไกรร่วมกัน ไม่แยกส่วน</p>
+                <h3 data-i18n="feat1_title">Integrated Facial Analysis</h3>
+                <p data-i18n="feat1_desc">วิเคราะห์โครงสร้างใบหน้า ฟัน และข้อต่อขากรรไกรร่วมกัน ไม่แยกส่วน</p>
               </div>
             </li>
             <li>
               <span class="feature-icon" aria-hidden="true">02</span>
               <div>
-                <h3>Precision Surgical Planning</h3>
-                <p>ออกแบบการผ่าตัดด้วยซอฟต์แวร์ 3D และเทมเพลตผ่าตัดแบบคอมพิวเตอร์</p>
+                <h3 data-i18n="feat2_title">Precision Surgical Planning</h3>
+                <p data-i18n="feat2_desc">ออกแบบการผ่าตัดด้วยซอฟต์แวร์ 3D และเทมเพลตผ่าตัดแบบคอมพิวเตอร์</p>
               </div>
             </li>
             <li>
               <span class="feature-icon" aria-hidden="true">03</span>
               <div>
-                <h3>Holistic Recovery Care</h3>
-                <p>ติดตามอาการบวม การสบฟัน และการฟื้นตัวอย่างใกล้ชิดหลังผ่าตัด</p>
+                <h3 data-i18n="feat3_title">Holistic Recovery Care</h3>
+                <p data-i18n="feat3_desc">ติดตามอาการบวม การสบฟัน และการฟื้นตัวอย่างใกล้ชิดหลังผ่าตัด</p>
               </div>
             </li>
           </ul>
-          <a class="text-link" href="#process">ดูขั้นตอนการดูแล →</a>
+          <a class="text-link" href="#process" data-i18n="about_link">ดูขั้นตอนการดูแล →</a>
         </div>
         <div class="about-visual">
           <img
             src="images/clinic/consultation-01.png"
             alt="ห้องปรึกษาแพทย์เฉพาะทาง"
-            class="about-photo"
+            data-i18n-alt="about_img_alt" class="about-photo"
             width="600"
             height="400"
             loading="lazy"
           />
           <div class="about-panel">
-            <blockquote>
+            <blockquote data-i18n="about_quote">
               “เป้าหมายของเราคือใบหน้าที่กลมกลืนกับบุคลิกภาพของคุณ ไม่ใช่แค่เปลี่ยนรูปทรง”
             </blockquote>
-            <cite>— ทีมศัลยแพทย์ช่องปาก Maxillofacial M</cite>
+            <cite data-i18n="about_cite">— ทีมศัลยแพทย์ช่องปาก EVERM</cite>
           </div>
         </div>
       </div>
@@ -142,45 +148,45 @@
     <section class="section services" id="services" aria-labelledby="services-title">
       <div class="container">
         <div class="section-head center">
-          <p class="section-label">บริการหลัก</p>
-          <h2 id="services-title">ศัลยกรรมโครงหน้าและขากรรไกร</h2>
-          <p class="section-desc">ครอบคลุมตั้งแต่การปรึกษา วางแผน 3D ไปจนถึงการผ่าตัดและติดตามผล</p>
+          <p class="section-label" data-i18n="services_label">บริการหลัก</p>
+          <h2 id="services-title" data-i18n="services_title">ศัลยกรรมโครงหน้าและขากรรไกร</h2>
+          <p class="section-desc" data-i18n="services_desc">ครอบคลุมตั้งแต่การปรึกษา วางแผน 3D ไปจนถึงการผ่าตัดและติดตามผล</p>
         </div>
         <div class="service-grid">
           <article class="service-card featured">
-            <span class="service-tag">ยอดนิยม</span>
-            <h3>ผ่าตัดเลื่อนขากรรไกร</h3>
-            <p>แก้ปัญหาคางยื่น คางสั้น หรือการสบฟันผิดปกติรุนแรง ร่วมกับแผนจัดฟันตามความจำเป็น</p>
+            <span class="service-tag" data-i18n="svc_popular">ยอดนิยม</span>
+            <h3 data-i18n="svc1_title">ผ่าตัดเลื่อนขากรรไกร</h3>
+            <p data-i18n="svc1_desc">แก้ปัญหาคางยื่น คางสั้น หรือการสบฟันผิดปกติรุนแรง ร่วมกับแผนจัดฟันตามความจำเป็น</p>
             <ul>
-              <li>วางแผนร่วมทันตแพทย์จัดฟัน</li>
-              <li>จำลองผลลัพธ์ 3D ก่อนผ่าตัด</li>
+              <li data-i18n="svc1_li1">วางแผนร่วมทันตแพทย์จัดฟัน</li>
+              <li data-i18n="svc1_li2">จำลองผลลัพธ์ 3D ก่อนผ่าตัด</li>
             </ul>
-            <a href="#contact" class="card-link">สอบถามรายละเอียด</a>
+            <a href="#contact" class="card-link" data-i18n="svc_link">สอบถามรายละเอียด</a>
           </article>
           <article class="service-card">
-            <h3>ตัดโหนกแก้ม / ลดโหนกแก้ม</h3>
-            <p>ปรับมุมใบหน้าให้ดูอ่อนลงหรือเรียวขึ้น โดยคำนึงถึงเส้นประสาทและสมดุลใบหน้า</p>
-            <a href="#contact" class="card-link">สอบถามรายละเอียด</a>
+            <h3 data-i18n="svc2_title">ตัดโหนกแก้ม / ลดโหนกแก้ม</h3>
+            <p data-i18n="svc2_desc">ปรับมุมใบหน้าให้ดูอ่อนลงหรือเรียวขึ้น โดยคำนึงถึงเส้นประสาทและสมดุลใบหน้า</p>
+            <a href="#contact" class="card-link" data-i18n="svc_link">สอบถามรายละเอียด</a>
           </article>
           <article class="service-card">
-            <h3>ตัดกราม / ลดขนาดกราม</h3>
-            <p>ลดความกว้างของมุมกรามสำหรับใบหน้าทรง V-line อย่างปลอดภัยภายใต้การวางแผน 3D</p>
-            <a href="#contact" class="card-link">สอบถามรายละเอียด</a>
+            <h3 data-i18n="svc3_title">ตัดกราม / ลดขนาดกราม</h3>
+            <p data-i18n="svc3_desc">ลดความกว้างของมุมกรามสำหรับใบหน้าทรง V-line อย่างปลอดภัยภายใต้การวางแผน 3D</p>
+            <a href="#contact" class="card-link" data-i18n="svc_link">สอบถามรายละเอียด</a>
           </article>
           <article class="service-card">
-            <h3>ตัดสันโหนก / ลดสันโหนก</h3>
-            <p>แก้ไขใบหน้าที่ดูยาวหรือมีสันโหนกเด่นชัด ให้สัดส่วนดูกลมกลืนขึ้น</p>
-            <a href="#contact" class="card-link">สอบถามรายละเอียด</a>
+            <h3 data-i18n="svc4_title">ตัดสันโหนก / ลดสันโหนก</h3>
+            <p data-i18n="svc4_desc">แก้ไขใบหน้าที่ดูยาวหรือมีสันโหนกเด่นชัด ให้สัดส่วนดูกลมกลืนขึ้น</p>
+            <a href="#contact" class="card-link" data-i18n="svc_link">สอบถามรายละเอียด</a>
           </article>
           <article class="service-card">
-            <h3>เสริมคาง / ลดคาง</h3>
-            <p>ปรับปลายคางด้วยการผ่าตัดหรือรากเทียมตามแผนร่วมกับศัลยแพทย์ช่องปาก</p>
-            <a href="#contact" class="card-link">สอบถามรายละเอียด</a>
+            <h3 data-i18n="svc5_title">เสริมคาง / ลดคาง</h3>
+            <p data-i18n="svc5_desc">ปรับปลายคางด้วยการผ่าตัดหรือรากเทียมตามแผนร่วมกับศัลยแพทย์ช่องปาก</p>
+            <a href="#contact" class="card-link" data-i18n="svc_link">สอบถามรายละเอียด</a>
           </article>
           <article class="service-card">
-            <h3>จัดฟันร่วมกับศัลยกรรมขากรรไกร</h3>
-            <p>แพ็กเกจครบวงจรสำหรับเคสสบฟันซับซ้อน ตั้งแต่จัดฟันจนถึงผ่าตัดและรักษาเสร็จสิ้น</p>
-            <a href="#contact" class="card-link">สอบถามรายละเอียด</a>
+            <h3 data-i18n="svc6_title">จัดฟันร่วมกับศัลยกรรมขากรรไกร</h3>
+            <p data-i18n="svc6_desc">แพ็กเกจครบวงจรสำหรับเคสสบฟันซับซ้อน ตั้งแต่จัดฟันจนถึงผ่าตัดและรักษาเสร็จสิ้น</p>
+            <a href="#contact" class="card-link" data-i18n="svc_link">สอบถามรายละเอียด</a>
           </article>
         </div>
       </div>
@@ -189,16 +195,16 @@
     <section class="section technology" id="technology" aria-labelledby="tech-title">
       <div class="container tech-grid">
         <div>
-          <p class="section-label">เทคโนโลยี</p>
-          <h2 id="tech-title">วางแผนก่อนเห็นผล<br />ลดความไม่แน่นอน</h2>
-          <p class="lead">
+          <p class="section-label" data-i18n="tech_label">เทคโนโลยี</p>
+          <h2 id="tech-title" data-i18n-html="tech_title">วางแผนก่อนเห็นผล<br />ลดความไม่แน่นอน</h2>
+          <p class="lead" data-i18n="tech_lead">
             เรานำ CBCT, สแกนฟันดิจิทัล และซอฟต์แวร์จำลองการผ่าตัดมาใช้ร่วมกัน
             เพื่อให้คุณเข้าใจแผนการรักษาก่อนตัดสินใจ
           </p>
           <img
             src="images/clinic/3d-planning.png"
             alt="การวางแผนการรักษาด้วยเทคโนโลยี 3D"
-            class="tech-photo"
+            data-i18n-alt="tech_img_alt" class="tech-photo"
             width="520"
             height="360"
             loading="lazy"
@@ -206,20 +212,20 @@
         </div>
         <ul class="tech-list">
           <li>
-            <h3>CBCT &amp; Airway Scan</h3>
-            <p>ประเมินโครงกระดูก ข้อต่อ TMJ และท่อหายใจอย่างละเอียด</p>
+            <h3 data-i18n="tech1_title">CBCT &amp; Airway Scan</h3>
+            <p data-i18n="tech1_desc">ประเมินโครงกระดูก ข้อต่อ TMJ และท่อหายใจอย่างละเอียด</p>
           </li>
           <li>
-            <h3>3D Virtual Surgery</h3>
-            <p>จำลองการเคลื่อนกระดูกและรูปทรงใบหน้าหลังผ่าตัด</p>
+            <h3 data-i18n="tech2_title">3D Virtual Surgery</h3>
+            <p data-i18n="tech2_desc">จำลองการเคลื่อนกระดูกและรูปทรงใบหน้าหลังผ่าตัด</p>
           </li>
           <li>
-            <h3>Computer-Guided Surgery</h3>
-            <p>เทมเพลตและไกด์ช่วยให้การผ่าตัดแม่นยำตามแผน</p>
+            <h3 data-i18n="tech3_title">Computer-Guided Surgery</h3>
+            <p data-i18n="tech3_desc">เทมเพลตและไกด์ช่วยให้การผ่าตัดแม่นยำตามแผน</p>
           </li>
           <li>
-            <h3>Digital Smile &amp; Occlusion</h3>
-            <p>ประสานการสบฟันและรอยยิ้มหลังศัลยกรรมขากรรไกร</p>
+            <h3 data-i18n="tech4_title">Digital Smile &amp; Occlusion</h3>
+            <p data-i18n="tech4_desc">ประสานการสบฟันและรอยยิ้มหลังศัลยกรรมขากรรไกร</p>
           </li>
         </ul>
       </div>
@@ -228,93 +234,93 @@
     <section class="section facilities" id="facilities" aria-labelledby="facilities-title">
       <div class="container">
         <div class="section-head center">
-          <p class="section-label">สถานที่และสิ่งอำนวยความสะดวก</p>
-          <h2 id="facilities-title">คลินิกมาตรฐานสูง<br />ครบวงจรตั้งแต่ปรึกษาถึงพักฟื้น</h2>
-          <p class="section-desc">พื้นที่สะอาด ทันสมัย และออกแบบเพื่อความปลอดภัยของผู้ป่วยศัลยกรรมโครงหน้า</p>
+          <p class="section-label" data-i18n="fac_label">สถานที่และสิ่งอำนวยความสะดวก</p>
+          <h2 id="facilities-title" data-i18n-html="fac_title">คลินิกมาตรฐานสูง<br />ครบวงจรตั้งแต่ปรึกษาถึงพักฟื้น</h2>
+          <p class="section-desc" data-i18n="fac_desc">พื้นที่สะอาด ทันสมัย และออกแบบเพื่อความปลอดภัยของผู้ป่วยศัลยกรรมโครงหน้า</p>
         </div>
 
-        <div class="facility-tabs" role="tablist" aria-label="หมวดหมู่สถานที่">
-          <button type="button" class="facility-tab active" data-filter="all" aria-selected="true">ทั้งหมด</button>
-          <button type="button" class="facility-tab" data-filter="reception" aria-selected="false">ต้อนรับ</button>
-          <button type="button" class="facility-tab" data-filter="consult" aria-selected="false">ปรึกษา</button>
-          <button type="button" class="facility-tab" data-filter="treatment" aria-selected="false">รักษา</button>
-          <button type="button" class="facility-tab" data-filter="surgery" aria-selected="false">ผ่าตัด</button>
-          <button type="button" class="facility-tab" data-filter="recovery" aria-selected="false">พักฟื้น</button>
-          <button type="button" class="facility-tab" data-filter="building" aria-selected="false">อาคาร</button>
+        <div class="facility-tabs" role="tablist" data-i18n-aria="fac_tabs_aria" aria-label="หมวดหมู่สถานที่">
+          <button type="button" class="facility-tab active" data-filter="all" aria-selected="true" data-i18n="fac_all">ทั้งหมด</button>
+          <button type="button" class="facility-tab" data-filter="reception" aria-selected="false" data-i18n="fac_reception">ต้อนรับ</button>
+          <button type="button" class="facility-tab" data-filter="consult" aria-selected="false" data-i18n="fac_consult">ปรึกษา</button>
+          <button type="button" class="facility-tab" data-filter="treatment" aria-selected="false" data-i18n="fac_treatment">รักษา</button>
+          <button type="button" class="facility-tab" data-filter="surgery" aria-selected="false" data-i18n="fac_surgery">ผ่าตัด</button>
+          <button type="button" class="facility-tab" data-filter="recovery" aria-selected="false" data-i18n="fac_recovery">พักฟื้น</button>
+          <button type="button" class="facility-tab" data-filter="building" aria-selected="false" data-i18n="fac_building">อาคาร</button>
         </div>
 
         <div class="facility-gallery">
           <figure class="facility-card facility-card--wide" data-category="reception">
-            <img src="images/clinic/reception-lounge.png" alt="ห้องรอและเลานจ์" loading="lazy" />
-            <figcaption>ห้องรอและเลานจ์</figcaption>
+            <img data-i18n-alt="fac_cap1" src="images/clinic/reception-lounge.png" alt="ห้องรอและเลานจ์" loading="lazy" />
+            <figcaption data-i18n="fac_cap1">ห้องรอและเลานจ์</figcaption>
           </figure>
           <figure class="facility-card" data-category="reception">
-            <img src="images/clinic/reception-desk.png" alt="เคาน์เตอร์ต้อนรับ" loading="lazy" />
-            <figcaption>เคาน์เตอร์ต้อนรับ</figcaption>
+            <img data-i18n-alt="fac_cap2" src="images/clinic/reception-desk.png" alt="เคาน์เตอร์ต้อนรับ" loading="lazy" />
+            <figcaption data-i18n="fac_cap2">เคาน์เตอร์ต้อนรับ</figcaption>
           </figure>
           <figure class="facility-card" data-category="reception">
-            <img src="images/clinic/reception-wide.png" alt="โถงต้อนรับ" loading="lazy" />
-            <figcaption>โถงต้อนรับ</figcaption>
+            <img data-i18n-alt="fac_cap3" src="images/clinic/reception-wide.png" alt="โถงต้อนรับ" loading="lazy" />
+            <figcaption data-i18n="fac_cap3">โถงต้อนรับ</figcaption>
           </figure>
           <figure class="facility-card" data-category="reception">
-            <img src="images/clinic/waiting-area.png" alt="ห้องรอผู้ป่วย" loading="lazy" />
-            <figcaption>ห้องรอผู้ป่วย</figcaption>
+            <img data-i18n-alt="fac_cap4" src="images/clinic/waiting-area.png" alt="ห้องรอผู้ป่วย" loading="lazy" />
+            <figcaption data-i18n="fac_cap4">ห้องรอผู้ป่วย</figcaption>
           </figure>
           <figure class="facility-card" data-category="reception">
-            <img src="images/clinic/waiting-lounge.png" alt="เลานจ์พักผ่อน" loading="lazy" />
-            <figcaption>เลานจ์พักผ่อน</figcaption>
+            <img data-i18n-alt="fac_cap5" src="images/clinic/waiting-lounge.png" alt="เลานจ์พักผ่อน" loading="lazy" />
+            <figcaption data-i18n="fac_cap5">เลานจ์พักผ่อน</figcaption>
           </figure>
           <figure class="facility-card" data-category="reception">
-            <img src="images/clinic/ward-station.png" alt="Ward Station" loading="lazy" />
-            <figcaption>Ward Station</figcaption>
+            <img data-i18n-alt="fac_cap6" src="images/clinic/ward-station.png" alt="Ward Station" loading="lazy" />
+            <figcaption data-i18n="fac_cap6">Ward Station</figcaption>
           </figure>
           <figure class="facility-card" data-category="consult">
-            <img src="images/clinic/consultation-01.png" alt="ห้องปรึกษา 1" loading="lazy" />
-            <figcaption>ห้องปรึกษา</figcaption>
+            <img data-i18n-alt="fac_cap7" src="images/clinic/consultation-01.png" alt="ห้องปรึกษา 1" loading="lazy" />
+            <figcaption data-i18n="fac_cap7">ห้องปรึกษา</figcaption>
           </figure>
           <figure class="facility-card" data-category="consult">
-            <img src="images/clinic/consultation-02.png" alt="ห้องปรึกษา 2" loading="lazy" />
-            <figcaption>ห้องปรึกษา (VIP)</figcaption>
+            <img data-i18n-alt="fac_cap8" src="images/clinic/consultation-02.png" alt="ห้องปรึกษา 2" loading="lazy" />
+            <figcaption data-i18n="fac_cap8">ห้องปรึกษา (VIP)</figcaption>
           </figure>
           <figure class="facility-card" data-category="consult">
-            <img src="images/clinic/consultation-03.png" alt="ห้องปรึกษา 3" loading="lazy" />
-            <figcaption>ห้องปรึกษาแพทย์</figcaption>
+            <img data-i18n-alt="fac_cap9" src="images/clinic/consultation-03.png" alt="ห้องปรึกษา 3" loading="lazy" />
+            <figcaption data-i18n="fac_cap9">ห้องปรึกษาแพทย์</figcaption>
           </figure>
           <figure class="facility-card facility-card--wide" data-category="treatment">
-            <img src="images/clinic/treatment-room.png" alt="ห้องทำฟันและรักษา" loading="lazy" />
-            <figcaption>ห้องทำฟัน · อุปกรณ์ OSSTEM</figcaption>
+            <img data-i18n-alt="fac_cap10" src="images/clinic/treatment-room.png" alt="ห้องทำฟันและรักษา" loading="lazy" />
+            <figcaption data-i18n="fac_cap10">ห้องทำฟัน · อุปกรณ์ OSSTEM</figcaption>
           </figure>
           <figure class="facility-card facility-card--wide" data-category="surgery">
-            <img src="images/clinic/operating-room-01.png" alt="ห้องผ่าตัด" loading="lazy" />
-            <figcaption>ห้องผ่าตัดมาตรฐาน</figcaption>
+            <img data-i18n-alt="fac_cap11" src="images/clinic/operating-room-01.png" alt="ห้องผ่าตัด" loading="lazy" />
+            <figcaption data-i18n="fac_cap11">ห้องผ่าตัดมาตรฐาน</figcaption>
           </figure>
           <figure class="facility-card" data-category="surgery">
-            <img src="images/clinic/operating-room-02.png" alt="ห้องผ่าตัด 2" loading="lazy" />
-            <figcaption>ห้องผ่าตัด</figcaption>
+            <img data-i18n-alt="fac_cap12" src="images/clinic/operating-room-02.png" alt="ห้องผ่าตัด 2" loading="lazy" />
+            <figcaption data-i18n="fac_cap12">ห้องผ่าตัด</figcaption>
           </figure>
           <figure class="facility-card" data-category="surgery">
-            <img src="images/clinic/operating-hallway.png" alt="ทางเข้าห้องผ่าตัด" loading="lazy" />
-            <figcaption>โซนห้องผ่าตัด</figcaption>
+            <img data-i18n-alt="fac_cap13" src="images/clinic/operating-hallway.png" alt="ทางเข้าห้องผ่าตัด" loading="lazy" />
+            <figcaption data-i18n="fac_cap13">โซนห้องผ่าตัด</figcaption>
           </figure>
           <figure class="facility-card" data-category="recovery">
-            <img src="images/clinic/recovery-room.png" alt="ห้องพักฟื้น" loading="lazy" />
-            <figcaption>ห้องพักฟื้น</figcaption>
+            <img data-i18n-alt="fac_cap14" src="images/clinic/recovery-room.png" alt="ห้องพักฟื้น" loading="lazy" />
+            <figcaption data-i18n="fac_cap14">ห้องพักฟื้น</figcaption>
           </figure>
           <figure class="facility-card" data-category="recovery">
-            <img src="images/clinic/recovery-room-02.png" alt="ห้องพักฟื้น 2" loading="lazy" />
-            <figcaption>หอผู้ป่วยพักฟื้น</figcaption>
+            <img data-i18n-alt="fac_cap15" src="images/clinic/recovery-room-02.png" alt="ห้องพักฟื้น 2" loading="lazy" />
+            <figcaption data-i18n="fac_cap15">หอผู้ป่วยพักฟื้น</figcaption>
           </figure>
           <figure class="facility-card" data-category="recovery">
-            <img src="images/clinic/recovery-led.png" alt="ห้องบำบัด LED" loading="lazy" />
-            <figcaption>ห้องบำบัดหลังผ่าตัด · LUTRONIC</figcaption>
+            <img data-i18n-alt="fac_cap16" src="images/clinic/recovery-led.png" alt="ห้องบำบัด LED" loading="lazy" />
+            <figcaption data-i18n="fac_cap16">ห้องบำบัดหลังผ่าตัด · LUTRONIC</figcaption>
           </figure>
           <figure class="facility-card facility-card--tall" data-category="building">
-            <img src="images/clinic/building-exterior.png" alt="อาคารคลินิก" loading="lazy" />
-            <figcaption>อาคารคลินิก</figcaption>
+            <img data-i18n-alt="fac_cap17" src="images/clinic/building-exterior.png" alt="อาคารคลินิก" loading="lazy" />
+            <figcaption data-i18n="fac_cap17">อาคารคลินิก</figcaption>
           </figure>
           <figure class="facility-card" data-category="building">
-            <img src="images/clinic/building-alt.png" alt="มุมมองอาคารคลินิก" loading="lazy" />
-            <figcaption>มุมมองอาคาร</figcaption>
+            <img data-i18n-alt="fac_cap18" src="images/clinic/building-alt.png" alt="มุมมองอาคารคลินิก" loading="lazy" />
+            <figcaption data-i18n="fac_cap18">มุมมองอาคาร</figcaption>
           </figure>
         </div>
       </div>
@@ -323,38 +329,38 @@
     <section class="section process" id="process" aria-labelledby="process-title">
       <div class="container">
         <div class="section-head center">
-          <p class="section-label">ขั้นตอนการรักษา</p>
-          <h2 id="process-title">จากปรึกษาครั้งแรก<br />สู่การฟื้นตัวอย่างมั่นใจ</h2>
+          <p class="section-label" data-i18n="process_label">ขั้นตอนการรักษา</p>
+          <h2 id="process-title" data-i18n-html="process_title">จากปรึกษาครั้งแรก<br />สู่การฟื้นตัวอย่างมั่นใจ</h2>
         </div>
         <ol class="process-steps">
           <li>
             <span class="step-num">1</span>
-            <h3>ปรึกษาและประเมิน</h3>
-            <p>พูดคุยความต้องการ ตรวจช่องปาก ถ่ายภาพ และสแกน 3D ตามความจำเป็น</p>
+            <h3 data-i18n="step1_title">ปรึกษาและประเมิน</h3>
+            <p data-i18n="step1_desc">พูดคุยความต้องการ ตรวจช่องปาก ถ่ายภาพ และสแกน 3D ตามความจำเป็น</p>
           </li>
           <li>
             <span class="step-num">2</span>
-            <h3>วางแผนร่วมทีมแพทย์</h3>
-            <p>ศัลยแพทย์ช่องปาก ทันตแพทย์จัดฟัน และทีมเวชระเบียนร่วมออกแบบแผน</p>
+            <h3 data-i18n="step2_title">วางแผนร่วมทีมแพทย์</h3>
+            <p data-i18n="step2_desc">ศัลยแพทย์ช่องปาก ทันตแพทย์จัดฟัน และทีมเวชระเบียนร่วมออกแบบแผน</p>
           </li>
           <li>
             <span class="step-num">3</span>
-            <h3>จำลองผลลัพธ์ 3D</h3>
-            <p>อธิบายขั้นตอน ความเสี่ยง ระยะเวลาพักฟื้น และค่าใช้จ่ายอย่างโปร่งใส</p>
+            <h3 data-i18n="step3_title">จำลองผลลัพธ์ 3D</h3>
+            <p data-i18n="step3_desc">อธิบายขั้นตอน ความเสี่ยง ระยะเวลาพักฟื้น และค่าใช้จ่ายอย่างโปร่งใส</p>
           </li>
           <li>
             <span class="step-num">4</span>
-            <h3>ผ่าตัดในห้องมาตรฐาน</h3>
-            <p>ดำเนินการภายใต้วิสัญญีและทีมพยาบาลเฉพาะทาง</p>
+            <h3 data-i18n="step4_title">ผ่าตัดในห้องมาตรฐาน</h3>
+            <p data-i18n="step4_desc">ดำเนินการภายใต้วิสัญญีและทีมพยาบาลเฉพาะทาง</p>
           </li>
           <li>
             <span class="step-num">5</span>
-            <h3>ติดตามหลังผ่าตัด</h3>
-            <p>นัดตรวจติดตามอาการบวม การสบฟัน และการดูแลที่บ้านอย่างต่อเนื่อง</p>
+            <h3 data-i18n="step5_title">ติดตามหลังผ่าตัด</h3>
+            <p data-i18n="step5_desc">นัดตรวจติดตามอาการบวม การสบฟัน และการดูแลที่บ้านอย่างต่อเนื่อง</p>
           </li>
         </ol>
         <div class="process-cta">
-          <a class="btn btn-primary" href="#contact">เริ่มปรึกษาแผนการรักษา</a>
+          <a class="btn btn-primary" href="#contact" data-i18n="process_cta">เริ่มปรึกษาแผนการรักษา</a>
         </div>
       </div>
     </section>
@@ -362,45 +368,87 @@
     <section class="section team" id="team" aria-labelledby="team-title">
       <div class="container">
         <div class="section-head center">
-          <p class="section-label">ทีมแพทย์</p>
-          <h2 id="team-title">ศัลยแพทย์ช่องปากผู้เชี่ยวชาญ</h2>
-          <p class="section-desc">ผู้นำทีมวางแผนและผ่าตัดศัลยกรรมโครงหน้าด้วยประสบการณ์ระดับสากล</p>
+          <p class="section-label" data-i18n="team_label">ทีมแพทย์</p>
+          <h2 id="team-title" data-i18n="team_title">ศัลยแพทย์ช่องปากผู้เชี่ยวชาญ</h2>
+          <p class="section-desc" data-i18n="team_desc">ประสบการณ์เคสซับซ้อน ทั้งในประเทศและต่างประเทศ</p>
         </div>
 
         <figure class="team-duo reveal">
           <img
             src="images/doctors/directors-duo.png"
             alt="ทีมผู้อำนวยการและศัลยแพทย์ช่องปากเฉพาะทาง"
-            class="team-duo-img"
+            data-i18n-alt="team_duo_alt" class="team-duo-img"
             width="1200"
             height="600"
             loading="lazy"
           />
-          <figcaption>ทีมแพทย์ผู้เชี่ยวชาญด้านศัลยกรรมโครงหน้าและขากรรไกร</figcaption>
+          <figcaption data-i18n="team_duo_cap">ทีมแพทย์ผู้เชี่ยวชาญด้านศัลยกรรมโครงหน้าและขากรรไกร</figcaption>
         </figure>
 
+        <div class="team-doctors">
         <article class="doctor-card doctor-card--director reveal">
           <div class="doctor-photo">
             <img
-              src="images/doctors/director.png"
-              alt="ผู้อำนวยการคลินิก — ศัลยแพทย์ช่องปากเฉพาะทาง"
-              class="doctor-photo-img"
-              width="480"
+              src="images/doctors/director-profile.png"
+              alt="대표원장 윤규식 — 구강악안면외과 전문의"
+              data-i18n-alt="director_alt" class="doctor-photo-img"
+              width="960"
               height="640"
               loading="lazy"
             />
           </div>
           <div class="doctor-info">
-            <p class="doctor-badge">ผู้อำนวยการ</p>
-            <h3>Medical Director</h3>
-            <p class="doctor-role">ศัลยแพทย์ช่องปากและแม็กซิลโลเฟเชียล · Oral &amp; Maxillofacial Surgeon</p>
-            <p class="doctor-bio">
-              ผู้เชี่ยวชาญด้านผ่าตัดเลื่อนขากรรไกร ตัดกราม ตัดโหนกแก้ม
-              และเคสสบฟันซับซ้อน วางแผนรักษาด้วยเทคโนโลยี 3D เพื่อผลลัพธ์ที่ปลอดภัยและสมดุล
-            </p>
-            <a class="btn btn-primary btn-sm" href="#contact">นัดปรึกษาผู้อำนวยการ</a>
+            <p class="doctor-badge" data-i18n="director_badge">대표원장</p>
+            <p class="doctor-role" data-i18n="director_role">구강악안면외과 전문의</p>
+            <h3 data-i18n="director_name">윤규식 원장</h3>
+            <ul class="doctor-credentials">
+              <li data-i18n="director_cred1">연세대학교 치과대학 졸업</li>
+              <li data-i18n="director_cred2">연세대학교 치과대학 대학원 졸업</li>
+              <li data-i18n="director_cred3">연세대학교 치과대학병원 구강악안면외과 인턴</li>
+              <li data-i18n="director_cred4">연세대학교 치과대학병원 구강악안면외과 레지던트</li>
+              <li data-i18n="director_cred5">연세대학교 치과대학병원 구강악안면외과 임상강사, 교수직</li>
+              <li data-i18n="director_cred6">(現) 연세대학교 치과대학병원 구강악안면외과 외래교수</li>
+              <li data-i18n="director_cred7">Fellow of International Association of Oral &amp; Maxillofacial Surgeons</li>
+              <li data-i18n="director_cred8">대한악안면성형재건외과학회 정회원, 인정의</li>
+              <li data-i18n="director_cred9">대한구강악안면외과학회 정회원</li>
+              <li data-i18n="director_cred10">대한구강악임플란트학회 정회원</li>
+              <li data-i18n="director_cred11">대한심미치과학회 정회원</li>
+              <li data-i18n="director_cred12">(現) 대한구강악안면외과의사회 부회장</li>
+            </ul>
+            <a class="btn btn-primary btn-sm" href="#contact" data-i18n="director_cta">대표원장 상담 예약</a>
           </div>
         </article>
+
+        <article class="doctor-card doctor-card--specialist reveal">
+          <div class="doctor-photo">
+            <img
+              src="images/doctors/specialist-song-profile.png"
+              alt="송상현 원장 — 구강악안면외과 전문의"
+              data-i18n-alt="specialist_alt" class="doctor-photo-img"
+              width="960"
+              height="640"
+              loading="lazy"
+            />
+          </div>
+          <div class="doctor-info">
+            <p class="doctor-badge doctor-badge--secondary" data-i18n="specialist_badge">전문의</p>
+            <p class="doctor-role" data-i18n="specialist_role">구강악안면외과 전문의</p>
+            <h3 data-i18n="specialist_name">송상현 원장</h3>
+            <ul class="doctor-credentials">
+              <li data-i18n="specialist_cred1">연세대학교 치과대학 치의학과 졸업</li>
+              <li data-i18n="specialist_cred2">연세대학교 치과대학 치의학 박사</li>
+              <li data-i18n="specialist_cred3">연세대학교 치과대학병원 구강악안면외과 레지던트 수료</li>
+              <li data-i18n="specialist_cred4">연세대학교 치과대학 기초임상융합의과학자(Physician-Scientist)</li>
+              <li data-i18n="specialist_cred5">(現) 연세대학교 치과대학병원 구강악안면외과 외래교수</li>
+              <li data-i18n="specialist_cred6">구강악안면외과 전문의</li>
+              <li data-i18n="specialist_cred7">대한구강악안면외과학회 정회원</li>
+              <li data-i18n="specialist_cred8">대한악안면성형재건외과학회 정회원, 인정의</li>
+              <li data-i18n="specialist_cred9">대한구순구개열학회 정회원</li>
+            </ul>
+            <a class="btn btn-primary btn-sm" href="#contact" data-i18n="specialist_cta">전문의 상담 예약</a>
+          </div>
+        </article>
+        </div>
 
       </div>
     </section>
@@ -408,57 +456,57 @@
     <section class="section cases" id="cases" aria-labelledby="cases-title">
       <div class="container">
         <div class="section-head">
-          <p class="section-label">ไฮไลท์สถานที่</p>
-          <h2 id="cases-title">พื้นที่สำคัญของคลินิก</h2>
-          <p class="section-desc">ตั้งแต่ห้องปรึกษา ห้องรักษา ไปจนถึงห้องผ่าตัดและพักฟื้น</p>
+          <p class="section-label" data-i18n="cases_label">ไฮไลท์สถานที่</p>
+          <h2 id="cases-title" data-i18n="cases_title">พื้นที่สำคัญของคลินิก</h2>
+          <p class="section-desc" data-i18n="cases_desc">ตั้งแต่ห้องปรึกษา ห้องรักษา ไปจนถึงห้องผ่าตัดและพักฟื้น</p>
         </div>
         <div class="cases-grid">
           <article class="case-card">
-            <img src="images/clinic/operating-room-01.png" alt="ห้องผ่าตัดมาตรฐาน" class="case-photo" loading="lazy" />
-            <h3>ห้องผ่าตัดมาตรฐาน</h3>
-            <p>อุปกรณ์ครบครัน ระบบแสงส่องสว่างและวิสัญญี</p>
+            <img src="images/clinic/operating-room-01.png" data-i18n-alt="case1_alt" alt="ห้องผ่าตัดมาตรฐาน" class="case-photo" loading="lazy" />
+            <h3 data-i18n="case1_title">ห้องผ่าตัดมาตรฐาน</h3>
+            <p data-i18n="case1_desc">อุปกรณ์ครบครัน ระบบแสงส่องสว่างและวิสัญญี</p>
           </article>
           <article class="case-card">
-            <img src="images/clinic/treatment-room.png" alt="ห้องรักษาและวางแผน" class="case-photo" loading="lazy" />
-            <h3>ห้องทำฟันและรักษา</h3>
-            <p>ยูนิตทันสมัย สะอาด และออกแบบเพื่อความสบาย</p>
+            <img src="images/clinic/treatment-room.png" data-i18n-alt="case2_alt" alt="ห้องทำฟันและรักษา" class="case-photo" loading="lazy" />
+            <h3 data-i18n="case2_title">ห้องทำฟันและรักษา</h3>
+            <p data-i18n="case2_desc">ยูนิตทันสมัย สะอาด และออกแบบเพื่อความสบาย</p>
           </article>
           <article class="case-card">
-            <img src="images/clinic/recovery-room.png" alt="ห้องพักฟื้นหลังผ่าตัด" class="case-photo" loading="lazy" />
-            <h3>ห้องพักฟื้นหลังผ่าตัด</h3>
-            <p>ดูแลใกล้ชิดหลังศัลยกรรมโครงหน้า</p>
+            <img src="images/clinic/recovery-room.png" data-i18n-alt="case3_alt" alt="ห้องพักฟื้นหลังผ่าตัด" class="case-photo" loading="lazy" />
+            <h3 data-i18n="case3_title">ห้องพักฟื้นหลังผ่าตัด</h3>
+            <p data-i18n="case3_desc">ดูแลใกล้ชิดหลังศัลยกรรมโครงหน้า</p>
           </article>
         </div>
-        <p class="highlights-more"><a class="text-link" href="#facilities">ดูภาพสถานที่ทั้งหมด →</a></p>
+        <p class="highlights-more"><a class="text-link" href="#facilities" data-i18n="cases_more">ดูภาพสถานที่ทั้งหมด →</a></p>
       </div>
     </section>
 
     <section class="section testimonials" aria-labelledby="reviews-title">
       <div class="container">
         <div class="section-head center">
-          <p class="section-label">เสียงจากผู้ป่วย</p>
-          <h2 id="reviews-title">ความไว้วางใจที่เราให้ความสำคัญ</h2>
+          <p class="section-label" data-i18n="reviews_label">เสียงจากผู้ป่วย</p>
+          <h2 id="reviews-title" data-i18n="reviews_title">ความไว้วางใจที่เราให้ความสำคัญ</h2>
         </div>
-        <div class="reviews-slider" role="region" aria-label="รีวิวผู้ป่วย">
+        <div class="reviews-slider" role="region" data-i18n-aria="reviews_aria" aria-label="รีวิวผู้ป่วย">
           <blockquote class="review-card active">
-            <div class="stars" aria-label="5 จาก 5 ดาว">★★★★★</div>
-            <p>“หมออธิบายแผน 3D ละเอียดมาก รู้สึกมั่นใจก่อนผ่าตัด ทีมดูแลหลังผ่าตัดดีมาก”</p>
-            <footer>— คุณพิม · ผ่าตัดเลื่อนขากรรไกร</footer>
+            <div class="stars" data-i18n-aria="review_stars" aria-label="5 จาก 5 ดาว">★★★★★</div>
+            <p data-i18n="review1">“หมออธิบายแผน 3D ละเอียดมาก รู้สึกมั่นใจก่อนผ่าตัด ทีมดูแลหลังผ่าตัดดีมาก”</p>
+            <footer data-i18n="review1_by">— คุณพิม · ผ่าตัดเลื่อนขากรรไกร</footer>
           </blockquote>
           <blockquote class="review-card">
-            <div class="stars" aria-label="5 จาก 5 ดาว">★★★★★</div>
-            <p>“บวมน้อยกว่าที่คิด ประทับใจการนัดติดตามและคำแนะนำหลังกลับบ้าน”</p>
-            <footer>— คุณมิ้นท์ · ตัดกราม</footer>
+            <div class="stars" data-i18n-aria="review_stars" aria-label="5 จาก 5 ดาว">★★★★★</div>
+            <p data-i18n="review2">“บวมน้อยกว่าที่คิด ประทับใจการนัดติดตามและคำแนะนำหลังกลับบ้าน”</p>
+            <footer data-i18n="review2_by">— คุณมิ้นท์ · ตัดกราม</footer>
           </blockquote>
           <blockquote class="review-card">
-            <div class="stars" aria-label="5 จาก 5 ดาว">★★★★★</div>
-            <p>“International patient — staff spoke clear English and helped with every appointment.”</p>
-            <footer>— James · Orthognathic + braces</footer>
+            <div class="stars" data-i18n-aria="review_stars" aria-label="5 จาก 5 ดาว">★★★★★</div>
+            <p data-i18n="review3">“ผู้ป่วยต่างชาติ — ทีมงานสื่อสารภาษาอังกฤษชัดเจนและช่วยนัดหมายทุกครั้ง”</p>
+            <footer data-i18n="review3_by">— James · จัดฟัน + ผ่าตัดขากรรไกร</footer>
           </blockquote>
-          <div class="review-dots" role="tablist" aria-label="เลือกรีวิว">
-            <button type="button" class="active" aria-selected="true" aria-label="รีวิว 1"></button>
-            <button type="button" aria-selected="false" aria-label="รีวิว 2"></button>
-            <button type="button" aria-selected="false" aria-label="รีวิว 3"></button>
+          <div class="review-dots" role="tablist" data-i18n-aria="review_dots" aria-label="เลือกรีวิว">
+            <button type="button" class="active" aria-selected="true" data-i18n-aria="review_dot1" aria-label="รีวิว 1"></button>
+            <button type="button" aria-selected="false" data-i18n-aria="review_dot2" aria-label="รีวิว 2"></button>
+            <button type="button" aria-selected="false" data-i18n-aria="review_dot3" aria-label="รีวิว 3"></button>
           </div>
         </div>
       </div>
@@ -467,30 +515,30 @@
     <section class="section faq" id="faq" aria-labelledby="faq-title">
       <div class="container faq-grid">
         <div>
-          <p class="section-label">คำถามที่พบบ่อย</p>
-          <h2 id="faq-title">ข้อสงสัยก่อนตัดสินใจ</h2>
-          <p class="section-desc">หากมีคำถามเพิ่มเติม ติดต่อทีมงานได้ตลอดเวลาทำการ</p>
+          <p class="section-label" data-i18n="faq_label">คำถามที่พบบ่อย</p>
+          <h2 id="faq-title" data-i18n="faq_title">ข้อสงสัยก่อนตัดสินใจ</h2>
+          <p class="section-desc" data-i18n="faq_desc">หากมีคำถามเพิ่มเติม ติดต่อทีมงานได้ตลอดเวลาทำการ</p>
         </div>
-        <div class="accordion" role="region" aria-label="คำถามที่พบบ่อย">
+        <div class="accordion" role="region" data-i18n-aria="faq_aria" aria-label="คำถามที่พบบ่อย">
           <details class="accordion-item" open>
-            <summary>ใครเหมาะกับศัลยกรรมโครงหน้า?</summary>
-            <p>ผู้ที่มีปัญหาคางยื่น/สั้น กรามใหญ่ สบฟันผิดปกติ หรือใบหน้าไม่สมดุลจากโครงกระดูก และผ่านการประเมินสุขภาพจากแพทย์แล้ว</p>
+            <summary data-i18n="faq1_q">ใครเหมาะกับศัลยกรรมโครงหน้า?</summary>
+            <p data-i18n="faq1_a">ผู้ที่มีปัญหาคางยื่น/สั้น กรามใหญ่ สบฟันผิดปกติ หรือใบหน้าไม่สมดุลจากโครงกระดูก และผ่านการประเมินสุขภาพจากแพทย์แล้ว</p>
           </details>
           <details class="accordion-item">
-            <summary>ใช้เวลาพักฟื้นนานแค่ไหน?</summary>
-            <p>ขึ้นอยู่กับขอบเขตการผ่าตัด โดยทั่วไปบวมชัด 1–2 สัปดาห์แรก และค่อยๆ ดีขึ้นใน 4–8 สัปดาห์ ทีมแพทย์จะให้แนวทางเฉพาะบุคคล</p>
+            <summary data-i18n="faq2_q">ใช้เวลาพักฟื้นนานแค่ไหน?</summary>
+            <p data-i18n="faq2_a">ขึ้นอยู่กับขอบเขตการผ่าตัด โดยทั่วไปบวมชัด 1–2 สัปดาห์แรก และค่อยๆ ดีขึ้นใน 4–8 สัปดาห์ ทีมแพทย์จะให้แนวทางเฉพาะบุคคล</p>
           </details>
           <details class="accordion-item">
-            <summary>ต้องจัดฟันก่อนผ่าตัดหรือไม่?</summary>
-            <p>เคสที่เกี่ยวกับการสบฟันมักต้องจัดฟันก่อนและ/หลังผ่าตัด ส่วนเคสตัดกรามหรือโหนกแก้มอย่างเดียวอาจไม่จำเป็น ขึ้นกับการวินิจฉัย</p>
+            <summary data-i18n="faq3_q">ต้องจัดฟันก่อนผ่าตัดหรือไม่?</summary>
+            <p data-i18n="faq3_a">เคสที่เกี่ยวกับการสบฟันมักต้องจัดฟันก่อนและ/หลังผ่าตัด ส่วนเคสตัดกรามหรือโหนกแก้มอย่างเดียวอาจไม่จำเป็น ขึ้นกับการวินิจฉัย</p>
           </details>
           <details class="accordion-item">
-            <summary>รองรับผู้ป่วยต่างชาติหรือไม่?</summary>
-            <p>มีทีมงานสื่อสารภาษาอังกฤษ ช่วยนัดหมาย เอกสาร และคำแนะนำหลังผ่าตัดสำหรับผู้ที่เดินทางมารักษา</p>
+            <summary data-i18n="faq4_q">รองรับผู้ป่วยต่างชาติหรือไม่?</summary>
+            <p data-i18n="faq4_a">มีทีมงานสื่อสารภาษาเกาหลี อังกฤษ และไทย ช่วยนัดหมาย เอกสาร และคำแนะนำหลังผ่าตัด</p>
           </details>
           <details class="accordion-item">
-            <summary>วิธีนัดปรึกษา?</summary>
-            <p>กรอกแบบฟอร์มด้านล่าง โทร <a href="tel:+8225408275">02-540-8275</a> หรือ Line Official — เจ้าหน้าที่จะติดต่อกลับภายใน 24 ชม.</p>
+            <summary data-i18n="faq5_q">วิธีนัดปรึกษา?</summary>
+            <p data-i18n-html="faq5_a">กรอกแบบฟอร์มด้านล่าง โทร <a href="tel:+8225408275">02-540-8275</a> หรือ Line — เจ้าหน้าที่จะติดต่อกลับภายใน 24 ชม.</p>
           </details>
         </div>
       </div>
@@ -501,8 +549,8 @@
         <div class="contact-visual">
           <img
             src="images/clinic/building-exterior.png"
-            alt="อาคาร Maxillofacial M Surgery Clinic"
-            class="contact-building"
+            alt="อาคาร EVERM Surgery Clinic"
+            data-i18n-alt="contact_img_alt" class="contact-building"
             width="480"
             height="640"
             loading="lazy"
@@ -510,65 +558,65 @@
         </div>
         <div class="contact-right">
         <div class="contact-details">
-          <p class="section-label">ติดต่อเรา</p>
-          <h2 id="contact-title">นัดปรึกษา<br />โครงหน้าของคุณ</h2>
+          <p class="section-label" data-i18n="contact_label">ติดต่อเรา</p>
+          <h2 id="contact-title" data-i18n-html="contact_title">นัดปรึกษา<br />โครงหน้าของคุณ</h2>
           <ul class="contact-info">
             <li>
-              <strong>ที่อยู่</strong>
-              <span>EVERM Building, 2 Hakdong-ro 3-gil, Gangnam-gu, Seoul, Republic of Korea</span>
+              <strong data-i18n="contact_addr_label">ที่อยู่</strong>
+              <span data-i18n="contact_addr">EVERM Building, 2 Hakdong-ro 3-gil, Gangnam-gu, Seoul, Republic of Korea</span>
             </li>
             <li>
-              <strong>โทรศัพท์</strong>
+              <strong data-i18n="contact_phone_label">โทรศัพท์</strong>
               <a href="tel:+8225408275">02-540-8275</a>
             </li>
             <li>
-              <strong>อีเมล</strong>
+              <strong data-i18n="contact_email_label">อีเมล</strong>
               <a href="mailto:hello@evermclinic.th">hello@evermclinic.th</a>
             </li>
             <li>
-              <strong>เวลาทำการ</strong>
-              <span>จันทร์ – อาทิตย์ 10:00 – 19:00</span>
+              <strong data-i18n="contact_hours_label">เวลาทำการ</strong>
+              <span data-i18n="contact_hours">จันทร์ – อาทิตย์ 10:00 – 19:00</span>
             </li>
           </ul>
         </div>
         <form class="contact-form" id="appointment-form" novalidate>
-          <h3 class="visually-hidden">แบบฟอร์มนัดหมาย</h3>
+          <h3 class="visually-hidden" data-i18n="form_title_hidden">แบบฟอร์มนัดหมาย</h3>
           <div class="form-row">
-            <label for="name">ชื่อ-นามสกุล *</label>
-            <input type="text" id="name" name="name" required autocomplete="name" placeholder="ชื่อของคุณ" />
+            <label for="name" data-i18n="form_name">ชื่อ-นามสกุล *</label>
+            <input type="text" id="name" name="name" data-i18n-placeholder="form_name_ph" required autocomplete="name" placeholder="ชื่อของคุณ" />
           </div>
           <div class="form-row">
-            <label for="phone">เบอร์โทร / Line ID *</label>
-            <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="08x-xxx-xxxx" />
+            <label for="phone" data-i18n="form_phone">เบอร์โทร / Line ID *</label>
+            <input type="tel" id="phone" name="phone" data-i18n-placeholder="form_phone_ph" required autocomplete="tel" placeholder="08x-xxx-xxxx" />
           </div>
           <div class="form-row">
-            <label for="service">บริการที่สนใจ *</label>
+            <label for="service" data-i18n="form_service">บริการที่สนใจ *</label>
             <select id="service" name="service" required>
-              <option value="">เลือกบริการ</option>
-              <option>ปรึกษาศัลยกรรมโครงหน้า (ทั่วไป)</option>
-              <option>ผ่าตัดเลื่อนขากรรไกร</option>
-              <option>ตัดกราม / ตัดโหนกแก้ม</option>
-              <option>จัดฟัน + ศัลยกรรมขากรรไกร</option>
-              <option>ผู้ป่วยต่างชาติ (International)</option>
+              <option value="" data-i18n="form_service_ph">เลือกบริการ</option>
+              <option data-i18n="form_opt0">ปรึกษาศัลยกรรมโครงหน้า (ทั่วไป)</option>
+              <option data-i18n="form_opt1">ผ่าตัดเลื่อนขากรรไกร</option>
+              <option data-i18n="form_opt2">ตัดกราม / ตัดโหนกแก้ม</option>
+              <option data-i18n="form_opt3">จัดฟัน + ศัลยกรรมขากรรไกร</option>
+              <option data-i18n="form_opt4">ผู้ป่วยต่างชาติ (International)</option>
             </select>
           </div>
           <div class="form-row two-col">
             <div>
-              <label for="date">วันที่สะดวก</label>
+              <label for="date" data-i18n="form_date">วันที่สะดวก</label>
               <input type="date" id="date" name="date" />
             </div>
             <div>
-              <label for="time">เวลา</label>
+              <label for="time" data-i18n="form_time">เวลา</label>
               <input type="time" id="time" name="time" />
             </div>
           </div>
           <div class="form-row">
-            <label for="message">รายละเอียดเพิ่มเติม</label>
-            <textarea id="message" name="message" rows="3" placeholder="เล่าความกังวลหรือเคสที่เคยปรึกษามา"></textarea>
+            <label for="message" data-i18n="form_message">รายละเอียดเพิ่มเติม</label>
+            <textarea id="message" name="message" data-i18n-placeholder="form_message_ph" rows="3" placeholder="เล่าความกังวลหรือเคสที่เคยปรึกษามา"></textarea>
           </div>
-          <p class="form-note">* เจ้าหน้าที่จะติดต่อกลับเพื่อยืนยันนัดหมาย — ข้อมูลของคุณเป็นความลับ</p>
-          <button type="submit" class="btn btn-primary btn-block">ส่งคำขอนัดปรึกษา</button>
-          <p class="form-success" id="form-success" hidden role="status">ขอบคุณค่ะ/ครับ เราได้รับข้อมูลแล้ว จะติดต่อกลับโดยเร็วที่สุด</p>
+          <p class="form-note" data-i18n="form_note">* เจ้าหน้าที่จะติดต่อกลับเพื่อยืนยันนัดหมาย — ข้อมูลของคุณเป็นความลับ</p>
+          <button type="submit" class="btn btn-primary btn-block" data-i18n="form_submit">ส่งคำขอนัดปรึกษา</button>
+          <p class="form-success" id="form-success" data-i18n="form_success" hidden role="status">ขอบคุณค่ะ/ครับ เราได้รับข้อมูลแล้ว จะติดต่อกลับโดยเร็วที่สุด</p>
         </form>
         </div>
       </div>
@@ -579,48 +627,48 @@
     <div class="container footer-top">
       <div class="footer-brand-block">
         <a href="#top" class="logo logo-footer">
-          <img src="images/logo.png" alt="EVERM Surgery Clinic" class="logo-img" width="320" height="99" decoding="async" />
+          <img src="images/logo.png" srcset="images/logo.png 1x, images/logo@2x.png 2x" alt="EVERM Surgery Clinic" class="logo-img" width="460" height="148" decoding="async" />
         </a>
-        <p class="footer-tagline">Maxillofacial &amp; facial contour surgery</p>
+        <p class="footer-tagline" data-i18n="footer_tagline">ศัลยกรรมโครงหน้าและขากรรไกรเฉพาะทาง</p>
       </div>
 
       <nav class="footer-nav" aria-label="Footer menu">
-        <h4>Menu</h4>
+        <h4 data-i18n="footer_menu">เมนู</h4>
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#facilities">Facilities</a></li>
-          <li><a href="#team">Doctors</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about" data-i18n="nav_about">About</a></li>
+          <li><a href="#services" data-i18n="nav_services">Services</a></li>
+          <li><a href="#facilities" data-i18n="nav_facilities">Facilities</a></li>
+          <li><a href="#team" data-i18n="nav_team">Doctors</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
         </ul>
       </nav>
 
       <div class="footer-contact-block">
-        <h4>Clinic Information</h4>
+        <h4 data-i18n="footer_info">ข้อมูลคลินิก</h4>
         <dl class="footer-info">
           <div>
-            <dt>Clinic name</dt>
-            <dd>EverM Dental Clinic <span lang="ko">(에버엠치과의원)</span></dd>
+            <dt data-i18n="footer_clinic_label">ชื่อคลินิก</dt>
+            <dd data-i18n-html="footer_clinic_name">EverM Dental Clinic <span lang="ko">(에버엠치과의원)</span></dd>
           </div>
           <div>
-            <dt>Address</dt>
+            <dt data-i18n="footer_addr_label">ที่อยู่</dt>
             <dd>
-              <address>
+              <address data-i18n-html="footer_addr">
                 EVERM Building, 2 Hakdong-ro 3-gil,<br />
                 Gangnam-gu, Seoul, Republic of Korea
               </address>
             </dd>
           </div>
           <div>
-            <dt>Representative</dt>
-            <dd>Gyu-Sik Yoon <span lang="ko">(윤규식)</span></dd>
+            <dt data-i18n="footer_rep_label">ผู้แทน</dt>
+            <dd data-i18n-html="footer_rep">Gyu-Sik Yoon <span lang="ko">(윤규식)</span></dd>
           </div>
           <div>
-            <dt>Business Registration No.</dt>
-            <dd>211-10-47958</dd>
+            <dt data-i18n="footer_brn_label">เลขทะเบียนธุรกิจ</dt>
+            <dd data-i18n="footer_brn">211-10-47958</dd>
           </div>
           <div>
-            <dt>Tel &amp; Inquiries</dt>
+            <dt data-i18n="footer_tel_label">โทรศัพท์ติดต่อ</dt>
             <dd><a href="tel:+8225408275">02-540-8275</a></dd>
           </div>
         </dl>
@@ -629,14 +677,54 @@
 
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
-        <p>© 2026 EverM Dental Clinic. All rights reserved.</p>
-        <p><a href="#">Privacy Policy</a></p>
+        <p data-i18n="footer_copy">© 2026 EverM Dental Clinic สงวนลิขสิทธิ์</p>
+        <p><a href="#" data-i18n="footer_privacy">นโยบายความเป็นส่วนตัว</a></p>
       </div>
     </div>
   </footer>
 
-  <a href="#contact" class="float-cta" aria-label="นัดปรึกษา">นัดปรึกษา</a>
+  <aside
+    class="float-actions"
+    id="float-actions"
+    data-line-url="https://line.me/R/ti/p/@evermclinic"
+    aria-label="Quick actions"
+  >
+    <a
+      href="#top"
+      class="float-btn float-btn--top"
+      id="float-top"
+      data-i18n-aria="float_top_aria"
+      aria-label="맨 위로"
+      hidden
+    >
+      <svg class="float-btn__icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M12 4l7 8h-4v8H9v-8H5l7-8z" />
+      </svg>
+    </a>
+    <a
+      href="https://line.me/R/ti/p/@evermclinic"
+      class="float-btn float-btn--line"
+      id="float-line"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-i18n-aria="float_line_aria"
+      aria-label="Line Official"
+    >
+      <svg class="float-btn__icon float-btn__icon--line" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.105h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.631-.285-.631-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.283-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.285.629-.631.629-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.346 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.039 1.085l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"
+        />
+      </svg>
+      <span data-i18n="float_line">LINE</span>
+    </a>
+    <a href="#contact" class="float-btn float-btn--cta" data-i18n-aria="float_cta" aria-label="นัดปรึกษา">
+      <span data-i18n="float_cta">นัดปรึกษา</span>
+    </a>
+  </aside>
 
+  <script src="js/i18n-data.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

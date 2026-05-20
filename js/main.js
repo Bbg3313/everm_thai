@@ -8,17 +8,40 @@
   const form = document.getElementById("appointment-form");
   const formSuccess = document.getElementById("form-success");
 
-  /* Sticky header */
+  const floatTop = document.getElementById("float-top");
+  const floatLine = document.getElementById("float-line");
+  const floatActions = document.getElementById("float-actions");
+
   function onScroll() {
     if (window.scrollY > 40) {
       header.classList.add("scrolled");
     } else {
       header.classList.remove("scrolled");
     }
+
+    if (floatTop) {
+      const showTop = window.scrollY > 320;
+      floatTop.hidden = !showTop;
+      floatTop.classList.toggle("is-visible", showTop);
+    }
   }
 
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+
+  if (floatActions && floatLine) {
+    var lineUrl = floatActions.getAttribute("data-line-url");
+    if (lineUrl) {
+      floatLine.setAttribute("href", lineUrl);
+    }
+  }
+
+  if (floatTop) {
+    floatTop.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 
   /* Mobile nav */
   if (navToggle && siteNav) {
@@ -154,6 +177,11 @@
     anchor.addEventListener("click", function (e) {
       const id = anchor.getAttribute("href");
       if (!id || id === "#") return;
+      if (id === "#top") {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
