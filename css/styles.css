@@ -305,14 +305,14 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: block;
   height: var(--logo-h);
   width: auto;
-  max-width: min(320px, 72vw);
+  max-width: min(360px, 72vw);
   object-fit: contain;
   object-position: left center;
 }
 
 .logo-footer .logo-img {
-  height: 64px;
-  max-width: 100%;
+  height: 56px;
+  max-width: min(320px, 100%);
 }
 
 .logo-footer {
