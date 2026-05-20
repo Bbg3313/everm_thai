@@ -1431,6 +1431,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
   margin-top: 1.25rem;
 }
 
@@ -1442,15 +1445,29 @@ ul { margin: 0; padding: 0; list-style: none; }
   font-size: 0.875rem;
   font-weight: 600;
   color: #fff;
-  background: #ff0000;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 999px;
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
-.footer-social-btn:hover {
+.footer-social-btn--youtube {
+  background: #ff0000;
+}
+
+.footer-social-btn--youtube:hover {
   color: #fff;
   background: #cc0000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.footer-social-btn--facebook {
+  background: #1877f2;
+}
+
+.footer-social-btn--facebook:hover {
+  color: #fff;
+  background: #0d65d9;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
