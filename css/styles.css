@@ -1242,14 +1242,40 @@ ul { margin: 0; padding: 0; list-style: none; }
   margin: 0;
 }
 
-.contact-building {
-  width: 100%;
+.contact-map-wrap {
   border-radius: var(--radius-lg);
-  object-fit: cover;
-  aspect-ratio: 4 / 5;
-  max-height: 360px;
+  overflow: hidden;
   box-shadow: var(--shadow);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.contact-map {
   display: block;
+  width: 100%;
+  height: 320px;
+  min-height: 280px;
+  border: 0;
+}
+
+.contact-map-wrap figcaption {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.contact-map-link {
+  display: block;
+  padding: 0.65rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.contact-map-link:hover {
+  background: var(--color-accent-soft);
 }
 
 .contact-info-card {
@@ -1719,6 +1745,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 
   .contact-grid {
     max-width: none;
+  }
+
+  .contact-map {
+    height: 280px;
   }
 
   .contact-form {

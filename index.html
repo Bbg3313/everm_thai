@@ -609,16 +609,25 @@
 
         <div class="contact-grid">
           <aside class="contact-aside" aria-label="Clinic location and contact">
-            <figure class="contact-visual">
-              <img
-                src="images/clinic/building-exterior.png"
-                alt="อาคาร EVERM Surgery Clinic"
-                data-i18n-alt="contact_img_alt"
-                class="contact-building"
-                width="480"
-                height="640"
+            <figure class="contact-visual contact-map-wrap">
+              <iframe
+                class="contact-map"
+                title="EverM Dental Clinic location map"
+                data-i18n-title="contact_map_title"
+                src="https://www.google.com/maps?q=37.5110863,127.0315789&hl=ko&z=17&output=embed"
                 loading="lazy"
-              />
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+              ></iframe>
+              <figcaption>
+                <a
+                  class="contact-map-link"
+                  href="https://www.google.com/maps/search/?api=1&query=EverM+Dental+Clinic+2+Hakdong-ro+3-gil+Gangnam-gu+Seoul"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-i18n="contact_map_open"
+                >เปิดใน Google Maps</a>
+              </figcaption>
             </figure>
             <div class="contact-info-card">
               <ul class="contact-info">
