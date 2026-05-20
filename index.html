@@ -53,7 +53,6 @@
       <nav class="site-nav" id="site-nav" data-i18n-aria="nav_menu_aria" aria-label="เมนูหลัก">
         <ul>
           <li><a href="#about" data-i18n="nav_about">เกี่ยวกับเรา</a></li>
-          <li><a href="#videos" data-i18n="nav_videos">วิดีโอ</a></li>
           <li><a href="#services" data-i18n="nav_services">บริการ</a></li>
           <li><a href="#technology" data-i18n="nav_technology">เทคโนโลยี</a></li>
           <li><a href="#facilities" data-i18n="nav_facilities">สถานที่</a></li>
@@ -239,52 +238,6 @@
       </div>
     </section>
 
-    <section class="section videos" id="videos" aria-labelledby="videos-title">
-      <div class="container">
-        <div class="section-head center">
-          <p class="section-label" data-i18n="videos_label">วิดีโอ</p>
-          <h2 id="videos-title" data-i18n="videos_title">ทำความรู้จัก EVERM</h2>
-          <p class="section-desc" data-i18n="videos_desc">ภาพรวมความร่วมมือระดับนานาชาติและบรรยากาศของคลินิก</p>
-        </div>
-        <div class="video-grid">
-          <article class="video-card">
-            <div class="video-player">
-              <video
-                controls
-                playsinline
-                preload="metadata"
-                width="1920"
-                height="1080"
-                data-i18n-aria="video1_aria"
-                aria-label="K-Orthognathic EVERM Thailand Korea cooperation"
-              >
-                <source src="/videos/everm-thailand-cooperation.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <h3 data-i18n="video1_title">K-양악 세계가 찾는 에버엠 — ไทย·เกาหลี</h3>
-            <p data-i18n="video1_desc">ความร่วมมือระดับโลกเพื่อศัลยกรรมขากรรไกรและโครงหน้า</p>
-          </article>
-          <article class="video-card">
-            <div class="video-player">
-              <video
-                controls
-                playsinline
-                preload="metadata"
-                width="1280"
-                height="720"
-                data-i18n-aria="video2_aria"
-                aria-label="EVERM clinic introduction"
-              >
-                <source src="/videos/everm-ivory.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <h3 data-i18n="video2_title">EVERM Surgery Clinic</h3>
-            <p data-i18n="video2_desc">วิดีโอแนะนำคลินิกและมาตรฐานการดูแล</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="section services" id="services" aria-labelledby="services-title">
       <div class="container">
         <div class="section-head center services-head">
@@ -293,101 +246,109 @@
           <p class="section-desc" data-i18n="services_desc">ครอบคลุมตั้งแต่การปรึกษา วางแผน 3D ไปจนถึงการผ่าตัดและติดตามผล</p>
         </div>
 
-        <div class="service-showcase">
-          <article class="service-card service-card--premium service-card--lead reveal">
-            <div class="service-card-media">
+        <div class="treatments-grid">
+          <article class="treatment-card treatment-card--featured reveal">
+            <div class="treatment-card__visual">
               <img
+                class="treatment-card__img"
                 src="images/services/orthognathic.png"
                 alt="양악수술 3D 시뮬레이션"
                 data-i18n-alt="svc1_img_alt"
-                width="800"
-                height="500"
+                width="676"
+                height="680"
                 loading="lazy"
+                decoding="async"
               />
-              <span class="service-card-index" aria-hidden="true">01</span>
-              <span class="service-tag" data-i18n="svc_popular">ยอดนิยม</span>
+              <span class="treatment-card__no" aria-hidden="true">01</span>
+              <span class="treatment-card__badge" data-i18n="svc_popular">ยอดนิยม</span>
             </div>
-            <div class="service-card-body">
+            <div class="treatment-card__body">
               <h3 data-i18n="svc1_title">ผ่าตัดเลื่อนขากรรไกร</h3>
-              <p class="service-card-lead" data-i18n="svc1_desc">แก้ปัญหาคางยื่น คางสั้น หรือการสบฟันผิดปกติรุนแรง ร่วมกับแผนจัดฟันตามความจำเป็น</p>
-              <ul class="service-card-points">
+              <p class="treatment-card__desc" data-i18n="svc1_desc">แก้ปัญหาคางยื่น คางสั้น หรือการสบฟันผิดปกติรุนแรง ร่วมกับแผนจัดฟันตามความจำเป็น</p>
+              <ul class="treatment-card__points">
                 <li data-i18n="svc1_li1">วางแผนร่วมทันตแพทย์จัดฟัน</li>
                 <li data-i18n="svc1_li2">จำลองผลลัพธ์ 3D ก่อนผ่าตัด</li>
                 <li data-i18n="svc1_li3">มาตรฐานห้องผ่าตัดระดับโรงพยาบาล</li>
               </ul>
-              <a href="#contact" class="btn btn-primary service-card-cta" data-i18n="svc_link">สอบถามรายละเอียด</a>
+              <a href="#contact" class="btn btn-primary treatment-card__cta" data-i18n="svc_link">สอบถามรายละเอียด</a>
             </div>
           </article>
 
-          <article class="service-card service-card--premium reveal">
-            <div class="service-card-media">
+          <article class="treatment-card reveal">
+            <div class="treatment-card__visual">
               <img
+                class="treatment-card__img"
                 src="images/services/facial-contour.png"
                 alt="안면윤곽 V라인"
                 data-i18n-alt="svc2_img_alt"
                 width="600"
                 height="600"
                 loading="lazy"
+                decoding="async"
               />
-              <span class="service-card-index" aria-hidden="true">02</span>
+              <span class="treatment-card__no" aria-hidden="true">02</span>
             </div>
-            <div class="service-card-body">
+            <div class="treatment-card__body">
               <h3 data-i18n="svc2_title">ศัลยกรรมโครงหน้า</h3>
-              <p class="service-card-lead" data-i18n="svc2_desc">ปรับโหนกแก้ม กราม และสัดส่วนใบหน้าให้กลมกลืน ภายใต้การวางแผน 3D</p>
-              <ul class="service-card-points">
+              <p class="treatment-card__desc" data-i18n="svc2_desc">ปรับโหนกแก้ม กราม และสัดส่วนใบหน้าให้กลมกลืน ภายใต้การวางแผน 3D</p>
+              <ul class="treatment-card__points">
                 <li data-i18n="svc2_li1">ลดโหนกแก้ม · มุมกราม</li>
                 <li data-i18n="svc2_li2">V-line · สัดส่วนใบหน้า</li>
                 <li data-i18n="svc2_li3">คำนึงเส้นประสาทและความปลอดภัย</li>
               </ul>
-              <a href="#contact" class="btn btn-outline service-card-cta" data-i18n="svc_link">สอบถามรายละเอียด</a>
+              <a href="#contact" class="btn btn-outline treatment-card__cta" data-i18n="svc_link">สอบถามรายละเอียด</a>
             </div>
           </article>
 
-          <article class="service-card service-card--premium reveal">
-            <div class="service-card-media">
+          <article class="treatment-card reveal">
+            <div class="treatment-card__visual">
               <img
+                class="treatment-card__img"
                 src="images/services/protruding-mouth.png"
                 alt="돌출입 E-line 교정"
                 data-i18n-alt="svc3_img_alt"
-                width="800"
-                height="500"
+                width="1160"
+                height="1160"
                 loading="lazy"
+                decoding="async"
               />
-              <span class="service-card-index" aria-hidden="true">03</span>
+              <span class="treatment-card__no" aria-hidden="true">03</span>
             </div>
-            <div class="service-card-body">
+            <div class="treatment-card__body">
               <h3 data-i18n="svc3_title">돌출입 교정</h3>
-              <p class="service-card-lead" data-i18n="svc3_desc">ปรับตำแหน่งขากรรไกรและริมฝีปากให้สมดุล ลดความรู้สึกปากยื่น</p>
-              <ul class="service-card-points">
+              <p class="treatment-card__desc" data-i18n="svc3_desc">ปรับตำแหน่งขากรรไกรและริมฝีปากให้สมดุล ลดความรู้สึกปากยื่น</p>
+              <ul class="treatment-card__points">
                 <li data-i18n="svc3_li1">วิเคราะห์ E-line · สัดส่วนจมูก-ปาก</li>
                 <li data-i18n="svc3_li2">แผนร่วมทันตแพทย์เมื่อจำเป็น</li>
                 <li data-i18n="svc3_li3">เน้นผลลัพธ์ที่ดูเป็นธรรมชาติ</li>
               </ul>
-              <a href="#contact" class="btn btn-outline service-card-cta" data-i18n="svc_link">สอบถามรายละเอียด</a>
+              <a href="#contact" class="btn btn-outline treatment-card__cta" data-i18n="svc_link">สอบถามรายละเอียด</a>
             </div>
           </article>
 
-          <article class="service-card service-card--premium reveal">
-            <div class="service-card-media">
+          <article class="treatment-card reveal">
+            <div class="treatment-card__visual">
               <img
+                class="treatment-card__img"
                 src="images/services/bone-reconstruction.png"
                 alt="얼굴뼈 재건 수술"
                 data-i18n-alt="svc4_img_alt"
-                width="800"
-                height="500"
+                width="676"
+                height="680"
                 loading="lazy"
+                decoding="async"
               />
-              <span class="service-card-index" aria-hidden="true">04</span>
+              <span class="treatment-card__no" aria-hidden="true">04</span>
             </div>
-            <div class="service-card-body">
+            <div class="treatment-card__body">
               <h3 data-i18n="svc4_title">ศัลยกรรมฟื้นฟูโครงกระดูกใบหน้า</h3>
-              <p class="service-card-lead" data-i18n="svc4_desc">ฟื้นฟูโครงสร้างกระดูกใบหน้าหลังอุบัติเหตุหรือภาวะแตกกำเนิด</p>
-              <ul class="service-card-points">
+              <p class="treatment-card__desc" data-i18n="svc4_desc">ฟื้นฟูโครงสร้างกระดูกใบหน้าหลังอุบัติเหตุหรือภาวะแตกกำเนิด</p>
+              <ul class="treatment-card__points">
                 <li data-i18n="svc4_li1">แผนรักษาเฉพาะบุคคล</li>
                 <li data-i18n="svc4_li2">ทีมศัลยแพทย์เฉพาะทาง</li>
                 <li data-i18n="svc4_li3">ติดตามระยะยาวหลังผ่าตัด</li>
               </ul>
-              <a href="#contact" class="btn btn-outline service-card-cta" data-i18n="svc_link">สอบถามรายละเอียด</a>
+              <a href="#contact" class="btn btn-outline treatment-card__cta" data-i18n="svc_link">สอบถามรายละเอียด</a>
             </div>
           </article>
         </div>
@@ -597,16 +558,15 @@
         <div class="team-doctors">
         <article class="doctor-card doctor-card--director reveal">
           <div class="doctor-photo">
-            <div class="doctor-photo-frame">
               <img
-                src="images/doctors/director-yoon.png"
+                src="images/doctors/director-portrait.png"
                 alt="대표원장 윤규식 — 구강악안면외과 전문의"
                 data-i18n-alt="director_alt" class="doctor-photo-img"
-                width="941"
-                height="653"
+                width="592"
+                height="890"
                 loading="lazy"
+                decoding="async"
               />
-            </div>
           </div>
           <div class="doctor-info">
             <header class="doctor-profile-header">
@@ -646,16 +606,15 @@
 
         <article class="doctor-card doctor-card--specialist reveal">
           <div class="doctor-photo">
-            <div class="doctor-photo-frame">
               <img
-                src="images/doctors/specialist-song.png"
+                src="images/doctors/specialist-portrait.png"
                 alt="송상현 원장 — 구강악안면외과 전문의"
                 data-i18n-alt="specialist_alt" class="doctor-photo-img"
                 width="941"
                 height="653"
                 loading="lazy"
+                decoding="async"
               />
-            </div>
           </div>
           <div class="doctor-info">
             <header class="doctor-profile-header">
@@ -691,6 +650,27 @@
         </article>
         </div>
 
+        <div class="featured-video featured-video--director reveal" id="director-video">
+          <div class="featured-video__head">
+            <p class="section-label" data-i18n="director_video_label">วิดีโอแนะนำแพทย์</p>
+            <h3 class="featured-video__title" data-i18n="director_video_title">K-양악 세계가 찾는 에버엠 — ไทย·เกาหลี</h3>
+            <p class="featured-video__desc" data-i18n="director_video_desc">ความร่วมมือระดับโลกและความเชี่ยวชาญของทีมศัลยแพทย์ช่องปาก</p>
+          </div>
+          <div class="featured-video__player">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              width="1920"
+              height="1080"
+              data-i18n-aria="director_video_aria"
+              aria-label="Director introduction video"
+            >
+              <source src="/videos/everm-thailand-cooperation.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -722,12 +702,34 @@
       </div>
     </section>
 
-    <section class="section testimonials" aria-labelledby="reviews-title">
+    <section class="section testimonials" id="testimonials" aria-labelledby="reviews-title">
       <div class="container">
         <div class="section-head center">
           <p class="section-label" data-i18n="reviews_label">เสียงจากผู้ป่วย</p>
           <h2 id="reviews-title" data-i18n="reviews_title">ความไว้วางใจที่เราให้ความสำคัญ</h2>
         </div>
+
+        <div class="featured-video featured-video--patient reveal" id="patient-video">
+          <div class="featured-video__head">
+            <p class="section-label" data-i18n="patient_video_label">วิดีโอรีวิวผู้ป่วย</p>
+            <h3 class="featured-video__title" data-i18n="patient_video_title">EVERM Surgery Clinic — ประสบการณ์จริง</h3>
+            <p class="featured-video__desc" data-i18n="patient_video_desc">ฟังเสียงจากผู้ป่วยหลังการรักษาและการดูแลของคลินิก</p>
+          </div>
+          <div class="featured-video__player">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              width="1280"
+              height="720"
+              data-i18n-aria="patient_video_aria"
+              aria-label="Patient review video"
+            >
+              <source src="/videos/everm-ivory.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+
         <div class="reviews-slider" role="region" data-i18n-aria="reviews_aria" aria-label="รีวิวผู้ป่วย">
           <blockquote class="review-card active">
             <div class="stars" data-i18n-aria="review_stars" aria-label="5 จาก 5 ดาว">★★★★★</div>
@@ -985,7 +987,6 @@
         <h4 data-i18n="footer_menu">เมนู</h4>
         <ul>
           <li><a href="#about" data-i18n="nav_about">About</a></li>
-          <li><a href="#videos" data-i18n="nav_videos">Videos</a></li>
           <li><a href="#services" data-i18n="nav_services">Services</a></li>
           <li><a href="#facilities" data-i18n="nav_facilities">Facilities</a></li>
           <li><a href="#team" data-i18n="nav_team">Doctors</a></li>

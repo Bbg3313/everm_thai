@@ -205,7 +205,7 @@
 
   /* Scroll reveal */
   const revealEls = document.querySelectorAll(
-    ".section-head, .service-card, .video-card, .process-steps li, .doctor-card, .doctor-highlights li, .team-duo, .case-card, .facility-card, .tech-list li, .about-panel, .hero-visual, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
+    ".section-head, .treatment-card, .featured-video, .process-steps li, .doctor-card, .doctor-highlights li, .team-duo, .case-card, .facility-card, .tech-list li, .about-panel, .hero-visual, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
   );
 
   revealEls.forEach(function (el) {
