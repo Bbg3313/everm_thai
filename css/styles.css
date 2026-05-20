@@ -200,10 +200,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .lang-flag img {
   display: block;
-  width: 1.4rem;
-  height: auto;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
+  width: 1.5rem;
+  height: 1rem;
+  object-fit: contain;
+  object-position: center;
   border-radius: 2px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
@@ -257,6 +257,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   top: calc(100% + 0.35rem);
   right: 0;
   z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
   min-width: 11.5rem;
   margin: 0;
   padding: 0.35rem;
@@ -265,6 +268,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   border: 1px solid var(--color-border);
   border-radius: 10px;
   box-shadow: var(--shadow);
+}
+
+.lang-dropdown-menu > li {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .lang-dropdown-menu[hidden] {
@@ -358,13 +368,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .site-nav > ul {
+  display: flex;
   flex: 1;
   justify-content: flex-end;
-}
-
-.site-nav ul {
-  display: flex;
   gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .site-nav a {
@@ -1017,11 +1027,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .tech-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-rows: auto auto;
   column-gap: 2rem;
-  row-gap: 1.5rem;
-  align-items: stretch;
+  row-gap: 1.25rem;
+  align-items: start;
 }
 
 .tech-intro {
@@ -1190,23 +1200,29 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .tech-list {
   grid-column: 2;
-  grid-row: 1 / -1;
+  grid-row: 2;
   margin: 0;
   padding: 0;
   list-style: none;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem 1.25rem;
-  align-content: center;
-  align-self: center;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+  align-self: stretch;
   width: 100%;
   min-width: 0;
+  height: 100%;
 }
 
 .tech-list li {
   margin: 0;
   padding: 1.1rem 1.15rem;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 0;
+  height: 100%;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
@@ -1314,7 +1330,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .doctor-profile {
   --doctor-accent: var(--color-primary);
   display: grid;
-  grid-template-columns: minmax(300px, 38%) minmax(0, 1fr);
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
   align-items: stretch;
   background: var(--color-surface);
   border-radius: var(--radius-lg);
@@ -1323,13 +1340,14 @@ ul { margin: 0; padding: 0; list-style: none; }
   box-shadow: 0 2px 8px rgba(0, 32, 128, 0.05), 0 16px 40px rgba(0, 32, 128, 0.08);
 }
 
-/* 1단: 사진 → 이름/직함 → 핵심 3줄 */
+/* 상단: 사진(왼쪽) + 이름·핵심약력(오른쪽) */
 .doctor-profile__intro {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(220px, 34%) minmax(0, 1fr);
+  align-items: stretch;
   min-width: 0;
-  border-right: 1px solid rgba(0, 48, 128, 0.08);
   background: var(--color-surface);
+  border-bottom: 1px solid rgba(0, 48, 128, 0.08);
 }
 
 .doctor-profile__photo {
@@ -1338,8 +1356,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   justify-content: center;
   margin: 0;
   padding: 0;
-  flex: 0 0 auto;
   background: #eef1f6;
+  border-right: 1px solid rgba(0, 48, 128, 0.08);
   overflow: hidden;
 }
 
@@ -1347,27 +1365,25 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: block;
   width: 100%;
   height: auto;
-  max-height: none;
   object-fit: contain;
   object-position: center bottom;
 }
 
 .doctor-profile__summary {
-  padding: 1.35rem 1.5rem 1.5rem;
+  padding: 1.5rem 1.75rem 1.75rem;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  justify-content: center;
   min-width: 0;
 }
 
-/* 2단: 학력·경력·학회 상세 */
+/* 하단 전체: 학력·경력·학회 상세 */
 .doctor-profile__credentials {
   padding: 1.5rem 1.75rem 1.75rem;
   display: flex;
   flex-direction: column;
   min-width: 0;
   background: var(--color-bg);
-  border-left: 1px solid rgba(0, 48, 128, 0.06);
 }
 
 .doctor-profile__header {
@@ -2473,7 +2489,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 
   .tech-list {
     align-self: stretch;
-    align-content: start;
+    height: auto;
+    grid-template-rows: auto;
   }
 
   .faq-intro {
@@ -2496,6 +2513,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
   .tech-list li {
     padding: 1rem 1.1rem;
+    height: auto;
   }
 
   .contact-grid {
@@ -2599,9 +2617,14 @@ ul { margin: 0; padding: 0; list-style: none; }
     transform: translateX(0);
   }
 
-  .site-nav ul {
+  .site-nav > ul {
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .lang-dropdown-menu {
+    position: absolute;
+    flex-direction: column;
   }
 
   .site-nav a {
@@ -2657,18 +2680,17 @@ ul { margin: 0; padding: 0; list-style: none; }
     gap: 0.75rem;
   }
 
-  .doctor-profile {
+  .doctor-profile__intro {
     grid-template-columns: 1fr;
   }
 
-  .doctor-profile__intro {
+  .doctor-profile__photo {
     border-right: none;
     border-bottom: 1px solid rgba(0, 48, 128, 0.08);
   }
 
   .doctor-profile__credentials {
     padding: 1.25rem 1.25rem 1.75rem;
-    border-left: none;
   }
 
   .doctor-credentials {
