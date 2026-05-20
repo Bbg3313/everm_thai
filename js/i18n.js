@@ -5,7 +5,11 @@
   var DEFAULT_LANG = "th";
   var SUPPORTED = ["ko", "en", "th"];
   var LANG_LABELS = { ko: "한국어", en: "English", th: "ไทย" };
-  var LANG_FLAGS = { ko: "🇰🇷", en: "🇺🇸", th: "🇹🇭" };
+  var LANG_FLAG_SRC = {
+    ko: "images/flags/kr.svg",
+    en: "images/flags/us.svg",
+    th: "images/flags/th.svg",
+  };
 
   var I18N_ATTRS = [
     "data-i18n",
@@ -110,8 +114,8 @@
     var label = document.querySelector(".lang-dropdown-label");
     if (label) label.textContent = LANG_LABELS[lang] || lang;
 
-    var flag = document.querySelector(".lang-dropdown-flag");
-    if (flag) flag.textContent = LANG_FLAGS[lang] || "";
+    var flagImg = document.querySelector(".lang-dropdown-flag img");
+    if (flagImg && LANG_FLAG_SRC[lang]) flagImg.src = LANG_FLAG_SRC[lang];
 
     document.querySelectorAll(".lang-option").forEach(function (btn) {
       var active = btn.getAttribute("data-lang") === lang;

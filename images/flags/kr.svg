@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" role="img" aria-hidden="true">
+  <rect width="30" height="20" fill="#fff"/>
+  <g transform="translate(15 10)">
+    <circle r="5.5" fill="#cd2e3a"/>
+    <path d="M0,-5.5 A5.5 5.5 0 0 1 0,5.5 Z" fill="#0047a0"/>
+    <circle cy="-2.75" r="1.4" fill="#0047a0"/>
+    <circle cy="2.75" r="1.4" fill="#cd2e3a"/>
+  </g>
+</svg>

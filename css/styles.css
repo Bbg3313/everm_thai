@@ -194,9 +194,22 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
-  line-height: 1;
   flex-shrink: 0;
+  line-height: 0;
+}
+
+.lang-flag img {
+  display: block;
+  width: 1.4rem;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.lang-option-label {
+  white-space: nowrap;
 }
 
 .lang-dropdown-toggle {
@@ -244,7 +257,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   top: calc(100% + 0.35rem);
   right: 0;
   z-index: 1100;
-  min-width: 10.5rem;
+  min-width: 11.5rem;
   margin: 0;
   padding: 0.35rem;
   list-style: none;
@@ -1301,7 +1314,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .doctor-profile {
   --doctor-accent: var(--color-primary);
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  grid-template-columns: minmax(300px, 38%) minmax(0, 1fr);
   align-items: stretch;
   background: var(--color-surface);
   border-radius: var(--radius-lg);
@@ -1310,47 +1323,51 @@ ul { margin: 0; padding: 0; list-style: none; }
   box-shadow: 0 2px 8px rgba(0, 32, 128, 0.05), 0 16px 40px rgba(0, 32, 128, 0.08);
 }
 
+/* 1단: 사진 → 이름/직함 → 핵심 3줄 */
 .doctor-profile__intro {
-  display: grid;
-  grid-template-columns: minmax(200px, 38%) minmax(0, 1fr);
-  align-items: stretch;
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   border-right: 1px solid rgba(0, 48, 128, 0.08);
+  background: var(--color-surface);
 }
 
 .doctor-profile__photo {
   display: flex;
+  align-items: flex-end;
+  justify-content: center;
   margin: 0;
   padding: 0;
-  min-height: 300px;
-  background: #e8ecf2;
+  flex: 0 0 auto;
+  background: #eef1f6;
   overflow: hidden;
 }
 
 .doctor-profile__photo img {
   display: block;
   width: 100%;
-  height: 100%;
-  min-height: 300px;
-  flex: 1;
-  object-fit: cover;
-  object-position: left center;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center bottom;
 }
 
 .doctor-profile__summary {
-  padding: 1.5rem 1.5rem 1.75rem;
+  padding: 1.35rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  flex: 1;
   min-width: 0;
 }
 
+/* 2단: 학력·경력·학회 상세 */
 .doctor-profile__credentials {
-  padding: 1.5rem 1.5rem 1.75rem;
+  padding: 1.5rem 1.75rem 1.75rem;
   display: flex;
   flex-direction: column;
   min-width: 0;
   background: var(--color-bg);
+  border-left: 1px solid rgba(0, 48, 128, 0.06);
 }
 
 .doctor-profile__header {
@@ -1397,12 +1414,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 
 .doctor-highlights {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1rem;
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 0.45rem;
-  flex: 1;
+  gap: 0.5rem;
 }
 
 .doctor-highlights li {
@@ -1435,8 +1451,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.35rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem 1.25rem;
   width: 100%;
   flex: 1;
   align-content: start;
@@ -2646,28 +2662,21 @@ ul { margin: 0; padding: 0; list-style: none; }
   }
 
   .doctor-profile__intro {
-    grid-template-columns: 1fr;
     border-right: none;
     border-bottom: 1px solid rgba(0, 48, 128, 0.08);
   }
 
-  .doctor-profile__photo {
-    min-height: 260px;
-    border-bottom: 1px solid rgba(0, 48, 128, 0.08);
+  .doctor-profile__credentials {
+    padding: 1.25rem 1.25rem 1.75rem;
+    border-left: none;
   }
 
-  .doctor-profile__photo img {
-    min-height: 260px;
-    object-fit: contain;
-    object-position: center bottom;
+  .doctor-credentials {
+    grid-template-columns: 1fr;
   }
 
   .doctor-profile__summary {
     padding: 1.5rem 1.25rem 1.75rem;
-  }
-
-  .doctor-profile__credentials {
-    padding: 1.25rem 1.25rem 1.75rem;
   }
 
   .doctor-cta {
