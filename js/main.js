@@ -98,6 +98,58 @@
     startReviewTimer();
   }
 
+  /* Hero image slider */
+  const heroSlides = document.querySelectorAll(".hero-slide");
+  const heroDots = document.querySelectorAll(".hero-slider-dots button");
+  const heroCaptions = document.querySelectorAll(".hero-photo-caption");
+  const heroProgressBar = document.getElementById("hero-progress-bar");
+  const heroIntervalMs = 6000;
+  let heroIndex = 0;
+  let heroTimer;
+
+  function restartHeroProgress() {
+    if (!heroProgressBar) return;
+    heroProgressBar.classList.remove("is-running");
+    void heroProgressBar.offsetWidth;
+    heroProgressBar.classList.add("is-running");
+  }
+
+  function showHeroSlide(index) {
+    if (!heroSlides.length) return;
+    heroIndex = (index + heroSlides.length) % heroSlides.length;
+    heroSlides.forEach(function (slide, i) {
+      slide.classList.toggle("active", i === heroIndex);
+    });
+    heroDots.forEach(function (dot, i) {
+      dot.classList.toggle("active", i === heroIndex);
+      dot.setAttribute("aria-selected", i === heroIndex ? "true" : "false");
+    });
+    heroCaptions.forEach(function (caption, i) {
+      caption.classList.toggle("active", i === heroIndex);
+    });
+    restartHeroProgress();
+  }
+
+  function startHeroTimer() {
+    clearInterval(heroTimer);
+    restartHeroProgress();
+    heroTimer = setInterval(function () {
+      showHeroSlide(heroIndex + 1);
+    }, heroIntervalMs);
+  }
+
+  heroDots.forEach(function (dot, i) {
+    dot.addEventListener("click", function () {
+      showHeroSlide(i);
+      startHeroTimer();
+    });
+  });
+
+  if (heroSlides.length) {
+    showHeroSlide(0);
+    startHeroTimer();
+  }
+
   /* Technology image slider */
   const techSlides = document.querySelectorAll(".tech-slide");
   const techDots = document.querySelectorAll(".tech-slider-dots button");
@@ -135,9 +187,25 @@
     startTechTimer();
   }
 
+  /* FAQ accordion — one open at a time */
+  const faqAccordion = document.getElementById("faq-accordion");
+  if (faqAccordion) {
+    const faqItems = faqAccordion.querySelectorAll(".accordion-item");
+    faqItems.forEach(function (item) {
+      item.addEventListener("toggle", function () {
+        if (!item.open) return;
+        faqItems.forEach(function (other) {
+          if (other !== item && other.open) {
+            other.open = false;
+          }
+        });
+      });
+    });
+  }
+
   /* Scroll reveal */
   const revealEls = document.querySelectorAll(
-    ".section-head, .service-card, .video-card, .process-steps li, .doctor-card, .team-duo, .case-card, .facility-card, .tech-list li, .about-panel, .hero-photo, .tech-slider"
+    ".section-head, .service-card, .video-card, .process-steps li, .doctor-card, .doctor-highlights li, .team-duo, .case-card, .facility-card, .tech-list li, .about-panel, .hero-visual, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
   );
 
   revealEls.forEach(function (el) {

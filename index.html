@@ -92,15 +92,87 @@
           </ul>
         </div>
         <figure class="hero-visual">
-          <img
-            src="images/clinic/reception-lounge.png"
-            alt="พื้นที่ต้อนรับและห้องรอ EVERM Surgery Clinic"
-            data-i18n-alt="hero_img_alt" class="hero-photo"
-            width="640"
-            height="480"
-            loading="eager"
-          />
-          <figcaption class="hero-photo-caption" data-i18n="hero_caption">สภาพแวดล้อมพรีเมียม · มาตรฐานโรงพยาบาล</figcaption>
+          <div
+            class="hero-slider"
+            id="hero-slider"
+            role="region"
+            data-i18n-aria="hero_slider_aria"
+            aria-label="ภาพคลินิก EVERM"
+            aria-live="polite"
+          >
+            <div class="hero-slide active">
+              <img
+                src="images/clinic/hero/hero-01-waiting.png"
+                alt="ห้องรอและเลานจ์พรีเมียม"
+                data-i18n-alt="hero_slide1_alt"
+                width="1200"
+                height="900"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+            <div class="hero-slide">
+              <img
+                src="images/clinic/hero/hero-02-branding.png"
+                alt="EVERM DENTAL CLINIC ป้ายแบรนด์"
+                data-i18n-alt="hero_slide2_alt"
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="hero-slide">
+              <img
+                src="images/clinic/hero/hero-03-interior.png"
+                alt="ดีไซน์ภายในระดับพรีเมียม"
+                data-i18n-alt="hero_slide3_alt"
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="hero-slide">
+              <img
+                src="images/clinic/hero/hero-04-reception.png"
+                alt="โถงต้อนรับและเคาน์เตอร์"
+                data-i18n-alt="hero_slide4_alt"
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="hero-slide">
+              <img
+                src="images/clinic/hero/hero-05-exterior.png"
+                alt="อาคารคลินิก EVERM ย่านกังนัม"
+                data-i18n-alt="hero_slide5_alt"
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="hero-slider-progress" aria-hidden="true">
+              <span class="hero-slider-progress-bar" id="hero-progress-bar"></span>
+            </div>
+            <div class="hero-slider-dots" role="tablist" data-i18n-aria="hero_dots_aria" aria-label="เลือกภาพ">
+              <button type="button" class="active" aria-selected="true" data-i18n-aria="hero_dot1" aria-label="ภาพ 1"></button>
+              <button type="button" aria-selected="false" data-i18n-aria="hero_dot2" aria-label="ภาพ 2"></button>
+              <button type="button" aria-selected="false" data-i18n-aria="hero_dot3" aria-label="ภาพ 3"></button>
+              <button type="button" aria-selected="false" data-i18n-aria="hero_dot4" aria-label="ภาพ 4"></button>
+              <button type="button" aria-selected="false" data-i18n-aria="hero_dot5" aria-label="ภาพ 5"></button>
+            </div>
+          </div>
+          <div class="hero-captions">
+            <p class="hero-photo-caption active" data-i18n="hero_slide1_caption">ห้องรอพรีเมียม · มาตรฐานโรงพยาบาล</p>
+            <p class="hero-photo-caption" data-i18n="hero_slide2_caption">EVERM DENTAL CLINIC · แบรนด์ระดับสากล</p>
+            <p class="hero-photo-caption" data-i18n="hero_slide3_caption">ดีไซน์ภายใน · ความสงบและหรูหรา</p>
+            <p class="hero-photo-caption" data-i18n="hero_slide4_caption">โถงต้อนรับ · บริการครบวงจร</p>
+            <p class="hero-photo-caption" data-i18n="hero_slide5_caption">คลินิกย่านกังนัม · เดินทางสะดวก</p>
+          </div>
         </figure>
       </div>
       <div class="hero-scroll" aria-hidden="true">
@@ -215,46 +287,108 @@
 
     <section class="section services" id="services" aria-labelledby="services-title">
       <div class="container">
-        <div class="section-head center">
+        <div class="section-head center services-head">
           <p class="section-label" data-i18n="services_label">บริการหลัก</p>
           <h2 id="services-title" data-i18n="services_title">ศัลยกรรมโครงหน้าและขากรรไกร</h2>
           <p class="section-desc" data-i18n="services_desc">ครอบคลุมตั้งแต่การปรึกษา วางแผน 3D ไปจนถึงการผ่าตัดและติดตามผล</p>
         </div>
-        <div class="service-grid">
-          <article class="service-card featured">
-            <span class="service-tag" data-i18n="svc_popular">ยอดนิยม</span>
-            <h3 data-i18n="svc1_title">ผ่าตัดเลื่อนขากรรไกร</h3>
-            <p data-i18n="svc1_desc">แก้ปัญหาคางยื่น คางสั้น หรือการสบฟันผิดปกติรุนแรง ร่วมกับแผนจัดฟันตามความจำเป็น</p>
-            <ul>
-              <li data-i18n="svc1_li1">วางแผนร่วมทันตแพทย์จัดฟัน</li>
-              <li data-i18n="svc1_li2">จำลองผลลัพธ์ 3D ก่อนผ่าตัด</li>
-            </ul>
-            <a href="#contact" class="card-link" data-i18n="svc_link">สอบถามรายละเอียด</a>
+
+        <div class="service-showcase">
+          <article class="service-card service-card--premium service-card--lead reveal">
+            <div class="service-card-media">
+              <img
+                src="images/services/orthognathic.png"
+                alt="양악수술 3D 시뮬레이션"
+                data-i18n-alt="svc1_img_alt"
+                width="800"
+                height="500"
+                loading="lazy"
+              />
+              <span class="service-card-index" aria-hidden="true">01</span>
+              <span class="service-tag" data-i18n="svc_popular">ยอดนิยม</span>
+            </div>
+            <div class="service-card-body">
+              <h3 data-i18n="svc1_title">ผ่าตัดเลื่อนขากรรไกร</h3>
+              <p class="service-card-lead" data-i18n="svc1_desc">แก้ปัญหาคางยื่น คางสั้น หรือการสบฟันผิดปกติรุนแรง ร่วมกับแผนจัดฟันตามความจำเป็น</p>
+              <ul class="service-card-points">
+                <li data-i18n="svc1_li1">วางแผนร่วมทันตแพทย์จัดฟัน</li>
+                <li data-i18n="svc1_li2">จำลองผลลัพธ์ 3D ก่อนผ่าตัด</li>
+                <li data-i18n="svc1_li3">มาตรฐานห้องผ่าตัดระดับโรงพยาบาล</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary service-card-cta" data-i18n="svc_link">สอบถามรายละเอียด</a>
+            </div>
           </article>
-          <article class="service-card">
-            <h3 data-i18n="svc2_title">ตัดโหนกแก้ม / ลดโหนกแก้ม</h3>
-            <p data-i18n="svc2_desc">ปรับมุมใบหน้าให้ดูอ่อนลงหรือเรียวขึ้น โดยคำนึงถึงเส้นประสาทและสมดุลใบหน้า</p>
-            <a href="#contact" class="card-link" data-i18n="svc_link">สอบถามรายละเอียด</a>
+
+          <article class="service-card service-card--premium reveal">
+            <div class="service-card-media">
+              <img
+                src="images/services/facial-contour.png"
+                alt="안면윤곽 V라인"
+                data-i18n-alt="svc2_img_alt"
+                width="600"
+                height="600"
+                loading="lazy"
+              />
+              <span class="service-card-index" aria-hidden="true">02</span>
+            </div>
+            <div class="service-card-body">
+              <h3 data-i18n="svc2_title">ศัลยกรรมโครงหน้า</h3>
+              <p class="service-card-lead" data-i18n="svc2_desc">ปรับโหนกแก้ม กราม และสัดส่วนใบหน้าให้กลมกลืน ภายใต้การวางแผน 3D</p>
+              <ul class="service-card-points">
+                <li data-i18n="svc2_li1">ลดโหนกแก้ม · มุมกราม</li>
+                <li data-i18n="svc2_li2">V-line · สัดส่วนใบหน้า</li>
+                <li data-i18n="svc2_li3">คำนึงเส้นประสาทและความปลอดภัย</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline service-card-cta" data-i18n="svc_link">สอบถามรายละเอียด</a>
+            </div>
           </article>
-          <article class="service-card">
-            <h3 data-i18n="svc3_title">ตัดกราม / ลดขนาดกราม</h3>
-            <p data-i18n="svc3_desc">ลดความกว้างของมุมกรามสำหรับใบหน้าทรง V-line อย่างปลอดภัยภายใต้การวางแผน 3D</p>
-            <a href="#contact" class="card-link" data-i18n="svc_link">สอบถามรายละเอียด</a>
+
+          <article class="service-card service-card--premium reveal">
+            <div class="service-card-media">
+              <img
+                src="images/services/protruding-mouth.png"
+                alt="돌출입 E-line 교정"
+                data-i18n-alt="svc3_img_alt"
+                width="800"
+                height="500"
+                loading="lazy"
+              />
+              <span class="service-card-index" aria-hidden="true">03</span>
+            </div>
+            <div class="service-card-body">
+              <h3 data-i18n="svc3_title">돌출입 교정</h3>
+              <p class="service-card-lead" data-i18n="svc3_desc">ปรับตำแหน่งขากรรไกรและริมฝีปากให้สมดุล ลดความรู้สึกปากยื่น</p>
+              <ul class="service-card-points">
+                <li data-i18n="svc3_li1">วิเคราะห์ E-line · สัดส่วนจมูก-ปาก</li>
+                <li data-i18n="svc3_li2">แผนร่วมทันตแพทย์เมื่อจำเป็น</li>
+                <li data-i18n="svc3_li3">เน้นผลลัพธ์ที่ดูเป็นธรรมชาติ</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline service-card-cta" data-i18n="svc_link">สอบถามรายละเอียด</a>
+            </div>
           </article>
-          <article class="service-card">
-            <h3 data-i18n="svc4_title">ตัดสันโหนก / ลดสันโหนก</h3>
-            <p data-i18n="svc4_desc">แก้ไขใบหน้าที่ดูยาวหรือมีสันโหนกเด่นชัด ให้สัดส่วนดูกลมกลืนขึ้น</p>
-            <a href="#contact" class="card-link" data-i18n="svc_link">สอบถามรายละเอียด</a>
-          </article>
-          <article class="service-card">
-            <h3 data-i18n="svc5_title">เสริมคาง / ลดคาง</h3>
-            <p data-i18n="svc5_desc">ปรับปลายคางด้วยการผ่าตัดหรือรากเทียมตามแผนร่วมกับศัลยแพทย์ช่องปาก</p>
-            <a href="#contact" class="card-link" data-i18n="svc_link">สอบถามรายละเอียด</a>
-          </article>
-          <article class="service-card">
-            <h3 data-i18n="svc6_title">จัดฟันร่วมกับศัลยกรรมขากรรไกร</h3>
-            <p data-i18n="svc6_desc">แพ็กเกจครบวงจรสำหรับเคสสบฟันซับซ้อน ตั้งแต่จัดฟันจนถึงผ่าตัดและรักษาเสร็จสิ้น</p>
-            <a href="#contact" class="card-link" data-i18n="svc_link">สอบถามรายละเอียด</a>
+
+          <article class="service-card service-card--premium reveal">
+            <div class="service-card-media">
+              <img
+                src="images/services/bone-reconstruction.png"
+                alt="얼굴뼈 재건 수술"
+                data-i18n-alt="svc4_img_alt"
+                width="800"
+                height="500"
+                loading="lazy"
+              />
+              <span class="service-card-index" aria-hidden="true">04</span>
+            </div>
+            <div class="service-card-body">
+              <h3 data-i18n="svc4_title">ศัลยกรรมฟื้นฟูโครงกระดูกใบหน้า</h3>
+              <p class="service-card-lead" data-i18n="svc4_desc">ฟื้นฟูโครงสร้างกระดูกใบหน้าหลังอุบัติเหตุหรือภาวะแตกกำเนิด</p>
+              <ul class="service-card-points">
+                <li data-i18n="svc4_li1">แผนรักษาเฉพาะบุคคล</li>
+                <li data-i18n="svc4_li2">ทีมศัลยแพทย์เฉพาะทาง</li>
+                <li data-i18n="svc4_li3">ติดตามระยะยาวหลังผ่าตัด</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline service-card-cta" data-i18n="svc_link">สอบถามรายละเอียด</a>
+            </div>
           </article>
         </div>
       </div>
@@ -463,19 +597,32 @@
         <div class="team-doctors">
         <article class="doctor-card doctor-card--director reveal">
           <div class="doctor-photo">
-            <img
-              src="images/doctors/director-yoon.png"
-              alt="대표원장 윤규식 — 구강악안면외과 전문의"
-              data-i18n-alt="director_alt" class="doctor-photo-img"
-              width="941"
-              height="653"
-              loading="lazy"
-            />
+            <div class="doctor-photo-frame">
+              <img
+                src="images/doctors/director-yoon.png"
+                alt="대표원장 윤규식 — 구강악안면외과 전문의"
+                data-i18n-alt="director_alt" class="doctor-photo-img"
+                width="941"
+                height="653"
+                loading="lazy"
+              />
+            </div>
           </div>
           <div class="doctor-info">
-            <p class="doctor-badge" data-i18n="director_badge">대표원장</p>
-            <p class="doctor-role" data-i18n="director_role">구강악안면외과 전문의</p>
-            <h3 data-i18n="director_name">윤규식 원장</h3>
+            <header class="doctor-profile-header">
+              <p class="doctor-badge" data-i18n="director_badge">대표원장</p>
+              <div class="doctor-title-block">
+                <h3 data-i18n="director_name">윤규식 원장</h3>
+                <p class="doctor-role" data-i18n="director_role">구강악안면외과 전문의</p>
+              </div>
+            </header>
+            <ul class="doctor-highlights" aria-label="Key credentials">
+              <li data-i18n="director_highlight1">연세대학교 치과대학병원 구강악안면외과 외래교수</li>
+              <li data-i18n="director_highlight2">국제구강악안면외과학회 Fellow (IAOMS)</li>
+              <li data-i18n="director_highlight3">대한구강악안면외과의사회 부회장</li>
+            </ul>
+            <div class="doctor-credentials-block">
+              <h4 class="doctor-credentials-title" data-i18n="doctor_credentials_title">학력 · 경력 · 학회</h4>
             <ul class="doctor-credentials">
               <li data-i18n="director_cred1">연세대학교 치과대학 졸업</li>
               <li data-i18n="director_cred2">연세대학교 치과대학 대학원 졸업</li>
@@ -490,25 +637,41 @@
               <li data-i18n="director_cred11">대한심미치과학회 정회원</li>
               <li data-i18n="director_cred12">(現) 대한구강악안면외과의사회 부회장</li>
             </ul>
-            <a class="btn btn-primary btn-sm" href="#contact" data-i18n="director_cta">대표원장 상담 예약</a>
+            </div>
+            <div class="doctor-cta-wrap">
+              <a class="btn btn-primary doctor-cta" href="#contact" data-i18n="director_cta">대표원장 상담 예약</a>
+            </div>
           </div>
         </article>
 
         <article class="doctor-card doctor-card--specialist reveal">
           <div class="doctor-photo">
-            <img
-              src="images/doctors/specialist-song.png"
-              alt="송상현 원장 — 구강악안면외과 전문의"
-              data-i18n-alt="specialist_alt" class="doctor-photo-img"
-              width="941"
-              height="653"
-              loading="lazy"
-            />
+            <div class="doctor-photo-frame">
+              <img
+                src="images/doctors/specialist-song.png"
+                alt="송상현 원장 — 구강악안면외과 전문의"
+                data-i18n-alt="specialist_alt" class="doctor-photo-img"
+                width="941"
+                height="653"
+                loading="lazy"
+              />
+            </div>
           </div>
           <div class="doctor-info">
-            <p class="doctor-badge doctor-badge--secondary" data-i18n="specialist_badge">전문의</p>
-            <p class="doctor-role" data-i18n="specialist_role">구강악안면외과 전문의</p>
-            <h3 data-i18n="specialist_name">송상현 원장</h3>
+            <header class="doctor-profile-header">
+              <p class="doctor-badge doctor-badge--secondary" data-i18n="specialist_badge">전문의</p>
+              <div class="doctor-title-block">
+                <h3 data-i18n="specialist_name">송상현 원장</h3>
+                <p class="doctor-role" data-i18n="specialist_role">구강악안면외과 전문의</p>
+              </div>
+            </header>
+            <ul class="doctor-highlights" aria-label="Key credentials">
+              <li data-i18n="specialist_highlight1">연세대학교 치의학 박사</li>
+              <li data-i18n="specialist_highlight2">연세대학교 치과대학병원 구강악안면외과 외래교수</li>
+              <li data-i18n="specialist_highlight3">Physician-Scientist · 구강악안면외과 전문의</li>
+            </ul>
+            <div class="doctor-credentials-block">
+              <h4 class="doctor-credentials-title" data-i18n="doctor_credentials_title">학력 · 경력 · 학회</h4>
             <ul class="doctor-credentials">
               <li data-i18n="specialist_cred1">연세대학교 치과대학 치의학과 졸업</li>
               <li data-i18n="specialist_cred2">연세대학교 치과대학 치의학 박사</li>
@@ -520,7 +683,10 @@
               <li data-i18n="specialist_cred8">대한악안면성형재건외과학회 정회원, 인정의</li>
               <li data-i18n="specialist_cred9">대한구순구개열학회 정회원</li>
             </ul>
-            <a class="btn btn-primary btn-sm" href="#contact" data-i18n="specialist_cta">전문의 상담 예약</a>
+            </div>
+            <div class="doctor-cta-wrap">
+              <a class="btn btn-primary doctor-cta" href="#contact" data-i18n="specialist_cta">전문의 상담 예약</a>
+            </div>
           </div>
         </article>
         </div>
@@ -589,32 +755,71 @@
 
     <section class="section faq" id="faq" aria-labelledby="faq-title">
       <div class="container faq-grid">
-        <div>
+        <aside class="faq-intro">
           <p class="section-label" data-i18n="faq_label">คำถามที่พบบ่อย</p>
           <h2 id="faq-title" data-i18n="faq_title">ข้อสงสัยก่อนตัดสินใจ</h2>
           <p class="section-desc" data-i18n="faq_desc">หากมีคำถามเพิ่มเติม ติดต่อทีมงานได้ตลอดเวลาทำการ</p>
-        </div>
-        <div class="accordion" role="region" data-i18n-aria="faq_aria" aria-label="คำถามที่พบบ่อย">
-          <details class="accordion-item" open>
-            <summary data-i18n="faq1_q">ใครเหมาะกับศัลยกรรมโครงหน้า?</summary>
-            <p data-i18n="faq1_a">ผู้ที่มีปัญหาคางยื่น/สั้น กรามใหญ่ สบฟันผิดปกติ หรือใบหน้าไม่สมดุลจากโครงกระดูก และผ่านการประเมินสุขภาพจากแพทย์แล้ว</p>
-          </details>
-          <details class="accordion-item">
-            <summary data-i18n="faq2_q">ใช้เวลาพักฟื้นนานแค่ไหน?</summary>
-            <p data-i18n="faq2_a">ขึ้นอยู่กับขอบเขตการผ่าตัด โดยทั่วไปบวมชัด 1–2 สัปดาห์แรก และค่อยๆ ดีขึ้นใน 4–8 สัปดาห์ ทีมแพทย์จะให้แนวทางเฉพาะบุคคล</p>
-          </details>
-          <details class="accordion-item">
-            <summary data-i18n="faq3_q">ต้องจัดฟันก่อนผ่าตัดหรือไม่?</summary>
-            <p data-i18n="faq3_a">เคสที่เกี่ยวกับการสบฟันมักต้องจัดฟันก่อนและ/หลังผ่าตัด ส่วนเคสตัดกรามหรือโหนกแก้มอย่างเดียวอาจไม่จำเป็น ขึ้นกับการวินิจฉัย</p>
-          </details>
-          <details class="accordion-item">
-            <summary data-i18n="faq4_q">รองรับผู้ป่วยต่างชาติหรือไม่?</summary>
-            <p data-i18n="faq4_a">มีทีมงานสื่อสารภาษาเกาหลี อังกฤษ และไทย ช่วยนัดหมาย เอกสาร และคำแนะนำหลังผ่าตัด</p>
-          </details>
-          <details class="accordion-item">
-            <summary data-i18n="faq5_q">วิธีนัดปรึกษา?</summary>
-            <p data-i18n-html="faq5_a">กรอกแบบฟอร์มด้านล่าง โทร <a href="tel:+8225408275">02-540-8275</a> หรือ Line — เจ้าหน้าที่จะติดต่อกลับภายใน 24 ชม.</p>
-          </details>
+          <ul class="faq-trust-list">
+            <li data-i18n="faq_trust1">ปรึกษาโดยศัลยแพทย์ช่องปากเฉพาะทางโดยตรง</li>
+            <li data-i18n="faq_trust2">วางแผนการรักษาด้วยการจำลอง 3D ก่อนตัดสินใจ</li>
+            <li data-i18n="faq_trust3">บริการหลายภาษา · ดูแลผู้ป่วยต่างชาติ</li>
+          </ul>
+          <a class="btn btn-primary faq-intro-cta" href="#contact" data-i18n="faq_cta">นัดปรึกษาแบบ 1:1</a>
+        </aside>
+
+        <div class="faq-panel">
+          <div class="accordion" id="faq-accordion" role="region" data-i18n-aria="faq_aria" aria-label="คำถามที่พบบ่อย">
+            <details class="accordion-item" open>
+              <summary>
+                <span class="faq-q-num" aria-hidden="true">01</span>
+                <span class="faq-q-text" data-i18n="faq1_q">ใครเหมาะกับศัลยกรรมโครงหน้า?</span>
+                <span class="faq-q-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-body">
+                <p data-i18n="faq1_a">ผู้ที่มีปัญหาคางยื่น/สั้น กรามใหญ่ สบฟันผิดปกติ หรือใบหน้าไม่สมดุลจากโครงกระดูก และผ่านการประเมินสุขภาพจากแพทย์แล้ว</p>
+              </div>
+            </details>
+            <details class="accordion-item">
+              <summary>
+                <span class="faq-q-num" aria-hidden="true">02</span>
+                <span class="faq-q-text" data-i18n="faq2_q">ใช้เวลาพักฟื้นนานแค่ไหน?</span>
+                <span class="faq-q-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-body">
+                <p data-i18n="faq2_a">ขึ้นอยู่กับขอบเขตการผ่าตัด โดยทั่วไปบวมชัด 1–2 สัปดาห์แรก และค่อยๆ ดีขึ้นใน 4–8 สัปดาห์ ทีมแพทย์จะให้แนวทางเฉพาะบุคคล</p>
+              </div>
+            </details>
+            <details class="accordion-item">
+              <summary>
+                <span class="faq-q-num" aria-hidden="true">03</span>
+                <span class="faq-q-text" data-i18n="faq3_q">ต้องจัดฟันก่อนผ่าตัดหรือไม่?</span>
+                <span class="faq-q-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-body">
+                <p data-i18n="faq3_a">เคสที่เกี่ยวกับการสบฟันมักต้องจัดฟันก่อนและ/หลังผ่าตัด ส่วนเคสตัดกรามหรือโหนกแก้มอย่างเดียวอาจไม่จำเป็น ขึ้นกับการวินิจฉัย</p>
+              </div>
+            </details>
+            <details class="accordion-item">
+              <summary>
+                <span class="faq-q-num" aria-hidden="true">04</span>
+                <span class="faq-q-text" data-i18n="faq4_q">รองรับผู้ป่วยต่างชาติหรือไม่?</span>
+                <span class="faq-q-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-body">
+                <p data-i18n="faq4_a">มีทีมงานสื่อสารภาษาเกาหลี อังกฤษ และไทย ช่วยนัดหมาย เอกสาร และคำแนะนำหลังผ่าตัด</p>
+              </div>
+            </details>
+            <details class="accordion-item">
+              <summary>
+                <span class="faq-q-num" aria-hidden="true">05</span>
+                <span class="faq-q-text" data-i18n="faq5_q">วิธีนัดปรึกษา?</span>
+                <span class="faq-q-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-body">
+                <p data-i18n-html="faq5_a">กรอกแบบฟอร์มด้านล่าง โทร <a href="tel:+8225408275">02-540-8275</a> หรือ Line — เจ้าหน้าที่จะติดต่อกลับภายใน 24 ชม.</p>
+              </div>
+            </details>
+          </div>
         </div>
       </div>
     </section>
@@ -667,6 +872,17 @@
                   <span data-i18n="contact_hours">จันทร์ – อาทิตย์ 10:00 – 19:00</span>
                 </li>
               </ul>
+              <div class="contact-info-logo">
+                <img
+                  src="images/logo.svg"
+                  alt="EVERM Surgery Clinic"
+                  data-i18n-alt="logo_aria"
+                  width="1000"
+                  height="333"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           </aside>
 
@@ -687,9 +903,10 @@
                   <option value="" data-i18n="form_service_ph">เลือกบริการ</option>
                   <option data-i18n="form_opt0">ปรึกษาศัลยกรรมโครงหน้า (ทั่วไป)</option>
                   <option data-i18n="form_opt1">ผ่าตัดเลื่อนขากรรไกร</option>
-                  <option data-i18n="form_opt2">ตัดกราม / ตัดโหนกแก้ม</option>
-                  <option data-i18n="form_opt3">จัดฟัน + ศัลยกรรมขากรรไกร</option>
-                  <option data-i18n="form_opt4">ผู้ป่วยต่างชาติ (International)</option>
+                  <option data-i18n="form_opt2">ศัลยกรรมโครงหน้า</option>
+                  <option data-i18n="form_opt3">แก้ปากยื่น</option>
+                  <option data-i18n="form_opt4">ฟื้นฟูโครงกระดูกใบหน้า</option>
+                  <option data-i18n="form_opt5">ผู้ป่วยต่างชาติ (International)</option>
                 </select>
               </div>
               <div class="form-row two-col">
