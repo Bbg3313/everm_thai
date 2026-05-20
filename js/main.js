@@ -100,7 +100,7 @@
 
   /* Scroll reveal */
   const revealEls = document.querySelectorAll(
-    ".section-head, .service-card, .process-steps li, .doctor-card, .team-duo, .case-card, .facility-card, .tech-list li, .about-panel, .hero-photo, .tech-photo"
+    ".section-head, .service-card, .video-card, .process-steps li, .doctor-card, .team-duo, .case-card, .facility-card, .tech-list li, .about-panel, .hero-photo, .tech-photo"
   );
 
   revealEls.forEach(function (el) {
