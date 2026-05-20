@@ -205,7 +205,7 @@
 
   /* Scroll reveal */
   const revealEls = document.querySelectorAll(
-    ".section-head, .treatment-card, .featured-video, .process-steps li, .doctor-profile, .case-card, .facility-card, .tech-list li, .about-panel, .hero-visual, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
+    ".section-head, .treatment-card, .featured-video, .process-steps li, .doctor-profile, .case-card, .facility-carousel, .tech-list li, .about-panel, .hero-visual, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
   );
 
   revealEls.forEach(function (el) {
@@ -234,28 +234,168 @@
     });
   }
 
-  /* Facility gallery filter */
+  /* Facility carousel — 2 images per slide, auto-advance */
+  const facilitySource = document.getElementById("facility-source");
+  const facilityTrack = document.getElementById("facility-track");
+  const facilityDots = document.getElementById("facility-dots");
+  const facilityPrev = document.getElementById("facility-prev");
+  const facilityNext = document.getElementById("facility-next");
+  const facilityCarousel = document.getElementById("facility-carousel");
   const facilityTabs = document.querySelectorAll(".facility-tab");
-  const facilityCards = document.querySelectorAll(".facility-card");
 
-  facilityTabs.forEach(function (tab) {
-    tab.addEventListener("click", function () {
-      const filter = tab.getAttribute("data-filter");
+  if (facilitySource && facilityTrack) {
+    let facilityFilter = "all";
+    let facilitySlideIndex = 0;
+    let facilityTimer;
+    const facilityIntervalMs = 5500;
 
-      facilityTabs.forEach(function (t) {
-        t.classList.remove("active");
-        t.setAttribute("aria-selected", "false");
+    function getSourceCards() {
+      return Array.from(facilitySource.querySelectorAll(".facility-card"));
+    }
+
+    function returnCardsToSource() {
+      facilityTrack.querySelectorAll(".facility-card").forEach(function (card) {
+        facilitySource.appendChild(card);
       });
-      tab.classList.add("active");
-      tab.setAttribute("aria-selected", "true");
+    }
 
-      facilityCards.forEach(function (card) {
+    function getFilteredCards() {
+      return getSourceCards().filter(function (card) {
         const category = card.getAttribute("data-category");
-        const show = filter === "all" || category === filter;
-        card.classList.toggle("is-hidden", !show);
+        return facilityFilter === "all" || category === facilityFilter;
+      });
+    }
+
+    function buildSlidePairs(cards) {
+      const pairs = [];
+      for (let i = 0; i < cards.length; i += 2) {
+        pairs.push(cards.slice(i, i + 2));
+      }
+      return pairs;
+    }
+
+    function goFacilitySlide(index) {
+      const slides = facilityTrack.querySelectorAll(".facility-slide");
+      if (!slides.length) return;
+      facilitySlideIndex = (index + slides.length) % slides.length;
+      facilityTrack.style.transform = "translateX(-" + facilitySlideIndex * 100 + "%)";
+      if (facilityDots) {
+        facilityDots.querySelectorAll(".facility-carousel__dot").forEach(function (dot, i) {
+          const active = i === facilitySlideIndex;
+          dot.classList.toggle("active", active);
+          dot.setAttribute("aria-selected", active ? "true" : "false");
+        });
+      }
+    }
+
+    function startFacilityTimer() {
+      clearInterval(facilityTimer);
+      facilityTimer = setInterval(function () {
+        goFacilitySlide(facilitySlideIndex + 1);
+      }, facilityIntervalMs);
+    }
+
+    function renderFacilityCarousel() {
+      returnCardsToSource();
+      const cards = getFilteredCards();
+      const pairs = buildSlidePairs(cards);
+
+      facilityTrack.innerHTML = "";
+      if (facilityDots) facilityDots.innerHTML = "";
+
+      if (!pairs.length) {
+        facilityTrack.innerHTML =
+          '<p class="facility-carousel__empty" data-i18n="fac_empty">ไม่มีภาพในหมวดนี้</p>';
+        if (window.EvermI18n) {
+          const el = facilityTrack.querySelector("[data-i18n]");
+          if (el) {
+            const key = el.getAttribute("data-i18n");
+            const text = window.EvermI18n.t(key);
+            if (text) el.textContent = text;
+          }
+        }
+        return;
+      }
+
+      pairs.forEach(function (pair, slideIndex) {
+        const slide = document.createElement("div");
+        slide.className = "facility-slide" + (pair.length === 1 ? " facility-slide--single" : "");
+        slide.setAttribute("role", "group");
+        slide.setAttribute("aria-roledescription", "slide");
+
+        pair.forEach(function (card) {
+          slide.appendChild(card);
+        });
+        facilityTrack.appendChild(slide);
+
+        if (facilityDots) {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "facility-carousel__dot" + (slideIndex === 0 ? " active" : "");
+          dot.setAttribute("role", "tab");
+          dot.setAttribute("aria-selected", slideIndex === 0 ? "true" : "false");
+          dot.setAttribute("aria-label", String(slideIndex + 1));
+          dot.addEventListener("click", function () {
+            goFacilitySlide(slideIndex);
+            startFacilityTimer();
+          });
+          facilityDots.appendChild(dot);
+        }
+      });
+
+      facilitySlideIndex = Math.min(facilitySlideIndex, pairs.length - 1);
+      goFacilitySlide(facilitySlideIndex);
+    }
+
+    facilityTabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        facilityFilter = tab.getAttribute("data-filter") || "all";
+        facilitySlideIndex = 0;
+
+        facilityTabs.forEach(function (t) {
+          t.classList.remove("active");
+          t.setAttribute("aria-selected", "false");
+        });
+        tab.classList.add("active");
+        tab.setAttribute("aria-selected", "true");
+
+        renderFacilityCarousel();
+        startFacilityTimer();
       });
     });
-  });
+
+    if (facilityPrev) {
+      facilityPrev.addEventListener("click", function () {
+        goFacilitySlide(facilitySlideIndex - 1);
+        startFacilityTimer();
+      });
+    }
+
+    if (facilityNext) {
+      facilityNext.addEventListener("click", function () {
+        goFacilitySlide(facilitySlideIndex + 1);
+        startFacilityTimer();
+      });
+    }
+
+    if (facilityCarousel) {
+      facilityCarousel.addEventListener("mouseenter", function () {
+        clearInterval(facilityTimer);
+      });
+      facilityCarousel.addEventListener("mouseleave", function () {
+        startFacilityTimer();
+      });
+      facilityCarousel.addEventListener("focusin", function () {
+        clearInterval(facilityTimer);
+      });
+      facilityCarousel.addEventListener("focusout", function () {
+        startFacilityTimer();
+      });
+    }
+
+    renderFacilityCarousel();
+    startFacilityTimer();
+  }
 
   /* Appointment form */
   if (form) {

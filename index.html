@@ -501,8 +501,41 @@
           <button type="button" class="facility-tab" data-filter="building" aria-selected="false" data-i18n="fac_building">อาคาร</button>
         </div>
 
-        <div class="facility-gallery">
-          <figure class="facility-card facility-card--wide" data-category="reception">
+        <div
+          class="facility-carousel reveal"
+          id="facility-carousel"
+          aria-roledescription="carousel"
+          data-i18n-aria="fac_carousel_aria"
+          aria-label="ภาพสถานที่คลินิก"
+        >
+          <div class="facility-carousel__viewport">
+            <div class="facility-carousel__track" id="facility-track"></div>
+          </div>
+          <div class="facility-carousel__nav">
+            <button
+              type="button"
+              class="facility-carousel__arrow facility-carousel__arrow--prev"
+              id="facility-prev"
+              data-i18n-aria="fac_prev"
+              aria-label="ภาพก่อนหน้า"
+            >
+              <span aria-hidden="true">‹</span>
+            </button>
+            <div class="facility-carousel__dots" id="facility-dots" role="tablist" data-i18n-aria="fac_dots_aria" aria-label="เลือกภาพ"></div>
+            <button
+              type="button"
+              class="facility-carousel__arrow facility-carousel__arrow--next"
+              id="facility-next"
+              data-i18n-aria="fac_next"
+              aria-label="ภาพถัดไป"
+            >
+              <span aria-hidden="true">›</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="facility-source" id="facility-source" hidden>
+          <figure class="facility-card" data-category="reception">
             <img data-i18n-alt="fac_cap1" src="images/clinic/reception-lounge.png" alt="ห้องรอและเลานจ์" loading="lazy" />
             <figcaption data-i18n="fac_cap1">ห้องรอและเลานจ์</figcaption>
           </figure>
@@ -538,11 +571,11 @@
             <img data-i18n-alt="fac_cap9" src="images/clinic/consultation-03.png" alt="ห้องปรึกษา 3" loading="lazy" />
             <figcaption data-i18n="fac_cap9">ห้องปรึกษาแพทย์</figcaption>
           </figure>
-          <figure class="facility-card facility-card--wide" data-category="treatment">
+          <figure class="facility-card" data-category="treatment">
             <img data-i18n-alt="fac_cap10" src="images/clinic/treatment-room.png" alt="ห้องทำฟันและรักษา" loading="lazy" />
             <figcaption data-i18n="fac_cap10">ห้องทำฟัน · อุปกรณ์ OSSTEM</figcaption>
           </figure>
-          <figure class="facility-card facility-card--wide" data-category="surgery">
+          <figure class="facility-card" data-category="surgery">
             <img data-i18n-alt="fac_cap11" src="images/clinic/operating-room-01.png" alt="ห้องผ่าตัด" loading="lazy" />
             <figcaption data-i18n="fac_cap11">ห้องผ่าตัดมาตรฐาน</figcaption>
           </figure>
@@ -566,7 +599,7 @@
             <img data-i18n-alt="fac_cap16" src="images/clinic/recovery-led.png" alt="ห้องบำบัด LED" loading="lazy" />
             <figcaption data-i18n="fac_cap16">ห้องบำบัดหลังผ่าตัด · LUTRONIC</figcaption>
           </figure>
-          <figure class="facility-card facility-card--tall" data-category="building">
+          <figure class="facility-card" data-category="building">
             <img data-i18n-alt="fac_cap17" src="images/clinic/building-exterior.png" alt="อาคารคลินิก" loading="lazy" />
             <figcaption data-i18n="fac_cap17">อาคารคลินิก</figcaption>
           </figure>
@@ -574,7 +607,7 @@
             <img data-i18n-alt="fac_cap18" src="images/clinic/building-alt.png" alt="มุมมองอาคารคลินิก" loading="lazy" />
             <figcaption data-i18n="fac_cap18">มุมมองอาคาร</figcaption>
           </figure>
-        </div>
+        </div><!-- /.facility-source -->
       </div>
     </section>
 

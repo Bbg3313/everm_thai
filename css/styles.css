@@ -1143,10 +1143,39 @@ ul { margin: 0; padding: 0; list-style: none; }
   color: #fff;
 }
 
-.facility-gallery {
+.facility-carousel {
+  position: relative;
+  max-width: 100%;
+}
+
+.facility-carousel__viewport {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  border: 1px solid rgba(0, 48, 128, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 32, 128, 0.08), 0 20px 48px rgba(0, 32, 128, 0.06);
+}
+
+.facility-carousel__track {
+  display: flex;
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.facility-slide {
+  flex: 0 0 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  padding: 1.25rem;
+  box-sizing: border-box;
+}
+
+.facility-slide--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: calc(50% - 0.625rem);
+  margin-inline: auto;
+  width: 100%;
 }
 
 .facility-card {
@@ -1154,45 +1183,119 @@ ul { margin: 0; padding: 0; list-style: none; }
   position: relative;
   border-radius: var(--radius);
   overflow: hidden;
-  border: 1px solid var(--color-border);
-  background: var(--color-bg);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  border: 1px solid rgba(0, 48, 128, 0.1);
+  background: #0a1628;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.facility-card.is-hidden {
-  display: none;
+.facility-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 32, 128, 0.14);
 }
 
 .facility-card img {
   width: 100%;
-  height: 200px;
+  height: clamp(220px, 26vw, 340px);
   object-fit: cover;
+  object-position: center center;
   display: block;
-  transition: transform 0.4s ease;
+  transition: transform 0.55s ease;
 }
 
 .facility-card:hover img {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .facility-card figcaption {
-  padding: 0.65rem 0.85rem;
-  font-size: 0.8rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 2.25rem 1rem 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: var(--color-text);
+  line-height: 1.4;
+  color: #fff;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 24, 64, 0.55) 45%, rgba(0, 24, 64, 0.88) 100%);
+}
+
+.facility-carousel__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1.35rem;
+}
+
+.facility-carousel__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-navy);
   background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition), transform 0.15s;
 }
 
-.facility-card--wide {
-  grid-column: span 2;
+.facility-carousel__arrow:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
 }
 
-.facility-card--wide img {
-  height: 220px;
+.facility-carousel__arrow:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
-.facility-card--tall img {
-  height: 280px;
+.facility-carousel__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  min-height: 2.75rem;
+}
+
+.facility-carousel__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 48, 128, 0.22);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition), width var(--transition);
+}
+
+.facility-carousel__dot:hover {
+  background: rgba(0, 48, 128, 0.45);
+}
+
+.facility-carousel__dot.active {
+  width: 1.5rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+}
+
+.facility-carousel__empty {
+  margin: 0;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.facility-source {
+  display: none;
 }
 
 .technology .section-label { color: var(--color-blue-light); }
@@ -1340,10 +1443,10 @@ ul { margin: 0; padding: 0; list-style: none; }
   box-shadow: 0 2px 8px rgba(0, 32, 128, 0.05), 0 16px 40px rgba(0, 32, 128, 0.08);
 }
 
-/* 상단: 사진(왼쪽) + 이름·핵심약력(오른쪽) */
+/* 상단: 사진(넓게) + 소개(내용만큼만 좁게) */
 .doctor-profile__intro {
   display: grid;
-  grid-template-columns: minmax(220px, 34%) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(220px, max-content);
   align-items: stretch;
   min-width: 0;
   background: var(--color-surface);
@@ -1356,6 +1459,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   justify-content: center;
   margin: 0;
   padding: 0;
+  min-width: 0;
   background: #eef1f6;
   border-right: 1px solid rgba(0, 48, 128, 0.08);
   overflow: hidden;
@@ -1364,17 +1468,21 @@ ul { margin: 0; padding: 0; list-style: none; }
 .doctor-profile__photo img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
   object-fit: contain;
   object-position: center bottom;
 }
 
 .doctor-profile__summary {
-  padding: 1.5rem 1.75rem 1.75rem;
+  padding: 1.35rem 1.4rem 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 0;
+  width: max-content;
+  max-width: min(100%, 24rem);
+  min-width: min(100%, 13.5rem);
+  box-sizing: border-box;
 }
 
 /* 하단 전체: 학력·경력·학회 상세 */
@@ -1441,11 +1549,13 @@ ul { margin: 0; padding: 0; list-style: none; }
   position: relative;
   margin: 0;
   padding: 0.55rem 0 0.55rem 1rem;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.45;
   color: var(--color-navy);
   border-left: 2px solid var(--doctor-accent);
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .doctor-highlights li::before {
@@ -1496,8 +1606,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .doctor-cta {
   margin-top: auto;
-  align-self: flex-start;
-  max-width: 280px;
+  align-self: stretch;
+  width: 100%;
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
 }
 
 .doctor-bio {
@@ -2526,14 +2639,6 @@ ul { margin: 0; padding: 0; list-style: none; }
     grid-template-columns: 5.5rem 1fr;
   }
 
-  .facility-gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .facility-card--wide {
-    grid-column: span 2;
-  }
-
   .footer-top {
     grid-template-columns: 1fr;
   }
@@ -2640,9 +2745,22 @@ ul { margin: 0; padding: 0; list-style: none; }
   .service-grid,
   .process-steps,
   .team-grid,
-  .cases-grid,
-  .facility-gallery {
+  .cases-grid {
     grid-template-columns: 1fr;
+  }
+
+  .facility-slide {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .facility-slide--single {
+    max-width: 100%;
+  }
+
+  .facility-card img {
+    height: clamp(200px, 52vw, 280px);
   }
 
   .contact-grid {
@@ -2698,16 +2816,15 @@ ul { margin: 0; padding: 0; list-style: none; }
   }
 
   .doctor-profile__summary {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
     padding: 1.5rem 1.25rem 1.75rem;
   }
 
   .doctor-cta {
     max-width: none;
     width: 100%;
-  }
-
-  .facility-card--wide {
-    grid-column: span 1;
   }
 
   .hero-stats {
