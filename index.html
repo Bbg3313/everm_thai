@@ -219,14 +219,20 @@
       <div class="container">
         <header class="partner-care__header section-head center">
           <div class="partner-care__brand">
-            <img
-              src="images/logo-bluebridge.png"
-              alt="BlueBridge Global"
-              class="partner-care__logo"
-              width="200"
-              height="88"
-              decoding="async"
-            />
+            <div
+              class="partner-care__flags"
+              data-i18n-aria="bbg_flags_aria"
+              aria-label="Korea and Thailand medical partnership"
+              role="img"
+            >
+              <span class="partner-care__flag partner-care__flag--kr">
+                <img src="images/flags/kr.svg" alt="" width="72" height="48" decoding="async" />
+              </span>
+              <span class="partner-care__flag-link" aria-hidden="true">×</span>
+              <span class="partner-care__flag partner-care__flag--th">
+                <img src="images/flags/th.svg" alt="" width="72" height="48" decoding="async" />
+              </span>
+            </div>
             <p class="partner-care__badge" data-i18n="bbg_badge">VIP Patient Concierge</p>
           </div>
           <p class="section-label" data-i18n="bbg_label">BlueBridge Global</p>
@@ -907,6 +913,7 @@
               preload="metadata"
               width="1280"
               height="720"
+              data-poster-time="645"
               data-i18n-aria="patient_video_aria"
               aria-label="Patient review video"
             >
@@ -956,14 +963,19 @@
 
         <div class="faq-panel">
           <div class="accordion" id="faq-accordion" role="region" data-i18n-aria="faq_aria" aria-label="คำถามที่พบบ่อย">
-            <details class="accordion-item" open>
+            <details class="accordion-item">
               <summary>
                 <span class="faq-q-num" aria-hidden="true">01</span>
                 <span class="faq-q-text" data-i18n="faq1_q">ใครเหมาะกับศัลยกรรมโครงหน้า?</span>
                 <span class="faq-q-toggle" aria-hidden="true"></span>
               </summary>
               <div class="accordion-body">
-                <p data-i18n="faq1_a">ผู้ที่มีปัญหาคางยื่น/สั้น กรามใหญ่ สบฟันผิดปกติ หรือใบหน้าไม่สมดุลจากโครงกระดูก และผ่านการประเมินสุขภาพจากแพทย์แล้ว</p>
+                <div class="accordion-answer">
+                  <span class="accordion-answer__mark" data-i18n="faq_a_mark" aria-hidden="true">A</span>
+                  <div class="accordion-answer__content">
+                    <p data-i18n="faq1_a">ผู้ที่มีปัญหาคางยื่น/สั้น กรามใหญ่ สบฟันผิดปกติ หรือใบหน้าไม่สมดุลจากโครงกระดูก และผ่านการประเมินสุขภาพจากแพทย์แล้ว</p>
+                  </div>
+                </div>
               </div>
             </details>
             <details class="accordion-item">
@@ -973,7 +985,12 @@
                 <span class="faq-q-toggle" aria-hidden="true"></span>
               </summary>
               <div class="accordion-body">
-                <p data-i18n="faq2_a">ขึ้นอยู่กับขอบเขตการผ่าตัด โดยทั่วไปบวมชัด 1–2 สัปดาห์แรก และค่อยๆ ดีขึ้นใน 4–8 สัปดาห์ ทีมแพทย์จะให้แนวทางเฉพาะบุคคล</p>
+                <div class="accordion-answer">
+                  <span class="accordion-answer__mark" data-i18n="faq_a_mark" aria-hidden="true">A</span>
+                  <div class="accordion-answer__content">
+                    <p data-i18n="faq2_a">ขึ้นอยู่กับขอบเขตการผ่าตัด โดยทั่วไปบวมชัด 1–2 สัปดาห์แรก และค่อยๆ ดีขึ้นใน 4–8 สัปดาห์ ทีมแพทย์จะให้แนวทางเฉพาะบุคคล</p>
+                  </div>
+                </div>
               </div>
             </details>
             <details class="accordion-item">
@@ -983,7 +1000,12 @@
                 <span class="faq-q-toggle" aria-hidden="true"></span>
               </summary>
               <div class="accordion-body">
-                <p data-i18n="faq3_a">เคสที่เกี่ยวกับการสบฟันมักต้องจัดฟันก่อนและ/หลังผ่าตัด ส่วนเคสตัดกรามหรือโหนกแก้มอย่างเดียวอาจไม่จำเป็น ขึ้นกับการวินิจฉัย</p>
+                <div class="accordion-answer">
+                  <span class="accordion-answer__mark" data-i18n="faq_a_mark" aria-hidden="true">A</span>
+                  <div class="accordion-answer__content">
+                    <p data-i18n="faq3_a">เคสที่เกี่ยวกับการสบฟันมักต้องจัดฟันก่อนและ/หลังผ่าตัด ส่วนเคสตัดกรามหรือโหนกแก้มอย่างเดียวอาจไม่จำเป็น ขึ้นกับการวินิจฉัย</p>
+                  </div>
+                </div>
               </div>
             </details>
             <details class="accordion-item">
@@ -993,7 +1015,12 @@
                 <span class="faq-q-toggle" aria-hidden="true"></span>
               </summary>
               <div class="accordion-body">
-                <p data-i18n="faq4_a">มีทีมงานสื่อสารภาษาเกาหลี อังกฤษ และไทย ช่วยนัดหมาย เอกสาร และคำแนะนำหลังผ่าตัด</p>
+                <div class="accordion-answer">
+                  <span class="accordion-answer__mark" data-i18n="faq_a_mark" aria-hidden="true">A</span>
+                  <div class="accordion-answer__content">
+                    <p data-i18n="faq4_a">มีทีมงานสื่อสารภาษาเกาหลี อังกฤษ และไทย ช่วยนัดหมาย เอกสาร และคำแนะนำหลังผ่าตัด</p>
+                  </div>
+                </div>
               </div>
             </details>
             <details class="accordion-item">
@@ -1003,7 +1030,12 @@
                 <span class="faq-q-toggle" aria-hidden="true"></span>
               </summary>
               <div class="accordion-body">
-                <p data-i18n-html="faq5_a">กรอกแบบฟอร์มด้านล่าง โทร <a href="tel:+8225408275">02-540-8275</a> หรือ Line — เจ้าหน้าที่จะติดต่อกลับภายใน 24 ชม.</p>
+                <div class="accordion-answer">
+                  <span class="accordion-answer__mark" data-i18n="faq_a_mark" aria-hidden="true">A</span>
+                  <div class="accordion-answer__content">
+                    <p data-i18n-html="faq5_a">กรอกแบบฟอร์มด้านล่าง โทร <a href="tel:+8225408275">02-540-8275</a> หรือ Line — เจ้าหน้าที่จะติดต่อกลับภายใน 24 ชม.</p>
+                  </div>
+                </div>
               </div>
             </details>
           </div>

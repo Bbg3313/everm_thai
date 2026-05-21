@@ -420,6 +420,47 @@
     startFacilityTimer();
   }
 
+  /* Video thumbnail at fixed timestamp (e.g. patient review at 10:45) */
+  document.querySelectorAll("video[data-poster-time]").forEach(function (video) {
+    var targetTime = parseFloat(video.getAttribute("data-poster-time"));
+    if (!isFinite(targetTime) || targetTime < 0) return;
+
+    var posterApplied = false;
+
+    function markPosterReady() {
+      video.classList.add("is-poster-ready");
+    }
+
+    function applyPosterFrame() {
+      if (posterApplied || video.readyState < 1) return;
+      var duration = video.duration;
+      if (!isFinite(duration) || duration <= 0) return;
+
+      var seekTo = Math.min(targetTime, Math.max(0, duration - 0.25));
+      posterApplied = true;
+      video.pause();
+
+      function onSeeked() {
+        if (Math.abs(video.currentTime - seekTo) < 1) {
+          markPosterReady();
+          video.removeEventListener("seeked", onSeeked);
+        }
+      }
+
+      video.addEventListener("seeked", onSeeked);
+      video.currentTime = seekTo;
+    }
+
+    video.addEventListener("loadedmetadata", applyPosterFrame);
+    if (video.readyState >= 1) applyPosterFrame();
+
+    setTimeout(function () {
+      if (!video.classList.contains("is-poster-ready")) {
+        markPosterReady();
+      }
+    }, 8000);
+  });
+
   /* Appointment form */
   if (form) {
     form.addEventListener("submit", function (e) {
