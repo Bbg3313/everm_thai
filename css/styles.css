@@ -3079,6 +3079,23 @@ body.lang-ko .accordion-answer__content p {
   font-weight: 500;
 }
 
+.form-error {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(180, 40, 40, 0.08);
+  color: #a82828;
+  border: 1px solid rgba(180, 40, 40, 0.2);
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.contact-form button[type="submit"]:disabled {
+  opacity: 0.72;
+  cursor: wait;
+}
+
 /* Footer */
 .site-footer {
   background: var(--color-navy);

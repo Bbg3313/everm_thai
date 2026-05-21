@@ -1240,6 +1240,14 @@
 
           <div class="contact-form-wrap">
             <form class="contact-form" id="appointment-form" novalidate>
+              <input
+                type="text"
+                name="website"
+                class="visually-hidden"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+              />
               <h3 class="contact-form-title" data-i18n="form_title_hidden">แบบฟอร์มนัดหมาย</h3>
               <div class="form-row">
                 <label for="name" data-i18n="form_name">ชื่อ-นามสกุล *</label>
@@ -1253,14 +1261,14 @@
                 <label for="service" data-i18n="form_service">บริการที่สนใจ *</label>
                 <select id="service" name="service" required>
                   <option value="" data-i18n="form_service_ph">เลือกบริการ</option>
-                  <option data-i18n="form_opt0">ปรึกษาศัลยกรรมโครงหน้า (ทั่วไป)</option>
-                  <option data-i18n="form_opt1">ผ่าตัดเลื่อนขากรรไกร</option>
-                  <option data-i18n="form_opt2">ศัลยกรรมโครงหน้า</option>
-                  <option data-i18n="form_opt3">แก้ปากยื่น</option>
-                  <option data-i18n="form_opt4">ฟื้นฟูโครงกระดูกใบหน้า</option>
-                  <option data-i18n="form_opt5">จัดฟัน</option>
-                  <option data-i18n="form_opt6">รากเทียม</option>
-                  <option data-i18n="form_opt7">ผู้ป่วยต่างชาติ (International)</option>
+                  <option value="consult-general" data-i18n="form_opt0">ปรึกษาศัลยกรรมโครงหน้า (ทั่วไป)</option>
+                  <option value="orthognathic" data-i18n="form_opt1">ผ่าตัดเลื่อนขากรรไกร</option>
+                  <option value="facial-contour" data-i18n="form_opt2">ศัลยกรรมโครงหน้า</option>
+                  <option value="protruding-mouth" data-i18n="form_opt3">แก้ปากยื่น</option>
+                  <option value="bone-reconstruction" data-i18n="form_opt4">ฟื้นฟูโครงกระดูกใบหน้า</option>
+                  <option value="orthodontics" data-i18n="form_opt5">จัดฟัน</option>
+                  <option value="implant" data-i18n="form_opt6">รากเทียม</option>
+                  <option value="international" data-i18n="form_opt7">ผู้ป่วยต่างชาติ (International)</option>
                 </select>
               </div>
               <div class="form-row two-col">
@@ -1278,7 +1286,8 @@
                 <textarea id="message" name="message" data-i18n-placeholder="form_message_ph" rows="3" placeholder="เล่าความกังวลหรือเคสที่เคยปรึกษามา"></textarea>
               </div>
               <p class="form-note" data-i18n="form_note">* เจ้าหน้าที่จะติดต่อกลับเพื่อยืนยันนัดหมาย — ข้อมูลของคุณเป็นความลับ</p>
-              <button type="submit" class="btn btn-primary btn-block" data-i18n="form_submit">ส่งคำขอนัดปรึกษา</button>
+              <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn" data-i18n="form_submit">ส่งคำขอนัดปรึกษา</button>
+              <p class="form-error" id="form-error" data-i18n="form_error" hidden role="alert">ส่งไม่สำเร็จ กรุณาลองอีกครั้งหรือโทร 02-540-8275</p>
               <p class="form-success" id="form-success" data-i18n="form_success" hidden role="status">ขอบคุณค่ะ/ครับ เราได้รับข้อมูลแล้ว จะติดต่อกลับโดยเร็วที่สุด</p>
             </form>
           </div>

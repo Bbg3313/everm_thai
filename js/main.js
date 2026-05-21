@@ -474,23 +474,85 @@
     }, 8000);
   });
 
-  /* Appointment form */
+  /* Appointment form — POST to /api/inquiry (email via Resend) */
+  const formError = document.getElementById("form-error");
+  const formSubmitBtn = document.getElementById("form-submit-btn");
+
+  function getSelectedServiceLabel() {
+    const select = form && form.querySelector("#service, [name='service']");
+    if (!select || select.selectedIndex < 0) return "";
+    const option = select.options[select.selectedIndex];
+    return (option && option.textContent.trim()) || option.value || "";
+  }
+
+  function setFormMessage(type) {
+    if (formSuccess) formSuccess.hidden = type !== "success";
+    if (formError) formError.hidden = type !== "error";
+  }
+
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      setFormMessage(null);
 
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
 
-      form.reset();
-      if (formSuccess) {
-        formSuccess.hidden = false;
-        setTimeout(function () {
-          formSuccess.hidden = true;
-        }, 6000);
+      const payload = {
+        name: (form.querySelector("#name") || {}).value || "",
+        phone: (form.querySelector("#phone") || {}).value || "",
+        service: getSelectedServiceLabel(),
+        date: (form.querySelector("#date") || {}).value || "",
+        time: (form.querySelector("#time") || {}).value || "",
+        message: (form.querySelector("#message") || {}).value || "",
+        website: (form.querySelector("[name='website']") || {}).value || "",
+        lang: document.documentElement.lang || "",
+      };
+
+      var submitBtnLabel = "";
+      if (formSubmitBtn) {
+        submitBtnLabel = formSubmitBtn.textContent;
+        formSubmitBtn.disabled = true;
+        formSubmitBtn.setAttribute("aria-busy", "true");
+        if (window.EvermI18n && typeof window.EvermI18n.t === "function") {
+          var sendingLabel = window.EvermI18n.t("form_sending");
+          if (sendingLabel) formSubmitBtn.textContent = sendingLabel;
+        }
       }
+
+      fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+        .then(function (res) {
+          return res.json().then(function (data) {
+            return { ok: res.ok && data && data.ok, data: data, status: res.status };
+          });
+        })
+        .then(function (result) {
+          if (result.ok) {
+            form.reset();
+            setFormMessage("success");
+            setTimeout(function () {
+              if (formSuccess) formSuccess.hidden = true;
+            }, 8000);
+            return;
+          }
+          setFormMessage("error");
+        })
+        .catch(function () {
+          setFormMessage("error");
+        })
+        .finally(function () {
+          if (formSubmitBtn) {
+            formSubmitBtn.disabled = false;
+            formSubmitBtn.removeAttribute("aria-busy");
+            if (submitBtnLabel) formSubmitBtn.textContent = submitBtnLabel;
+          }
+        });
     });
   }
 
