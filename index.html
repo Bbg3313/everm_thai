@@ -115,9 +115,42 @@
             <a class="btn btn-ghost" href="#services" data-i18n="hero_cta_secondary">ดูบริการของเรา</a>
           </div>
           <ul class="hero-stats" data-i18n-aria="hero_stats_aria" aria-label="จุดเด่นของคลินิก">
-            <li data-i18n="hero_stat1">ประสบการณ์ศัลยกรรมช่องปาก 15+ ปี</li>
-            <li data-i18n="hero_stat2">วางแผน 3D ก่อนผ่าตัด</li>
-            <li data-i18n="hero_stat3">ดูแลหลังผ่าตัด</li>
+            <li class="hero-stat">
+              <span class="hero-stat__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.8 7.2 17l.9-5.4L4.2 7.7l5.4-.8L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  <path d="M8 20h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <div class="hero-stat__body">
+                <p class="hero-stat__value" data-i18n="hero_stat1_value">15+</p>
+                <p class="hero-stat__label" data-i18n="hero_stat1_label">ประสบการณ์ศัลยกรรมช่องปาก</p>
+              </div>
+            </li>
+            <li class="hero-stat">
+              <span class="hero-stat__icon hero-stat__icon--tech" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 3L4 8v8l8 5 8-5V8l-8-5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  <path d="M12 12l8-4M12 12v9M12 12L4 8" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div class="hero-stat__body">
+                <p class="hero-stat__value" data-i18n="hero_stat2_value">3D</p>
+                <p class="hero-stat__label" data-i18n="hero_stat2_label">วางแผนก่อนผ่าตัด</p>
+              </div>
+            </li>
+            <li class="hero-stat">
+              <span class="hero-stat__icon hero-stat__icon--care" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.4-7 10-7 10z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  <path d="M9.5 11.5l2 2 3.5-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div class="hero-stat__body">
+                <p class="hero-stat__value" data-i18n="hero_stat3_value">1:1</p>
+                <p class="hero-stat__label" data-i18n="hero_stat3_label">ดูแลหลังผ่าตัด</p>
+              </div>
+            </li>
           </ul>
         </div>
         <figure class="hero-visual">
@@ -226,11 +259,11 @@
               role="img"
             >
               <span class="partner-care__flag partner-care__flag--kr">
-                <img src="images/flags/kr.svg" alt="" width="72" height="48" decoding="async" />
+                <img src="images/flags/kr.svg" alt="" width="120" height="80" decoding="async" fetchpriority="high" />
               </span>
               <span class="partner-care__flag-link" aria-hidden="true">×</span>
               <span class="partner-care__flag partner-care__flag--th">
-                <img src="images/flags/th.svg" alt="" width="72" height="48" decoding="async" />
+                <img src="images/flags/th.svg" alt="" width="120" height="80" decoding="async" fetchpriority="high" />
               </span>
             </div>
             <p class="partner-care__badge" data-i18n="bbg_badge">VIP Patient Concierge</p>
@@ -854,6 +887,7 @@
               preload="metadata"
               width="1920"
               height="1080"
+              data-poster-time="203"
               data-i18n-aria="director_video_aria"
               aria-label="Director introduction video"
             >

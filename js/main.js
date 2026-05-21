@@ -228,7 +228,7 @@
 
   /* Scroll reveal */
   const revealEls = document.querySelectorAll(
-    ".section-head, .partner-care__card, .partner-care__steps li, .treatment-card, .featured-video, .process-steps li, .doctor-profile, .case-card, .facility-carousel, .tech-list li, .about-panel, .hero-visual, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
+    ".section-head, .partner-care__card, .partner-care__steps li, .treatment-card, .featured-video, .process-steps li, .doctor-profile, .case-card, .facility-carousel, .tech-list li, .about-panel, .hero-visual, .hero-stat, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
   );
 
   revealEls.forEach(function (el) {
@@ -420,24 +420,25 @@
     startFacilityTimer();
   }
 
-  /* Video thumbnail at fixed timestamp (e.g. patient review at 10:45) */
+  /* Video thumbnail at fixed timestamp; playback always starts at 0 */
   document.querySelectorAll("video[data-poster-time]").forEach(function (video) {
-    var targetTime = parseFloat(video.getAttribute("data-poster-time"));
-    if (!isFinite(targetTime) || targetTime < 0) return;
+    var posterTime = parseFloat(video.getAttribute("data-poster-time"));
+    if (!isFinite(posterTime) || posterTime < 0) return;
 
-    var posterApplied = false;
+    var posterFrameSet = false;
+    var playbackStarted = false;
 
     function markPosterReady() {
       video.classList.add("is-poster-ready");
     }
 
     function applyPosterFrame() {
-      if (posterApplied || video.readyState < 1) return;
+      if (posterFrameSet || playbackStarted || video.readyState < 1) return;
       var duration = video.duration;
       if (!isFinite(duration) || duration <= 0) return;
 
-      var seekTo = Math.min(targetTime, Math.max(0, duration - 0.25));
-      posterApplied = true;
+      var seekTo = Math.min(posterTime, Math.max(0, duration - 0.25));
+      posterFrameSet = true;
       video.pause();
 
       function onSeeked() {
@@ -450,6 +451,18 @@
       video.addEventListener("seeked", onSeeked);
       video.currentTime = seekTo;
     }
+
+    video.addEventListener("play", function () {
+      if (playbackStarted) return;
+      playbackStarted = true;
+      posterFrameSet = true;
+
+      if (video.currentTime < 0.05) return;
+
+      video.pause();
+      video.currentTime = 0;
+      video.play();
+    });
 
     video.addEventListener("loadedmetadata", applyPosterFrame);
     if (video.readyState >= 1) applyPosterFrame();
