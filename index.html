@@ -402,7 +402,15 @@
           <p class="section-desc" data-i18n="services_desc">ครอบคลุมตั้งแต่การปรึกษา วางแผน 3D ไปจนถึงการผ่าตัดและติดตามผล</p>
         </div>
 
-        <div class="treatments-grid">
+        <div
+          class="treatments-carousel"
+          id="treatments-carousel"
+          aria-roledescription="carousel"
+          data-i18n-aria="treatments_carousel_aria"
+          aria-label="주요 진료"
+        >
+          <div class="treatments-carousel__viewport" id="treatments-viewport" tabindex="0">
+            <div class="treatments-grid" id="treatments-track">
           <article class="treatment-card treatment-card--featured reveal">
             <div class="treatment-card__visual">
               <img
@@ -559,6 +567,17 @@
               <a href="#contact" class="btn btn-outline treatment-card__cta" data-i18n="svc_link">สอบถามรายละเอียด</a>
             </div>
           </article>
+            </div>
+          </div>
+          <div class="treatments-carousel__nav" id="treatments-nav" hidden>
+            <div
+              class="treatments-carousel__dots"
+              id="treatments-dots"
+              role="tablist"
+              data-i18n-aria="treatments_dots_aria"
+              aria-label="진료 카드 선택"
+            ></div>
+          </div>
         </div>
       </div>
     </section>
@@ -582,22 +601,26 @@
           aria-live="polite"
         >
           <div class="tech-slide active">
-            <img src="images/clinic/3d-planning.png" alt="การวางแผนการรักษาด้วยเทคโนโลยี 3D" data-i18n-alt="tech_slide1_alt" width="520" height="360" loading="lazy" />
+            <img src="images/clinic/technology/tech-01-operating-room.png" alt="수술실 및 마취 장비" data-i18n-alt="tech_slide1_alt" width="1200" height="800" loading="lazy" decoding="async" />
           </div>
           <div class="tech-slide">
-            <img src="images/clinic/treatment-room.png" alt="ห้องทำฟันและรักษา" data-i18n-alt="tech_slide2_alt" width="520" height="360" loading="lazy" />
+            <img src="images/clinic/technology/tech-02-cbct.png" alt="Green CT CBCT" data-i18n-alt="tech_slide2_alt" width="1200" height="800" loading="lazy" decoding="async" />
           </div>
           <div class="tech-slide">
-            <img src="images/clinic/operating-room-01.png" alt="ห้องผ่าตัด" data-i18n-alt="tech_slide3_alt" width="520" height="360" loading="lazy" />
+            <img src="images/clinic/technology/tech-03-operating-room.png" alt="수술실" data-i18n-alt="tech_slide3_alt" width="1200" height="800" loading="lazy" decoding="async" />
           </div>
           <div class="tech-slide">
-            <img src="images/clinic/consultation-01.png" alt="ห้องปรึกษา" data-i18n-alt="tech_slide4_alt" width="520" height="360" loading="lazy" />
+            <img src="images/clinic/technology/tech-04-treatment-room.png" alt="OSSTEM 디지털 진료실" data-i18n-alt="tech_slide4_alt" width="1200" height="800" loading="lazy" decoding="async" />
+          </div>
+          <div class="tech-slide">
+            <img src="images/clinic/technology/tech-05-monitor.png" alt="환자 모니터링 시스템" data-i18n-alt="tech_slide5_alt" width="1200" height="800" loading="lazy" decoding="async" />
           </div>
           <div class="tech-slider-dots" role="tablist" data-i18n-aria="tech_dots_aria" aria-label="เลือกภาพ">
             <button type="button" class="active" aria-selected="true" data-i18n-aria="tech_dot1" aria-label="ภาพ 1"></button>
             <button type="button" aria-selected="false" data-i18n-aria="tech_dot2" aria-label="ภาพ 2"></button>
             <button type="button" aria-selected="false" data-i18n-aria="tech_dot3" aria-label="ภาพ 3"></button>
             <button type="button" aria-selected="false" data-i18n-aria="tech_dot4" aria-label="ภาพ 4"></button>
+            <button type="button" aria-selected="false" data-i18n-aria="tech_dot5" aria-label="ภาพ 5"></button>
           </div>
         </div>
         <ul class="tech-list">
@@ -761,23 +784,28 @@
             <h3 data-i18n="step1_title">ปรึกษาและประเมิน</h3>
             <p data-i18n="step1_desc">พูดคุยความต้องการ ตรวจช่องปาก ถ่ายภาพ และสแกน 3D ตามความจำเป็น</p>
           </li>
-          <li>
+          <li class="process-step--bbg">
             <span class="step-num">2</span>
+            <h3 data-i18n="step_bbg_title">BlueBridge Global VIP Concierge</h3>
+            <p data-i18n="step_bbg_desc">ทีมคอนเซียร์จดูแลการเดินทาง ล่ามเวช ที่พัก และการประสานงานจากไทยสู่ EVERM แบบ 1:1</p>
+          </li>
+          <li>
+            <span class="step-num">3</span>
             <h3 data-i18n="step2_title">วางแผนร่วมทีมแพทย์</h3>
             <p data-i18n="step2_desc">ศัลยแพทย์ช่องปาก ทันตแพทย์จัดฟัน และทีมเวชระเบียนร่วมออกแบบแผน</p>
           </li>
           <li>
-            <span class="step-num">3</span>
+            <span class="step-num">4</span>
             <h3 data-i18n="step3_title">จำลองผลลัพธ์ 3D</h3>
             <p data-i18n="step3_desc">อธิบายขั้นตอน ความเสี่ยง ระยะเวลาพักฟื้น และค่าใช้จ่ายอย่างโปร่งใส</p>
           </li>
           <li>
-            <span class="step-num">4</span>
+            <span class="step-num">5</span>
             <h3 data-i18n="step4_title">ผ่าตัดในห้องมาตรฐาน</h3>
             <p data-i18n="step4_desc">ดำเนินการภายใต้วิสัญญีและทีมพยาบาลเฉพาะทาง</p>
           </li>
           <li>
-            <span class="step-num">5</span>
+            <span class="step-num">6</span>
             <h3 data-i18n="step5_title">ติดตามหลังผ่าตัด</h3>
             <p data-i18n="step5_desc">นัดตรวจติดตามอาการบวม การสบฟัน และการดูแลที่บ้านอย่างต่อเนื่อง</p>
           </li>
@@ -1135,7 +1163,7 @@
                 </li>
                 <li>
                   <strong data-i18n="contact_hours_label">เวลาทำการ</strong>
-                  <span data-i18n="contact_hours">จันทร์ – อาทิตย์ 10:00 – 19:00</span>
+                  <span data-i18n-html="contact_hours">จันทร์–ศุกร์ 10:00–19:00 น.<br />เสาร์ 10:00–16:00 น.<br />ปิดวันอาทิตย์และวันหยุดนักขัตฤกษ์</span>
                 </li>
               </ul>
               <div
@@ -1311,6 +1339,10 @@
             <dt data-i18n="footer_tel_label">โทรศัพท์ติดต่อ</dt>
             <dd><a href="tel:+8225408275">+82 2-540-8275</a></dd>
           </div>
+          <div>
+            <dt data-i18n="contact_hours_label">เวลาทำการ</dt>
+            <dd data-i18n-html="contact_hours">จันทร์–ศุกร์ 10:00–19:00 น.<br />เสาร์ 10:00–16:00 น.<br />ปิดวันอาทิตย์และวันหยุดนักขัตฤกษ์</dd>
+          </div>
         </dl>
       </div>
     </div>
@@ -1318,7 +1350,7 @@
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
         <p data-i18n="footer_copy">© 2026 EverM Dental Clinic สงวนลิขสิทธิ์</p>
-        <p><a href="#" data-i18n="footer_privacy">นโยบายความเป็นส่วนตัว</a></p>
+        <p class="legal-footer-links"><a href="privacy.html" data-i18n="footer_privacy">นโยบายความเป็นส่วนตัว</a><span aria-hidden="true"> · </span><a href="terms.html" data-i18n="footer_terms">ข้อกำหนดการใช้งาน</a></p>
       </div>
     </div>
   </footer>

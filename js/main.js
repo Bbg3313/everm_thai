@@ -126,7 +126,7 @@
   const heroDots = document.querySelectorAll(".hero-slider-dots button");
   const heroCaptions = document.querySelectorAll(".hero-photo-caption");
   const heroProgressBar = document.getElementById("hero-progress-bar");
-  const heroIntervalMs = 6000;
+  const heroIntervalMs = 4000;
   let heroIndex = 0;
   let heroTimer;
 
@@ -195,7 +195,7 @@
     clearInterval(techTimer);
     techTimer = setInterval(function () {
       showTechSlide(techIndex + 1);
-    }, 5000);
+    }, 2000);
   }
 
   techDots.forEach(function (dot, i) {
@@ -492,6 +492,97 @@
         }, 6000);
       }
     });
+  }
+
+  /* Treatments carousel — horizontal swipe on mobile only */
+  const treatmentsViewport = document.getElementById("treatments-viewport");
+  const treatmentsTrack = document.getElementById("treatments-track");
+  const treatmentsDots = document.getElementById("treatments-dots");
+  const treatmentsNav = document.getElementById("treatments-nav");
+  const treatmentsMql = window.matchMedia("(max-width: 768px)");
+
+  if (treatmentsViewport && treatmentsTrack && treatmentsDots) {
+    let treatmentsScrollTimer;
+
+    function getTreatmentCards() {
+      return Array.from(treatmentsTrack.querySelectorAll(".treatment-card"));
+    }
+
+    function getActiveTreatmentIndex() {
+      const cards = getTreatmentCards();
+      if (!cards.length) return 0;
+      const center = treatmentsViewport.scrollLeft + treatmentsViewport.clientWidth / 2;
+      let active = 0;
+      cards.forEach(function (card, i) {
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        if (cardCenter <= center + 1) active = i;
+      });
+      return active;
+    }
+
+    function updateTreatmentDots() {
+      const active = getActiveTreatmentIndex();
+      treatmentsDots.querySelectorAll(".treatments-carousel__dot").forEach(function (dot, i) {
+        const isActive = i === active;
+        dot.classList.toggle("active", isActive);
+        dot.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+    }
+
+    function scrollToTreatment(index) {
+      const card = getTreatmentCards()[index];
+      if (!card) return;
+      const offset = card.offsetLeft - (treatmentsViewport.clientWidth - card.offsetWidth) / 2;
+      treatmentsViewport.scrollTo({ left: Math.max(0, offset), behavior: "smooth" });
+    }
+
+    function buildTreatmentDots() {
+      const cards = getTreatmentCards();
+      treatmentsDots.innerHTML = "";
+      cards.forEach(function (_, i) {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "treatments-carousel__dot" + (i === 0 ? " active" : "");
+        dot.setAttribute("role", "tab");
+        dot.setAttribute("aria-label", String(i + 1));
+        dot.setAttribute("aria-selected", i === 0 ? "true" : "false");
+        dot.addEventListener("click", function () {
+          scrollToTreatment(i);
+        });
+        treatmentsDots.appendChild(dot);
+      });
+    }
+
+    function syncTreatmentsCarousel() {
+      if (treatmentsMql.matches) {
+        if (treatmentsNav) treatmentsNav.hidden = false;
+        if (!treatmentsDots.children.length) buildTreatmentDots();
+        updateTreatmentDots();
+      } else {
+        if (treatmentsNav) treatmentsNav.hidden = true;
+        treatmentsViewport.scrollLeft = 0;
+        treatmentsDots.innerHTML = "";
+      }
+    }
+
+    treatmentsViewport.addEventListener(
+      "scroll",
+      function () {
+        if (!treatmentsMql.matches) return;
+        clearTimeout(treatmentsScrollTimer);
+        treatmentsScrollTimer = setTimeout(updateTreatmentDots, 60);
+      },
+      { passive: true }
+    );
+
+    if (typeof treatmentsMql.addEventListener === "function") {
+      treatmentsMql.addEventListener("change", syncTreatmentsCarousel);
+    } else {
+      treatmentsMql.addListener(syncTreatmentsCarousel);
+    }
+
+    window.addEventListener("resize", syncTreatmentsCarousel);
+    syncTreatmentsCarousel();
   }
 
   /* Smooth offset for fixed header */
