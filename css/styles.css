@@ -69,7 +69,6 @@ body.lang-en {
 .site-header,
 .site-nav,
 .site-nav a,
-.nav-cta,
 .header-lang,
 .lang-dropdown,
 .lang-dropdown-toggle,
@@ -357,11 +356,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   outline-offset: -2px;
 }
 
-.site-nav a.nav-cta,
-.site-nav a.nav-cta:hover {
-  color: #fff;
-}
-
 .logo {
   display: flex;
   align-items: center;
@@ -439,7 +433,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.5rem;
   margin-left: auto;
   flex: 1;
   min-width: 0;
@@ -449,7 +443,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: flex;
   flex: 1;
   justify-content: flex-end;
-  gap: 1.5rem;
+  gap: clamp(1rem, 1.8vw, 1.85rem);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -459,14 +453,15 @@ ul { margin: 0; padding: 0; list-style: none; }
   flex-shrink: 0;
 }
 
-/* Desktop: logo | nav links | language | CTA */
+/* Desktop: logo | nav links | language */
 @media (min-width: 769px) {
   .header-inner {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto auto;
-    grid-template-areas: "logo nav lang cta";
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: "logo nav lang";
     align-items: center;
-    column-gap: 1.25rem;
+    column-gap: clamp(1.25rem, 2.2vw, 2.25rem);
+    width: min(1200px, 94vw);
   }
 
   .logo {
@@ -483,29 +478,25 @@ ul { margin: 0; padding: 0; list-style: none; }
     grid-area: nav;
     display: flex;
     flex: none;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    gap: clamp(0.65rem, 1.1vw, 1.35rem);
+    gap: clamp(0.9rem, 1.35vw, 1.65rem);
     min-width: 0;
     margin: 0;
-    padding: 0;
+    padding: 0 0.25rem;
   }
 
   .site-nav > ul a {
     white-space: nowrap;
-    font-size: clamp(0.8rem, 0.82vw, 0.9rem);
+    font-size: clamp(0.84rem, 0.88vw, 0.94rem);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 0.35rem 0.1rem;
   }
 
   .header-lang {
     grid-area: lang;
-    justify-self: center;
-  }
-
-  .site-nav > .nav-cta {
-    grid-area: cta;
     justify-self: end;
-    flex-shrink: 0;
-    white-space: nowrap;
   }
 
   .nav-toggle {
@@ -1725,10 +1716,11 @@ body.nav-open {
 }
 
 .treatment-card__desc {
-  font-size: 0.92rem;
-  line-height: 1.65;
+  font-size: clamp(0.98rem, 1.6vw, 1.06rem);
+  line-height: 1.7;
   color: var(--color-text-muted);
-  margin: 0 0 1.1rem;
+  margin: 0 0 1.15rem;
+  overflow-wrap: break-word;
 }
 
 .treatment-card__points {
@@ -1737,26 +1729,27 @@ body.nav-open {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 0.55rem;
 }
 
 .treatment-card__points li {
   position: relative;
   margin: 0;
-  padding: 0.5rem 0.75rem 0.5rem 1.75rem;
-  font-size: 0.83rem;
+  padding: 0.62rem 0.85rem 0.62rem 1.9rem;
+  font-size: clamp(0.94rem, 1.5vw, 1.02rem);
   font-weight: 600;
-  line-height: 1.45;
+  line-height: 1.58;
   color: var(--color-navy);
   background: rgba(0, 48, 128, 0.04);
   border-radius: 8px;
+  overflow-wrap: break-word;
 }
 
 .treatment-card__points li::before {
   content: "";
   position: absolute;
-  left: 0.75rem;
-  top: 0.72rem;
+  left: 0.8rem;
+  top: 0.82rem;
   width: 5px;
   height: 5px;
   border-radius: 50%;
@@ -2526,14 +2519,14 @@ body.nav-open {
 .doctor-highlights li {
   position: relative;
   margin: 0;
-  padding: 0.55rem 0 0.55rem 1rem;
-  font-size: 0.88rem;
+  padding: 0.62rem 0 0.62rem 1rem;
+  font-size: clamp(0.96rem, 1.6vw, 1.05rem);
   font-weight: 600;
-  line-height: 1.45;
+  line-height: 1.58;
   color: var(--color-navy);
   border-left: 2px solid var(--doctor-accent);
-  word-break: keep-all;
   overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .doctor-highlights li::before {
@@ -2541,11 +2534,11 @@ body.nav-open {
 }
 
 .doctor-credentials-title {
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.85rem;
   font-family: var(--font-family);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-primary);
 }
@@ -2556,7 +2549,7 @@ body.nav-open {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.4rem 1.25rem;
+  gap: 0.55rem 1.5rem;
   width: 100%;
   flex: 1;
   align-content: start;
@@ -2564,18 +2557,20 @@ body.nav-open {
 
 .doctor-credentials li {
   position: relative;
-  padding: 0.4rem 0 0.4rem 0.85rem;
-  font-size: 0.84rem;
-  line-height: 1.5;
-  color: var(--color-text-muted);
+  padding: 0.5rem 0 0.5rem 1rem;
+  font-size: clamp(0.94rem, 1.5vw, 1.02rem);
+  line-height: 1.62;
+  color: var(--color-text);
   border-bottom: none;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .doctor-credentials li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.65em;
+  top: 0.72em;
   width: 5px;
   height: 5px;
   border-radius: 50%;
@@ -4267,6 +4262,11 @@ body.lang-ko .accordion-answer__content p {
   .featured-video {
     margin-top: 2.5rem;
   }
+
+  .doctor-credentials {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -4330,6 +4330,16 @@ body.lang-ko .accordion-answer__content p {
   .lang-th body,
   .lang-en body {
     overflow-wrap: break-word;
+  }
+
+  .doctor-credentials {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .doctor-credentials li,
+  .doctor-highlights li {
+    line-height: 1.6;
   }
 
   /* Header & nav — language stays in top bar like desktop */
@@ -4456,21 +4466,14 @@ body.lang-ko .accordion-answer__content p {
     flex: 0 1 auto;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 0.35rem;
+    gap: 0.45rem;
   }
 
   .site-nav a {
     display: block;
-    padding: 0.7rem 0;
+    padding: 0.75rem 0;
     font-size: 1.05rem;
-    line-height: 1.35;
-  }
-
-  .site-nav .nav-cta {
-    margin-top: auto;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
+    line-height: 1.4;
   }
 
   .lang-dropdown-menu {
@@ -4709,18 +4712,31 @@ body.lang-ko .accordion-answer__content p {
   }
 
   .treatment-card__body {
-    padding: 1.35rem 1.25rem 1.5rem;
+    padding: 1.45rem 1.35rem 1.6rem;
   }
 
   .treatment-card__body h3 {
-    font-size: 1.2rem;
-    line-height: 1.3;
+    font-size: clamp(1.22rem, 4.8vw, 1.38rem);
+    line-height: 1.35;
   }
 
-  .treatment-card__desc,
+  .treatment-card__desc {
+    font-size: clamp(1rem, 3.8vw, 1.08rem);
+    line-height: 1.68;
+  }
+
+  .treatment-card__points {
+    gap: 0.6rem;
+  }
+
   .treatment-card__points li {
-    font-size: 0.9rem;
-    line-height: 1.55;
+    font-size: clamp(0.98rem, 3.6vw, 1.06rem);
+    line-height: 1.62;
+    padding: 0.68rem 0.9rem 0.68rem 1.95rem;
+  }
+
+  .treatment-card__points li::before {
+    top: 0.88rem;
   }
 
   .treatment-card__cta {
@@ -4940,25 +4956,35 @@ body.lang-ko .accordion-answer__content p {
     line-height: 1.45;
   }
 
+  .doctor-highlights {
+    gap: 0.6rem;
+  }
+
   .doctor-highlights li {
-    font-size: 0.86rem;
-    padding: 0.5rem 0 0.5rem 0.85rem;
-    line-height: 1.45;
+    font-size: clamp(0.98rem, 3.8vw, 1.08rem);
+    padding: 0.62rem 0 0.62rem 0.9rem;
+    line-height: 1.62;
     overflow-wrap: break-word;
   }
 
   .doctor-profile__credentials {
-    padding: 1.15rem 1.15rem 1.5rem;
+    padding: 1.25rem 1.2rem 1.6rem;
+  }
+
+  .doctor-credentials-title {
+    font-size: 0.78rem;
+    margin-bottom: 0.9rem;
   }
 
   .doctor-credentials {
     grid-template-columns: 1fr;
-    gap: 0.3rem;
+    gap: 0.45rem;
   }
 
   .doctor-credentials li {
-    font-size: 0.82rem;
-    line-height: 1.5;
+    font-size: clamp(0.96rem, 3.6vw, 1.05rem);
+    line-height: 1.65;
+    padding: 0.52rem 0 0.52rem 1rem;
     overflow-wrap: break-word;
   }
 
@@ -5270,6 +5296,19 @@ body.lang-ko .accordion-answer__content p {
 
   .doctor-profile__photo {
     max-height: 280px;
+  }
+
+  .doctor-highlights li {
+    font-size: 1rem;
+  }
+
+  .doctor-credentials li {
+    font-size: 0.98rem;
+  }
+
+  .treatment-card__desc,
+  .treatment-card__points li {
+    font-size: 1rem;
   }
 
   .about-quote blockquote {
