@@ -498,43 +498,56 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* Desktop: logo | nav links | language */
 @media (min-width: 769px) {
   .header-inner {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    grid-template-areas: "logo nav lang";
+    display: flex;
     align-items: center;
-    column-gap: clamp(1.25rem, 2.2vw, 2.25rem);
-    width: min(1200px, 94vw);
+    justify-content: flex-start;
+    gap: clamp(1.25rem, 2.5vw, 2.75rem);
+    width: min(1240px, 96vw);
   }
 
   .logo {
-    grid-area: logo;
+    flex: 0 0 auto;
+    max-width: min(340px, 34vw);
+    z-index: 2;
+  }
+
+  .logo-collab .logo-img {
+    max-width: min(180px, 18vw);
+  }
+
+  .logo-collab__partner {
+    max-width: min(4.75rem, 14vw);
   }
 
   .site-nav {
-    display: contents;
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
     margin-left: 0;
-    flex: none;
   }
 
-  .site-nav > ul {
-    grid-area: nav;
+  .site-nav > ul,
+  .site-nav__list {
     display: flex;
-    flex: none;
-    justify-content: center;
+    flex: 0 1 auto;
+    justify-content: flex-end;
     align-items: center;
-    gap: clamp(0.9rem, 1.35vw, 1.65rem);
+    flex-wrap: nowrap;
+    gap: clamp(0.45rem, 0.9vw, 1.1rem);
     min-width: 0;
     margin: 0;
-    padding: 0 0.25rem;
+    padding: 0;
   }
 
   .site-nav > ul a {
     position: relative;
     white-space: nowrap;
-    font-size: clamp(0.84rem, 0.88vw, 0.94rem);
+    font-size: clamp(0.78rem, 0.82vw, 0.9rem);
     font-weight: 600;
     letter-spacing: 0.01em;
-    padding: 0.45rem 0.7rem;
+    padding: 0.4rem 0.55rem;
     border-radius: 999px;
   }
 
@@ -563,12 +576,32 @@ ul { margin: 0; padding: 0; list-style: none; }
   }
 
   .header-lang {
-    grid-area: lang;
-    justify-self: end;
+    flex: 0 0 auto;
+    margin-left: clamp(0.5rem, 1vw, 1rem);
   }
 
   .nav-toggle {
     display: none !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1080px) {
+  .header-inner {
+    gap: 1rem;
+  }
+
+  .logo-collab .logo-img {
+    max-width: min(150px, 16vw);
+  }
+
+  .site-nav > ul,
+  .site-nav__list {
+    gap: 0.35rem;
+  }
+
+  .site-nav > ul a {
+    font-size: 0.76rem;
+    padding: 0.35rem 0.45rem;
   }
 }
 
