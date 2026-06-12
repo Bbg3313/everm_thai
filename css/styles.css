@@ -1970,7 +1970,7 @@ body.nav-open {
   position: absolute;
   inset: 0;
   background:
-    url("../images/clinic/technology/tech-section-bg.jpg") center center / cover no-repeat;
+    url("../images/clinic/technology/tech-section-bg.jpg") 72% center / cover no-repeat;
   z-index: 0;
 }
 
@@ -1980,10 +1980,12 @@ body.nav-open {
   inset: 0;
   background:
     linear-gradient(
-      105deg,
-      rgba(0, 18, 64, 0.42) 0%,
-      rgba(0, 32, 96, 0.28) 42%,
-      rgba(0, 28, 88, 0.12) 100%
+      90deg,
+      rgba(0, 14, 52, 0.94) 0%,
+      rgba(0, 20, 68, 0.86) 32%,
+      rgba(0, 28, 88, 0.58) 54%,
+      rgba(0, 28, 88, 0.32) 72%,
+      rgba(0, 24, 80, 0.18) 100%
     );
   z-index: 0;
 }
@@ -2008,6 +2010,18 @@ body.nav-open {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  position: relative;
+  isolation: isolate;
+  padding: 0.25rem 0;
+}
+
+.tech-intro::before {
+  content: "";
+  position: absolute;
+  inset: -0.75rem -1rem;
+  border-radius: 12px;
+  background: rgba(0, 16, 56, 0.28);
+  z-index: -1;
 }
 
 .tech-intro .lead {
@@ -2568,31 +2582,40 @@ body.nav-open {
 .doctor-director-stack {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 2.5rem;
   width: 100%;
 }
 
-.doctor-director-stack .doctor-profile--director {
-  border-bottom: none;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-}
-
-.doctor-director-stack .doctor-profile--director .doctor-profile__intro {
-  border-bottom: none;
-}
-
 .doctor-director-stack .doctor-profile--credentials {
-  border-top: 1px solid rgba(0, 48, 128, 0.08);
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-.team-banner {
+.doctor-director-stack .doctor-profile--credentials .team-banner {
   position: relative;
   left: 50%;
   width: 100vw;
   max-width: 100vw;
-  margin: 0;
+  margin: 0 0 0;
   transform: translateX(-50%);
+  line-height: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    #2d63a3 0%,
+    #4471a8 10%,
+    #91a3bb 30%,
+    #b8b8ba 50%,
+    #8c8f96 70%,
+    #f7f6fc 88%,
+    #faf9ff 100%
+  );
+}
+
+.team-banner {
   line-height: 0;
   background: linear-gradient(
     180deg,
@@ -5652,6 +5675,10 @@ body.lang-ko .accordion-answer__content p {
 
   /* Team */
   .team-doctors {
+    gap: 1.75rem;
+  }
+
+  .doctor-director-stack {
     gap: 1.75rem;
   }
 
