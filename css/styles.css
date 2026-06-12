@@ -2541,8 +2541,7 @@ body.nav-open {
 .team {
   position: relative;
   background: linear-gradient(180deg, #eef2fa 0%, var(--color-bg) 28%, var(--color-bg) 100%);
-  overflow-x: clip;
-  overflow-y: visible;
+  overflow: visible;
 }
 
 .team::before {
@@ -2591,6 +2590,15 @@ body.nav-open {
   display: flex;
   flex-direction: column;
   gap: 0;
+  height: auto;
+  min-height: 0;
+  grid-template-rows: none;
+}
+
+.doctor-director-stack .doctor-profile__credentials {
+  overflow: visible;
+  flex: none;
+  height: auto;
 }
 
 .doctor-director-stack .doctor-profile--credentials .team-banner {

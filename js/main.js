@@ -1,6 +1,25 @@
 (function () {
   "use strict";
 
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
+  window.addEventListener("pageshow", function () {
+    const nav = performance.getEntriesByType("navigation")[0];
+    if (!nav || nav.type !== "reload") return;
+    if (window.location.hash) {
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
+    window.scrollTo(0, 0);
+  });
+
+  window.addEventListener("load", function () {
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  });
+
   const header = document.querySelector(".site-header");
   const navToggle = document.querySelector(".nav-toggle");
   const siteNav = document.querySelector(".site-nav");
@@ -522,7 +541,15 @@
       return resultsAngle === "45" ? pair.deg45 : pair.front;
     }
 
-    function updateResultsGallery() {
+    function scrollActiveThumbIntoView() {
+      const activeThumb = resultsThumbs.querySelector(".results-gallery__thumb.is-active");
+      if (!activeThumb) return;
+      const left =
+        activeThumb.offsetLeft - (resultsThumbs.clientWidth - activeThumb.offsetWidth) / 2;
+      resultsThumbs.scrollTo({ left: Math.max(0, left), behavior: "smooth" });
+    }
+
+    function updateResultsGallery(scrollThumb) {
       const imageNum = getCurrentImageNum();
       resultsMainImg.classList.add("is-swapping");
       resultsMainImg.src = caseImageSrc(imageNum);
@@ -542,10 +569,11 @@
         const active = i === resultsCaseIndex;
         thumb.classList.toggle("is-active", active);
         thumb.setAttribute("aria-selected", active ? "true" : "false");
-        if (active) {
-          thumb.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-        }
       });
+
+      if (scrollThumb) {
+        scrollActiveThumbIntoView();
+      }
     }
 
     resultsMainImg.addEventListener("load", function () {
@@ -571,7 +599,7 @@
 
       btn.addEventListener("click", function () {
         resultsCaseIndex = index;
-        updateResultsGallery();
+        updateResultsGallery(true);
       });
 
       resultsThumbs.appendChild(btn);
@@ -580,25 +608,25 @@
     resultsAngleButtons.forEach(function (btn) {
       btn.addEventListener("click", function () {
         resultsAngle = btn.getAttribute("data-angle") || "front";
-        updateResultsGallery();
+        updateResultsGallery(false);
       });
     });
 
     if (resultsThumbPrev) {
       resultsThumbPrev.addEventListener("click", function () {
         resultsCaseIndex = (resultsCaseIndex - 1 + RESULTS_PAIRS.length) % RESULTS_PAIRS.length;
-        updateResultsGallery();
+        updateResultsGallery(true);
       });
     }
 
     if (resultsThumbNext) {
       resultsThumbNext.addEventListener("click", function () {
         resultsCaseIndex = (resultsCaseIndex + 1) % RESULTS_PAIRS.length;
-        updateResultsGallery();
+        updateResultsGallery(true);
       });
     }
 
-    updateResultsGallery();
+    updateResultsGallery(false);
   }
 
   /* Shorts strip — horizontal scroll with edge fades */
