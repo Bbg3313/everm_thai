@@ -2782,12 +2782,10 @@ body.nav-open {
 
 .team-accreditation img {
   display: block;
-  width: 100%;
   max-width: 100%;
+  width: auto;
   height: auto;
   max-height: min(48vh, 427px);
-  object-fit: contain;
-  object-position: center center;
 }
 
 .doctor-profile {
