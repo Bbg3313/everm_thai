@@ -2662,31 +2662,21 @@ body.nav-open {
   padding: 0;
   line-height: 0;
   overflow: hidden;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  display: block;
   aspect-ratio: 2560 / 400;
   min-height: clamp(130px, 24vw, 400px);
   max-height: min(400px, 38vh);
-  background: linear-gradient(
-    180deg,
-    #2d63a3 0%,
-    #4471a8 12%,
-    #91a3bb 38%,
-    #b8b8ba 62%,
-    #8c8f96 88%,
-    #7a8494 100%
-  );
+  background: transparent;
 }
 
 .team-banner img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 125%;
   object-fit: cover;
-  object-position: center 6%;
-  transform: scale(1.05) translateY(-9%);
-  transform-origin: center 8%;
+  object-position: center 4%;
+  transform: translateY(-11%);
+  transform-origin: center top;
 }
 
 .doctor-profile {
@@ -5752,9 +5742,9 @@ body.lang-ko .accordion-answer__content p {
   }
 
   .team-banner img {
-    object-position: center 4%;
-    transform: scale(1.08) translateY(-11%);
-    transform-origin: center 6%;
+    height: 130%;
+    object-position: center 2%;
+    transform: translateY(-13%);
   }
 
   .doctor-profile__intro {
