@@ -1156,80 +1156,99 @@
 
     <section class="section shorts" id="shorts" aria-labelledby="shorts-title">
       <div class="container">
-        <div class="section-head center">
-          <p class="section-label" data-i18n="shorts_label">Short clips</p>
-          <h2 id="shorts-title" data-i18n="shorts_title">EVERM in 60 seconds</h2>
-          <p class="section-desc" data-i18n="shorts_desc">Quick looks at the clinic, care, and real patient stories.</p>
+        <div class="shorts-head reveal">
+          <div class="shorts-head__copy">
+            <p class="section-label" data-i18n="shorts_label">Short clips</p>
+            <h2 id="shorts-title" data-i18n="shorts_title">EVERM in 60 seconds</h2>
+            <p class="section-desc" data-i18n="shorts_desc">Quick looks at the clinic, care, and real patient stories.</p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="shorts-strip reveal is-at-start"
+        id="shorts-strip"
+        role="region"
+        data-i18n-aria="shorts_carousel_aria"
+        aria-label="EVERM short videos"
+      >
+        <div class="shorts-strip__fade shorts-strip__fade--left" aria-hidden="true"></div>
+        <div class="shorts-strip__fade shorts-strip__fade--right" aria-hidden="true"></div>
+
+        <button
+          type="button"
+          class="shorts-strip__nav shorts-strip__nav--prev"
+          id="shorts-prev"
+          data-i18n-aria="shorts_prev"
+          aria-label="Previous clip"
+        >
+          <span aria-hidden="true">‹</span>
+        </button>
+
+        <div class="shorts-strip__viewport" id="shorts-viewport">
+          <div class="shorts-strip__track" id="shorts-track">
+            <article class="shorts-card">
+              <div class="shorts-card__media">
+                <video controls playsinline preload="metadata" width="1080" height="1920" data-i18n-aria="shorts_video_aria" aria-label="EVERM short video 1">
+                  <source src="/videos/shorts/short-01.mp4" type="video/mp4" />
+                </video>
+                <span class="shorts-card__play" aria-hidden="true"></span>
+              </div>
+              <p class="shorts-card__caption" data-i18n="shorts_cap1">Orthognathic results · EVERM</p>
+            </article>
+            <article class="shorts-card">
+              <div class="shorts-card__media">
+                <video controls playsinline preload="metadata" width="1080" height="1920" data-i18n-aria="shorts_video_aria" aria-label="EVERM short video 2">
+                  <source src="/videos/shorts/short-02.mp4" type="video/mp4" />
+                </video>
+                <span class="shorts-card__play" aria-hidden="true"></span>
+              </div>
+              <p class="shorts-card__caption" data-i18n="shorts_cap2">Facial contour · patient story</p>
+            </article>
+            <article class="shorts-card">
+              <div class="shorts-card__media">
+                <video controls playsinline preload="metadata" width="1080" height="1920" data-i18n-aria="shorts_video_aria" aria-label="EVERM short video 3">
+                  <source src="/videos/shorts/short-03.mp4" type="video/mp4" />
+                </video>
+                <span class="shorts-card__play" aria-hidden="true"></span>
+              </div>
+              <p class="shorts-card__caption" data-i18n="shorts_cap3">Recovery &amp; follow-up care</p>
+            </article>
+            <article class="shorts-card">
+              <div class="shorts-card__media">
+                <video controls playsinline preload="metadata" width="1080" height="1920" data-i18n-aria="shorts_video_aria" aria-label="EVERM short video 4">
+                  <source src="/videos/shorts/short-04.mp4" type="video/mp4" />
+                </video>
+                <span class="shorts-card__play" aria-hidden="true"></span>
+              </div>
+              <p class="shorts-card__caption" data-i18n="shorts_cap4">Inside EVERM clinic</p>
+            </article>
+            <article class="shorts-card">
+              <div class="shorts-card__media">
+                <video controls playsinline preload="metadata" width="1080" height="1920" data-i18n-aria="shorts_video_aria" aria-label="EVERM short video 5">
+                  <source src="/videos/shorts/short-05.mp4" type="video/mp4" />
+                </video>
+                <span class="shorts-card__play" aria-hidden="true"></span>
+              </div>
+              <p class="shorts-card__caption" data-i18n="shorts_cap5">Real patient experience</p>
+            </article>
+          </div>
         </div>
 
-        <div
-          class="shorts-carousel reveal"
-          id="shorts-carousel"
-          role="region"
-          data-i18n-aria="shorts_carousel_aria"
-          aria-label="EVERM short videos"
+        <button
+          type="button"
+          class="shorts-strip__nav shorts-strip__nav--next"
+          id="shorts-next"
+          data-i18n-aria="shorts_next"
+          aria-label="Next clip"
         >
-          <button
-            type="button"
-            class="shorts-carousel__arrow shorts-carousel__arrow--prev"
-            id="shorts-prev"
-            data-i18n-aria="shorts_prev"
-            aria-label="Previous clip"
-          >
-            <span aria-hidden="true">‹</span>
-          </button>
+          <span aria-hidden="true">›</span>
+        </button>
+      </div>
 
-          <div class="shorts-carousel__viewport" id="shorts-viewport">
-            <div class="shorts-carousel__track" id="shorts-track">
-              <article class="shorts-slide is-active" role="group" aria-roledescription="slide" aria-label="1">
-                <div class="shorts-slide__player">
-                  <video controls playsinline preload="metadata" width="1080" height="1920" data-i18n-aria="shorts_video_aria" aria-label="EVERM short video 1">
-                    <source src="/videos/shorts/short-01.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </article>
-              <article class="shorts-slide" role="group" aria-roledescription="slide" aria-label="2">
-                <div class="shorts-slide__player">
-                  <video controls playsinline preload="metadata" width="1080" height="1920" data-i18n-aria="shorts_video_aria" aria-label="EVERM short video 2">
-                    <source src="/videos/shorts/short-02.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </article>
-              <article class="shorts-slide" role="group" aria-roledescription="slide" aria-label="3">
-                <div class="shorts-slide__player">
-                  <video controls playsinline preload="metadata" width="1080" height="1920" data-i18n-aria="shorts_video_aria" aria-label="EVERM short video 3">
-                    <source src="/videos/shorts/short-03.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </article>
-              <article class="shorts-slide" role="group" aria-roledescription="slide" aria-label="4">
-                <div class="shorts-slide__player">
-                  <video controls playsinline preload="metadata" width="1080" height="1920" data-i18n-aria="shorts_video_aria" aria-label="EVERM short video 4">
-                    <source src="/videos/shorts/short-04.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </article>
-              <article class="shorts-slide" role="group" aria-roledescription="slide" aria-label="5">
-                <div class="shorts-slide__player">
-                  <video controls playsinline preload="metadata" width="1080" height="1920" data-i18n-aria="shorts_video_aria" aria-label="EVERM short video 5">
-                    <source src="/videos/shorts/short-05.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <button
-            type="button"
-            class="shorts-carousel__arrow shorts-carousel__arrow--next"
-            id="shorts-next"
-            data-i18n-aria="shorts_next"
-            aria-label="Next clip"
-          >
-            <span aria-hidden="true">›</span>
-          </button>
-
-          <div class="shorts-carousel__dots" id="shorts-dots" role="tablist" data-i18n-aria="shorts_dots_aria" aria-label="Select clip"></div>
+      <div class="container">
+        <div class="shorts-strip__progress" aria-hidden="true">
+          <div class="shorts-strip__progress-bar" id="shorts-progress"></div>
         </div>
       </div>
     </section>
