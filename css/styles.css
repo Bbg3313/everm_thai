@@ -1959,8 +1959,38 @@ body.nav-open {
 
 /* Technology */
 .technology {
-  background: var(--color-bg-dark);
+  position: relative;
+  overflow: hidden;
   color: #fff;
+  background: var(--color-bg-dark);
+}
+
+.technology::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    url("../images/clinic/technology/tech-section-bg.jpg") center center / cover no-repeat;
+  z-index: 0;
+}
+
+.technology::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      105deg,
+      rgba(0, 18, 64, 0.9) 0%,
+      rgba(0, 32, 96, 0.8) 40%,
+      rgba(0, 28, 88, 0.62) 100%
+    );
+  z-index: 0;
+}
+
+.technology .container {
+  position: relative;
+  z-index: 1;
 }
 
 .tech-grid {
