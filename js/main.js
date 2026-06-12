@@ -474,6 +474,35 @@
     }, 8000);
   });
 
+  function playAutoplayVideo(video) {
+    if (!video) return;
+    video.muted = true;
+    var attempt = video.play();
+    if (attempt && typeof attempt.catch === "function") {
+      attempt.catch(function () {});
+    }
+  }
+
+  document.querySelectorAll("video.video-autoplay").forEach(function (video) {
+    playAutoplayVideo(video);
+
+    if ("IntersectionObserver" in window) {
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              playAutoplayVideo(video);
+            } else {
+              video.pause();
+            }
+          });
+        },
+        { threshold: 0.35 }
+      );
+      observer.observe(video);
+    }
+  });
+
   /* Appointment form — POST to /api/inquiry (email via Resend) */
   const formError = document.getElementById("form-error");
   const formSubmitBtn = document.getElementById("form-submit-btn");

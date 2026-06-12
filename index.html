@@ -701,12 +701,14 @@
           </div>
           <div class="featured-video__player">
             <video
-              controls
+              class="video-autoplay"
+              autoplay
+              muted
+              loop
               playsinline
-              preload="metadata"
+              preload="auto"
               width="1280"
               height="720"
-              data-poster-time="2"
               data-i18n-aria="facility_video_aria"
               aria-label="Clinic facility tour video"
             >
@@ -1386,7 +1388,11 @@
                 autocomplete="off"
                 aria-hidden="true"
               />
-              <h3 class="contact-form-title" data-i18n="form_title_hidden">แบบฟอร์มนัดหมาย</h3>
+              <div class="contact-form-head">
+                <span class="contact-form-vip" data-i18n="form_vip_badge">VIP Consultation</span>
+                <h3 class="contact-form-title" data-i18n="form_title_hidden">แบบฟอร์มนัดหมาย</h3>
+                <p class="contact-form-sub" data-i18n="form_vip_desc">บริการนัดปรึกษาส่วนตัวแบบ 1:1 สำหรับลูกค้าพิเศษ</p>
+              </div>
               <div class="form-row">
                 <label for="name" data-i18n="form_name">ชื่อ-นามสกุล *</label>
                 <input type="text" id="name" name="name" data-i18n-placeholder="form_name_ph" required autocomplete="name" placeholder="ชื่อของคุณ" />
