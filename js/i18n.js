@@ -3,10 +3,9 @@
 
   var STORAGE_KEY = "everm_lang";
   var DEFAULT_LANG = "th";
-  var SUPPORTED = ["ko", "en", "th"];
-  var LANG_LABELS = { ko: "한국어", en: "English", th: "ไทย" };
+  var SUPPORTED = ["en", "th"];
+  var LANG_LABELS = { en: "English", th: "ไทย" };
   var LANG_FLAG_SRC = {
-    ko: "images/flags/kr.svg",
     en: "images/flags/us.svg",
     th: "images/flags/th.svg",
   };
@@ -22,6 +21,7 @@
 
   function detectLang() {
     var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === "ko") saved = DEFAULT_LANG;
     if (saved && SUPPORTED.indexOf(saved) !== -1) return saved;
     var nav = (navigator.language || navigator.userLanguage || "").toLowerCase();
     if (nav.indexOf("th") === 0) return "th";
@@ -144,8 +144,8 @@
   function setLanguage(lang) {
     if (SUPPORTED.indexOf(lang) === -1) lang = DEFAULT_LANG;
 
-    document.documentElement.lang = lang === "ko" ? "ko" : lang === "th" ? "th" : "en";
-    document.body.classList.remove("lang-ko", "lang-en", "lang-th");
+    document.documentElement.lang = lang === "th" ? "th" : "en";
+    document.body.classList.remove("lang-en", "lang-th");
     document.body.classList.add("lang-" + lang);
 
     updateDocumentMeta(lang);
@@ -156,7 +156,7 @@
     });
 
     document.querySelectorAll("[data-i18n-lang]").forEach(function (el) {
-      el.setAttribute("lang", lang === "ko" ? "ko" : lang === "th" ? "th" : "en");
+      el.setAttribute("lang", lang === "th" ? "th" : "en");
     });
 
     updateLangDropdownUI(lang);

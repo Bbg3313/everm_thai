@@ -23,15 +23,12 @@
           description:
             "EverM Dental Clinic — specialist maxillofacial and facial contour surgery with 3D planning in Seoul, Korea.",
         },
-        ko: {
-          title: "EVERM Surgery Clinic | 안면윤곽·악안면외과",
-          description: "에버엠치과의원 — 안면윤곽·악안면외과 전문, 3D 수술 계획과 전문 의료진",
-        },
       };
       var saved = localStorage.getItem("everm_lang");
+      if (saved === "ko") saved = "th";
       var lang = META[saved] ? saved : "th";
       var pack = META[lang];
-      document.documentElement.lang = lang === "ko" ? "ko" : lang === "th" ? "th" : "en";
+      document.documentElement.lang = lang === "th" ? "th" : "en";
       document.title = pack.title;
       var desc = document.querySelector('meta[name="description"]');
       if (desc) desc.setAttribute("content", pack.description);
@@ -115,14 +112,6 @@
           <span class="lang-dropdown-chevron" aria-hidden="true"></span>
         </button>
         <ul class="lang-dropdown-menu" id="lang-dropdown-menu" role="listbox" aria-labelledby="lang-dropdown-toggle" hidden>
-          <li role="presentation">
-            <button type="button" class="lang-option" role="option" data-lang="ko" aria-selected="false">
-              <span class="lang-flag" aria-hidden="true">
-                <img src="images/flags/kr.svg" alt="" width="22" height="15" decoding="async" />
-              </span>
-              <span class="lang-option-label">한국어</span>
-            </button>
-          </li>
           <li role="presentation">
             <button type="button" class="lang-option" role="option" data-lang="en" aria-selected="false">
               <span class="lang-flag" aria-hidden="true">
@@ -702,6 +691,27 @@
           <button type="button" class="facility-tab" data-filter="building" aria-selected="false" data-i18n="fac_building">อาคาร</button>
         </div>
 
+        <figure class="facility-tour reveal" id="facility-video">
+          <div class="featured-video__player facility-tour__player">
+            <video
+              class="video-autoplay"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              data-playback-rate="1.2"
+              data-i18n-aria="facility_video_aria"
+              aria-label="Clinic facility tour video"
+            >
+              <source src="/videos/everm-clinic-tour.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <figcaption class="facility-tour__caption" data-i18n="facility_video_caption">
+            ทัวร์คลินิก EVERM — ทางเข้าและพื้นที่ต้อนรับ
+          </figcaption>
+        </figure>
+
         <div
           class="facility-carousel reveal"
           id="facility-carousel"
@@ -734,29 +744,6 @@
             </button>
           </div>
         </div>
-
-        <figure class="facility-tour reveal" id="facility-video">
-          <div class="facility-tour__player">
-            <video
-              class="video-autoplay"
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="auto"
-              width="1280"
-              height="720"
-              data-playback-rate="1.2"
-              data-i18n-aria="facility_video_aria"
-              aria-label="Clinic facility tour video"
-            >
-              <source src="/videos/everm-clinic-tour.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <figcaption class="facility-tour__caption" data-i18n="facility_video_caption">
-            ทัวร์คลินิก EVERM — ทางเข้าและพื้นที่ต้อนรับ
-          </figcaption>
-        </figure>
 
         <div class="facility-source" id="facility-source" hidden>
           <figure class="facility-card" data-category="reception">
@@ -1353,7 +1340,7 @@
                 </li>
                 <li>
                   <strong data-i18n="contact_email_label">อีเมล</strong>
-                  <a href="mailto:hello@evermclinic.th">hello@evermclinic.th</a>
+                  <a href="mailto:bbghmcollab@gmail.com">bbghmcollab@gmail.com</a>
                 </li>
                 <li>
                   <strong data-i18n="contact_hours_label">เวลาทำการ</strong>

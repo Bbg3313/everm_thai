@@ -1586,24 +1586,15 @@ body.nav-open {
   max-width: 100%;
 }
 
+.facility-tour + .facility-carousel {
+  margin-top: 2.5rem;
+}
+
 .facility-tour__player {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: #0a1028;
-  border: 1px solid rgba(0, 48, 128, 0.08);
-  box-shadow:
-    0 4px 24px rgba(0, 32, 128, 0.08),
-    0 20px 48px rgba(0, 32, 128, 0.06);
+  max-width: 100%;
 }
 
 .facility-tour__player video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   pointer-events: none;
 }
 
@@ -4994,6 +4985,28 @@ body.lang-ko .accordion-answer__content p {
 
   .featured-video__player {
     border-radius: var(--radius-lg);
+  }
+
+  .facility-tour {
+    margin-top: 1.75rem;
+  }
+
+  .facility-tour + .facility-carousel {
+    margin-top: 1.75rem;
+  }
+
+  .facility-tour__player {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+
+  .facility-tour__player video {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center center;
   }
 
   /* FAQ */
