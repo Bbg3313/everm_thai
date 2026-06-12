@@ -1582,22 +1582,21 @@ body.nav-open {
 
 .facility-tour {
   margin-top: 2.5rem;
-  max-width: min(920px, 100%);
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  max-width: 100%;
 }
 
 .facility-tour__player {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: calc(var(--radius-lg) + 2px);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   background: #0a1028;
+  border: 1px solid rgba(0, 48, 128, 0.08);
   box-shadow:
-    0 4px 12px rgba(0, 32, 128, 0.08),
-    0 20px 44px rgba(0, 32, 128, 0.14);
-  border: 1px solid rgba(0, 48, 128, 0.1);
+    0 4px 24px rgba(0, 32, 128, 0.08),
+    0 20px 48px rgba(0, 32, 128, 0.06);
 }
 
 .facility-tour__player video {
