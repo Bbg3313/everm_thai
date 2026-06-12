@@ -13,11 +13,6 @@
   const floatActions = document.getElementById("float-actions");
 
   function onScroll() {
-    const atHeroTop = window.scrollY < 60;
-    if (header) {
-      header.classList.toggle("header-over-hero", atHeroTop);
-    }
-
     if (window.scrollY > 40) {
       header.classList.add("scrolled");
     } else {
