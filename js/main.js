@@ -13,6 +13,11 @@
   const floatActions = document.getElementById("float-actions");
 
   function onScroll() {
+    const atHeroTop = window.scrollY < 60;
+    if (header) {
+      header.classList.toggle("header-over-hero", atHeroTop);
+    }
+
     if (window.scrollY > 40) {
       header.classList.add("scrolled");
     } else {
@@ -228,7 +233,7 @@
 
   /* Scroll reveal */
   const revealEls = document.querySelectorAll(
-    ".section-head, .partner-care__card, .partner-care__steps li, .treatment-card, .featured-video, .process-roadmap__step, .doctor-profile, .case-card, .facility-carousel, .tech-list li, .about-panel, .hero-visual, .hero-stat, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
+    ".section-head, .partner-care__card, .partner-care__steps li, .treatment-card, .featured-video, .process-roadmap__step, .doctor-profile, .case-card, .facility-carousel, .tech-list li, .about-panel, .hero-content, .hero-stat, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
   );
 
   revealEls.forEach(function (el) {
