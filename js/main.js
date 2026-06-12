@@ -605,10 +605,19 @@
   const shortsPrev = document.getElementById("shorts-prev");
   const shortsNext = document.getElementById("shorts-next");
   const shortsProgress = document.getElementById("shorts-progress");
+  const shortsLightbox = document.getElementById("shorts-lightbox");
+  const shortsLightboxBackdrop = document.getElementById("shorts-lightbox-backdrop");
+  const shortsLightboxClose = document.getElementById("shorts-lightbox-close");
+  const shortsLightboxPrev = document.getElementById("shorts-lightbox-prev");
+  const shortsLightboxNext = document.getElementById("shorts-lightbox-next");
+  const shortsLightboxVideo = document.getElementById("shorts-lightbox-video");
+  const shortsLightboxCaption = document.getElementById("shorts-lightbox-caption");
 
   if (shortsStrip && shortsViewport && shortsTrack) {
     const shortsCards = Array.from(shortsTrack.querySelectorAll(".shorts-card"));
     let shortsScrollTimer;
+    let shortsLightboxIndex = 0;
+    let shortsLastFocus = null;
 
     function getShortsScrollStep() {
       const card = shortsCards[0];
@@ -640,29 +649,152 @@
       });
     }
 
-    shortsTrack.querySelectorAll("video").forEach(function (video) {
-      const media = video.closest(".shorts-card__media");
+    function resetShortsCard(media, video) {
+      if (!media || !video) return;
+      media.classList.remove("is-playing");
+      const fill = media.querySelector(".shorts-card__progress-fill");
+      if (fill) fill.style.width = "0%";
+      if (!video.paused || video.currentTime > 0.2) {
+        video.pause();
+        video.currentTime = 0.15;
+      }
+    }
 
-      video.addEventListener("play", function () {
-        if (media) media.classList.add("is-playing");
-        shortsTrack.querySelectorAll("video").forEach(function (other) {
-          if (other !== video) {
-            other.pause();
-            const otherMedia = other.closest(".shorts-card__media");
-            if (otherMedia) otherMedia.classList.remove("is-playing");
-          }
+    function pauseAllShortsCards() {
+      shortsTrack.querySelectorAll(".shorts-card").forEach(function (card) {
+        resetShortsCard(card.querySelector(".shorts-card__media"), card.querySelector(".shorts-card__video"));
+      });
+    }
+
+    function getShortsCardSource(video) {
+      const source = video && video.querySelector("source");
+      return source ? source.getAttribute("src") : "";
+    }
+
+    function playShortsLightboxVideo() {
+      if (!shortsLightboxVideo) return;
+      shortsLightboxVideo.muted = false;
+      const attempt = shortsLightboxVideo.play();
+      if (attempt && typeof attempt.catch === "function") {
+        attempt.catch(function () {
+          shortsLightboxVideo.muted = true;
+          shortsLightboxVideo.play();
         });
-      });
+      }
+    }
 
-      video.addEventListener("pause", function () {
-        if (media && video.currentTime < 0.05) {
-          media.classList.remove("is-playing");
-        }
-      });
+    function openShortsLightbox(index, trigger) {
+      if (!shortsLightbox || !shortsLightboxVideo || !shortsCards.length) return;
 
-      video.addEventListener("ended", function () {
-        if (media) media.classList.remove("is-playing");
+      shortsLightboxIndex = (index + shortsCards.length) % shortsCards.length;
+      const card = shortsCards[shortsLightboxIndex];
+      const video = card.querySelector(".shorts-card__video");
+      const caption = card.querySelector(".shorts-card__caption");
+      if (!video) return;
+
+      pauseAllShortsCards();
+      if (trigger) {
+        shortsLastFocus = trigger;
+      }
+
+      shortsLightboxVideo.pause();
+      shortsLightboxVideo.src = getShortsCardSource(video);
+      shortsLightboxVideo.load();
+      shortsLightboxVideo.currentTime = 0;
+      if (shortsLightboxCaption) {
+        shortsLightboxCaption.textContent = caption ? caption.textContent.trim() : "";
+      }
+
+      const isFirstOpen = !shortsLightbox.classList.contains("is-open");
+      shortsLightbox.hidden = false;
+      shortsLightbox.setAttribute("aria-hidden", "false");
+      shortsLightbox.classList.add("is-open");
+      document.body.classList.add("shorts-lightbox-open");
+
+      if (isFirstOpen && shortsLightboxClose) {
+        shortsLightboxClose.focus();
+      }
+
+      function onLightboxReady() {
+        shortsLightboxVideo.removeEventListener("loadeddata", onLightboxReady);
+        playShortsLightboxVideo();
+      }
+
+      shortsLightboxVideo.addEventListener("loadeddata", onLightboxReady);
+      if (shortsLightboxVideo.readyState >= 2) {
+        onLightboxReady();
+      }
+    }
+
+    function closeShortsLightbox() {
+      if (!shortsLightbox || !shortsLightboxVideo) return;
+
+      shortsLightboxVideo.pause();
+      shortsLightboxVideo.removeAttribute("src");
+      shortsLightboxVideo.load();
+
+      shortsLightbox.classList.remove("is-open");
+      shortsLightbox.setAttribute("aria-hidden", "true");
+      shortsLightbox.hidden = true;
+      document.body.classList.remove("shorts-lightbox-open");
+
+      if (shortsLastFocus && typeof shortsLastFocus.focus === "function") {
+        shortsLastFocus.focus();
+      }
+    }
+
+    function stepShortsLightbox(direction) {
+      openShortsLightbox(shortsLightboxIndex + direction);
+    }
+
+    shortsTrack.querySelectorAll(".shorts-card").forEach(function (card, index) {
+      const tap = card.querySelector(".shorts-card__tap");
+      if (!tap) return;
+
+      tap.addEventListener("click", function () {
+        openShortsLightbox(index, tap);
       });
+    });
+
+    if (shortsLightboxClose) {
+      shortsLightboxClose.addEventListener("click", closeShortsLightbox);
+    }
+
+    if (shortsLightboxBackdrop) {
+      shortsLightboxBackdrop.addEventListener("click", closeShortsLightbox);
+    }
+
+    if (shortsLightboxPrev) {
+      shortsLightboxPrev.addEventListener("click", function () {
+        stepShortsLightbox(-1);
+      });
+    }
+
+    if (shortsLightboxNext) {
+      shortsLightboxNext.addEventListener("click", function () {
+        stepShortsLightbox(1);
+      });
+    }
+
+    document.addEventListener("keydown", function (event) {
+      if (!shortsLightbox || !shortsLightbox.classList.contains("is-open")) return;
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeShortsLightbox();
+        return;
+      }
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        stepShortsLightbox(-1);
+        return;
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        stepShortsLightbox(1);
+      }
     });
 
     shortsViewport.addEventListener(
