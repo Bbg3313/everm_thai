@@ -4,7 +4,8 @@
   const header = document.querySelector(".site-header");
   const navToggle = document.querySelector(".nav-toggle");
   const siteNav = document.querySelector(".site-nav");
-  const navLinks = document.querySelectorAll(".site-nav a[href^='#']");
+  const navLinks = document.querySelectorAll(".site-nav .nav-link[href^='#']");
+  const scrollProgressBar = document.getElementById("header-scroll-progress-bar");
   const form = document.getElementById("appointment-form");
   const formSuccess = document.getElementById("form-success");
 
@@ -12,12 +13,65 @@
   const floatLine = document.getElementById("float-line");
   const floatActions = document.getElementById("float-actions");
 
+  const navSections = [];
+  navLinks.forEach(function (link) {
+    const hash = link.getAttribute("href");
+    if (!hash || hash === "#" || hash === "#top") return;
+    const section = document.querySelector(hash);
+    if (section) {
+      navSections.push({ id: hash.slice(1), el: section, link: link });
+    }
+  });
+
+  function setActiveNavSection(sectionId) {
+    navSections.forEach(function (item) {
+      const active = item.id === sectionId;
+      item.link.classList.toggle("is-active", active);
+      if (active) {
+        item.link.setAttribute("aria-current", "true");
+      } else {
+        item.link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  function updateScrollProgress() {
+    if (!scrollProgressBar) return;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = maxScroll > 0 ? Math.min(100, (window.scrollY / maxScroll) * 100) : 0;
+    scrollProgressBar.style.width = pct + "%";
+  }
+
+  function updateScrollSpy() {
+    if (!navSections.length) return;
+
+    if (window.scrollY < 140) {
+      setActiveNavSection("");
+      return;
+    }
+
+    const offset = (header ? header.offsetHeight : 88) + 48;
+    let currentId = navSections[0].id;
+
+    navSections.forEach(function (item) {
+      const top = item.el.getBoundingClientRect().top + window.scrollY;
+      if (window.scrollY + offset >= top) {
+        currentId = item.id;
+      }
+    });
+
+    setActiveNavSection(currentId);
+  }
+
   function onScroll() {
     if (window.scrollY > 40) {
       header.classList.add("scrolled");
     } else {
       header.classList.remove("scrolled");
     }
+
+    updateScrollSpy();
+    updateScrollProgress();
 
     if (floatTop) {
       const showTop = window.scrollY > 320;

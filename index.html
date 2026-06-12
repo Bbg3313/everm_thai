@@ -54,6 +54,9 @@
   <a class="skip-link" href="#main" data-i18n="skip_link">ข้ามไปยังเนื้อหาหลัก</a>
 
   <header class="site-header" id="top">
+    <div class="header-scroll-progress" aria-hidden="true">
+      <span class="header-scroll-progress__bar" id="header-scroll-progress-bar"></span>
+    </div>
     <div class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true"></div>
 
     <div class="header-inner">
@@ -81,15 +84,15 @@
             <img src="images/logo.svg" alt="EVERM Surgery Clinic" class="logo-img" width="1000" height="333" decoding="async" />
           </a>
         </div>
-        <ul>
-          <li><a href="#about" data-i18n="nav_about">เกี่ยวกับเรา</a></li>
-          <li><a href="#services" data-i18n="nav_services">บริการ</a></li>
-          <li><a href="#technology" data-i18n="nav_technology">เทคโนโลยี</a></li>
-          <li><a href="#facilities" data-i18n="nav_facilities">สถานที่</a></li>
-          <li><a href="#process" data-i18n="nav_process">ขั้นตอนการรักษา</a></li>
-          <li><a href="#team" data-i18n="nav_team">ทีมแพทย์</a></li>
-          <li><a href="#cases" data-i18n="nav_results">ผลลัพธ์</a></li>
-          <li><a href="#faq" data-i18n="nav_faq">คำถามที่พบบ่อย</a></li>
+        <ul class="site-nav__list" id="site-nav-list">
+          <li><a class="nav-link" href="#about" data-i18n="nav_about">เกี่ยวกับเรา</a></li>
+          <li><a class="nav-link" href="#services" data-i18n="nav_services">บริการ</a></li>
+          <li><a class="nav-link" href="#technology" data-i18n="nav_technology">เทคโนโลยี</a></li>
+          <li><a class="nav-link" href="#facilities" data-i18n="nav_facilities">สถานที่</a></li>
+          <li><a class="nav-link" href="#process" data-i18n="nav_process">ขั้นตอนการรักษา</a></li>
+          <li><a class="nav-link" href="#team" data-i18n="nav_team">ทีมแพทย์</a></li>
+          <li><a class="nav-link" href="#cases" data-i18n="nav_results">ผลลัพธ์</a></li>
+          <li><a class="nav-link" href="#faq" data-i18n="nav_faq">คำถามที่พบบ่อย</a></li>
         </ul>
       </nav>
 
@@ -1571,6 +1574,39 @@
                 EVERM Building, 2 Hakdong-ro 3-gil,<br />
                 Gangnam-gu, Seoul, Republic of Korea
               </address>
+              <nav
+                class="footer-map-links"
+                data-i18n-aria="footer_maps_aria"
+                aria-label="เปิดแผนที่คลินิก"
+              >
+                <a
+                  class="footer-map-link footer-map-link--naver"
+                  href="https://map.naver.com/v5/search/%EC%97%90%EB%B2%84%EC%97%A0%EC%B9%98%EA%B3%BC%EC%9D%98%EC%9B%90"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img class="footer-map-link__icon" src="images/maps/naver-map.svg" alt="" width="32" height="32" decoding="async" />
+                  <span data-i18n="footer_map_naver">Naver Map</span>
+                </a>
+                <a
+                  class="footer-map-link footer-map-link--kakao"
+                  href="https://map.kakao.com/link/map/%EC%97%90%EB%B2%84%EC%97%A0%EC%B9%98%EA%B3%BC%EC%9D%98%EC%9B%90,37.5110863,127.0315789"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img class="footer-map-link__icon" src="images/maps/kakao-map.svg" alt="" width="32" height="32" decoding="async" />
+                  <span data-i18n="footer_map_kakao">Kakao Map</span>
+                </a>
+                <a
+                  class="footer-map-link footer-map-link--google"
+                  href="https://www.google.com/maps/search/?api=1&query=37.5110863,127.0315789"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img class="footer-map-link__icon" src="images/maps/google-map.svg" alt="" width="32" height="32" decoding="async" />
+                  <span data-i18n="footer_map_google">Google Maps</span>
+                </a>
+              </nav>
             </dd>
           </div>
           <div>
