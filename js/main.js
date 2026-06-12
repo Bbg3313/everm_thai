@@ -228,7 +228,7 @@
 
   /* Scroll reveal */
   const revealEls = document.querySelectorAll(
-    ".section-head, .partner-care__card, .partner-care__steps li, .treatment-card, .featured-video, .process-roadmap__step, .doctor-profile, .case-card, .facility-carousel, .tech-list li, .about-panel, .hero-visual, .hero-stat, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
+    ".section-head, .partner-care__card, .partner-care__steps li, .treatment-card, .featured-video, .process-roadmap__step, .doctor-profile, .case-card, .facility-carousel, .facility-tour, .tech-list li, .about-panel, .hero-visual, .hero-stat, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
   );
 
   revealEls.forEach(function (el) {
@@ -477,6 +477,8 @@
   function playAutoplayVideo(video) {
     if (!video) return;
     video.muted = true;
+    var rate = parseFloat(video.getAttribute("data-playback-rate"));
+    video.playbackRate = isFinite(rate) && rate > 0 ? rate : 1;
     var attempt = video.play();
     if (attempt && typeof attempt.catch === "function") {
       attempt.catch(function () {});

@@ -691,32 +691,6 @@
           <p class="section-desc" data-i18n="fac_desc">พื้นที่สะอาด ทันสมัย และออกแบบเพื่อความปลอดภัยของผู้ป่วยศัลยกรรมโครงหน้า</p>
         </div>
 
-        <div class="featured-video featured-video--facility reveal" id="facility-video">
-          <div class="featured-video__head">
-            <p class="section-label" data-i18n="facility_video_label">วิดีโอสถานที่</p>
-            <h3 class="featured-video__title" data-i18n="facility_video_title">ทัวร์คลินิก EVERM — ทางเข้าและพื้นที่ต้อนรับ</h3>
-            <p class="featured-video__desc" data-i18n="facility_video_desc">
-              ชมบรรยากาศจริงของคลินิก ตั้งแต่ทางเข้าสาธารณะ ป้าย EVERM ไปจนถึงพื้นที่รอรับบริการ
-            </p>
-          </div>
-          <div class="featured-video__player">
-            <video
-              class="video-autoplay"
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="auto"
-              width="1280"
-              height="720"
-              data-i18n-aria="facility_video_aria"
-              aria-label="Clinic facility tour video"
-            >
-              <source src="/videos/everm-clinic-tour.mp4" type="video/mp4" />
-            </video>
-          </div>
-        </div>
-
         <div class="facility-tabs" role="tablist" data-i18n-aria="fac_tabs_aria" aria-label="หมวดหมู่สถานที่">
           <button type="button" class="facility-tab active" data-filter="all" aria-selected="true" data-i18n="fac_all">ทั้งหมด</button>
           <button type="button" class="facility-tab" data-filter="reception" aria-selected="false" data-i18n="fac_reception">ต้อนรับ</button>
@@ -759,6 +733,29 @@
             </button>
           </div>
         </div>
+
+        <figure class="facility-tour reveal" id="facility-video">
+          <div class="facility-tour__player">
+            <video
+              class="video-autoplay"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              width="1280"
+              height="720"
+              data-playback-rate="1.2"
+              data-i18n-aria="facility_video_aria"
+              aria-label="Clinic facility tour video"
+            >
+              <source src="/videos/everm-clinic-tour.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <figcaption class="facility-tour__caption" data-i18n="facility_video_caption">
+            ทัวร์คลินิก EVERM — ทางเข้าและพื้นที่ต้อนรับ
+          </figcaption>
+        </figure>
 
         <div class="facility-source" id="facility-source" hidden>
           <figure class="facility-card" data-category="reception">
