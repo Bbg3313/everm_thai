@@ -301,11 +301,9 @@
 
   /* Scroll reveal */
   const revealCandidates = document.querySelectorAll(
-    ".section-head, .partner-care__card, .partner-care__steps li, .treatment-card, .featured-video, .process-roadmap__step, .doctor-director-stack, .doctor-profile, .results-gallery, .shorts-head, .shorts-strip, .facility-carousel, .facility-tour, .tech-list li, .about-panel, .hero-visual, .hero-stat, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
+    ".section-head, .partner-care__card, .partner-care__steps li, .treatment-card, .featured-video, .process-roadmap__step, .team-banner, .doctor-profile, .results-gallery, .shorts-head, .shorts-strip, .facility-carousel, .facility-tour, .tech-list li, .about-panel, .hero-visual, .hero-stat, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
   );
-  const revealEls = Array.prototype.filter.call(revealCandidates, function (el) {
-    return !(el.classList.contains("doctor-profile") && el.closest(".doctor-director-stack"));
-  });
+  const revealEls = revealCandidates;
 
   revealEls.forEach(function (el) {
     el.classList.add("reveal");
