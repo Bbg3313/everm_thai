@@ -647,6 +647,25 @@
     syncTreatmentsCarousel();
   }
 
+  function syncNativeDatetimeEmptyState(input) {
+    if (!input) return;
+    input.classList.toggle("is-empty", !input.value);
+  }
+
+  function initNativeDatetimeFields() {
+    document.querySelectorAll(".form-datetime-input").forEach(function (input) {
+      syncNativeDatetimeEmptyState(input);
+      input.addEventListener("input", function () {
+        syncNativeDatetimeEmptyState(input);
+      });
+      input.addEventListener("change", function () {
+        syncNativeDatetimeEmptyState(input);
+      });
+    });
+  }
+
+  initNativeDatetimeFields();
+
   /* Smooth offset for fixed header */
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener("click", function (e) {
