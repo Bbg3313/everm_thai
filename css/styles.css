@@ -2774,16 +2774,19 @@ body.nav-open {
   padding: 0;
   line-height: 0;
   overflow: hidden;
-  display: block;
-  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #a8b0bc;
 }
 
 .team-accreditation img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
   max-height: min(48vh, 427px);
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
 }
 
