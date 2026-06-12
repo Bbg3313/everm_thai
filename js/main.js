@@ -331,7 +331,7 @@
 
   /* Scroll reveal */
   const revealCandidates = document.querySelectorAll(
-    ".section-head, .partner-care__card, .partner-care__steps li, .treatment-card, .featured-video, .process-roadmap__step, .team-banner, .doctor-profile, .results-gallery, .shorts-head, .shorts-strip, .facility-carousel, .facility-tour, .tech-list li, .about-panel, .hero-visual, .hero-stat, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
+    ".section-head, .partner-care__card, .partner-care__steps li, .treatment-card, .featured-video, .process-roadmap__step, .team-accreditation, .doctor-profile, .results-gallery, .shorts-head, .shorts-strip, .facility-carousel, .facility-tour, .tech-list li, .about-panel, .hero-visual, .hero-stat, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
   );
   const revealEls = revealCandidates;
 
