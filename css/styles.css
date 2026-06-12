@@ -2782,7 +2782,7 @@ body.nav-open {
   display: block;
   width: 100%;
   height: auto;
-  max-height: min(72vh, 640px);
+  max-height: min(48vh, 427px);
   object-fit: cover;
   object-position: center center;
 }
@@ -5873,7 +5873,7 @@ body.lang-ko .accordion-answer__content p {
   }
 
   .team-accreditation img {
-    max-height: min(60vh, 480px);
+    max-height: min(40vh, 320px);
   }
 
   .doctor-profile__intro {
