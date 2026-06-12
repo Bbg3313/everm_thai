@@ -106,7 +106,7 @@
     clearInterval(reviewTimer);
     reviewTimer = setInterval(function () {
       showReview(reviewIndex + 1);
-    }, 6000);
+    }, 2000);
   }
 
   dots.forEach(function (dot, i) {

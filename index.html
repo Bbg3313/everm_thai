@@ -173,6 +173,20 @@
             <a class="btn btn-primary" href="#contact" data-i18n="hero_cta_primary">จองปรึกษาฟรี</a>
             <a class="btn btn-ghost" href="#services" data-i18n="hero_cta_secondary">ดูบริการของเรา</a>
           </div>
+          <ul class="hero-stats" data-i18n-aria="hero_stats_aria" aria-label="จุดเด่นของคลินิก">
+            <li class="hero-stat">
+              <p class="hero-stat__value" data-i18n="hero_stat1_value">15+</p>
+              <p class="hero-stat__label" data-i18n="hero_stat1_label">ประสบการณ์ศัลยกรรมช่องปาก</p>
+            </li>
+            <li class="hero-stat">
+              <p class="hero-stat__value" data-i18n="hero_stat2_value">3D</p>
+              <p class="hero-stat__label" data-i18n="hero_stat2_label">วางแผนก่อนผ่าตัด</p>
+            </li>
+            <li class="hero-stat">
+              <p class="hero-stat__value" data-i18n="hero_stat3_value">1:1</p>
+              <p class="hero-stat__label" data-i18n="hero_stat3_label">ดูแลหลังผ่าตัด</p>
+            </li>
+          </ul>
         </div>
         <figure class="hero-visual">
           <div
@@ -270,25 +284,6 @@
             <p class="hero-photo-caption" data-i18n="hero_slide6_caption">ปรึกษาโดยศัลยแพทย์เฉพาะทาง · วางแผน 3D อย่างละเอียด</p>
           </div>
         </figure>
-      </div>
-      <div class="container hero-metrics">
-        <ul class="hero-stats" data-i18n-aria="hero_stats_aria" aria-label="จุดเด่นของคลินิก">
-          <li class="hero-stat">
-            <p class="hero-stat__value" data-i18n="hero_stat1_value">15+</p>
-            <p class="hero-stat__label" data-i18n="hero_stat1_label">ประสบการณ์ศัลยกรรมช่องปาก</p>
-          </li>
-          <li class="hero-stat">
-            <p class="hero-stat__value" data-i18n="hero_stat2_value">3D</p>
-            <p class="hero-stat__label" data-i18n="hero_stat2_label">วางแผนก่อนผ่าตัด</p>
-          </li>
-          <li class="hero-stat">
-            <p class="hero-stat__value" data-i18n="hero_stat3_value">1:1</p>
-            <p class="hero-stat__label" data-i18n="hero_stat3_label">ดูแลหลังผ่าตัด</p>
-          </li>
-        </ul>
-      </div>
-      <div class="hero-scroll" aria-hidden="true">
-        <span data-i18n="hero_scroll">เลื่อนลง</span>
       </div>
     </section>
 
@@ -694,6 +689,30 @@
           <p class="section-label" data-i18n="fac_label">สถานที่และสิ่งอำนวยความสะดวก</p>
           <h2 id="facilities-title" data-i18n-html="fac_title">คลินิกมาตรฐานสูง<br />ครบวงจรตั้งแต่ปรึกษาถึงพักฟื้น</h2>
           <p class="section-desc" data-i18n="fac_desc">พื้นที่สะอาด ทันสมัย และออกแบบเพื่อความปลอดภัยของผู้ป่วยศัลยกรรมโครงหน้า</p>
+        </div>
+
+        <div class="featured-video featured-video--facility reveal" id="facility-video">
+          <div class="featured-video__head">
+            <p class="section-label" data-i18n="facility_video_label">วิดีโอสถานที่</p>
+            <h3 class="featured-video__title" data-i18n="facility_video_title">ทัวร์คลินิก EVERM — ทางเข้าและพื้นที่ต้อนรับ</h3>
+            <p class="featured-video__desc" data-i18n="facility_video_desc">
+              ชมบรรยากาศจริงของคลินิก ตั้งแต่ทางเข้าสาธารณะ ป้าย EVERM ไปจนถึงพื้นที่รอรับบริการ
+            </p>
+          </div>
+          <div class="featured-video__player">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              width="1280"
+              height="720"
+              data-poster-time="2"
+              data-i18n-aria="facility_video_aria"
+              aria-label="Clinic facility tour video"
+            >
+              <source src="/videos/everm-clinic-tour.mp4" type="video/mp4" />
+            </video>
+          </div>
         </div>
 
         <div class="facility-tabs" role="tablist" data-i18n-aria="fac_tabs_aria" aria-label="หมวดหมู่สถานที่">
@@ -1144,10 +1163,22 @@
             <p data-i18n="review3">“ผู้ป่วยต่างชาติ — ทีมงานสื่อสารภาษาอังกฤษชัดเจนและช่วยนัดหมายทุกครั้ง”</p>
             <footer data-i18n="review3_by">— James · จัดฟัน + ผ่าตัดขากรรไกร</footer>
           </blockquote>
+          <blockquote class="review-card">
+            <div class="stars" data-i18n-aria="review_stars" aria-label="5 จาก 5 ดาว">★★★★★</div>
+            <p data-i18n="review4">“ตั้งแต่ปรึกษาครั้งแรกจนถึงวันผ่าตัด ทีมแพทย์และพยาบาลใส่ใจทุกรายละเอียด ผลลัพธ์สมดุลมาก”</p>
+            <footer data-i18n="review4_by">— คุณนุ้ย · ตัดโหนกแก้ม</footer>
+          </blockquote>
+          <blockquote class="review-card">
+            <div class="stars" data-i18n-aria="review_stars" aria-label="5 จาก 5 ดาว">★★★★★</div>
+            <p data-i18n="review5">“จองคิวและติดตามหลังผ่าตัดสะดวกมาก รู้สึกได้ว่าถูกดูแลแบบ one-on-one จริงๆ”</p>
+            <footer data-i18n="review5_by">— คุณเบล · ฟื้นฟูโครงกระดูกใบหน้า</footer>
+          </blockquote>
           <div class="review-dots" role="tablist" data-i18n-aria="review_dots" aria-label="เลือกรีวิว">
             <button type="button" class="active" aria-selected="true" data-i18n-aria="review_dot1" aria-label="รีวิว 1"></button>
             <button type="button" aria-selected="false" data-i18n-aria="review_dot2" aria-label="รีวิว 2"></button>
             <button type="button" aria-selected="false" data-i18n-aria="review_dot3" aria-label="รีวิว 3"></button>
+            <button type="button" aria-selected="false" data-i18n-aria="review_dot4" aria-label="รีวิว 4"></button>
+            <button type="button" aria-selected="false" data-i18n-aria="review_dot5" aria-label="รีวิว 5"></button>
           </div>
         </div>
       </div>
