@@ -71,11 +71,13 @@ new = f"""    <section class="section contact" id="contact" aria-labelledby="con
               <{d} class="form-row two-col">
                 <{d}>
                   <label for="date" data-i18n="form_date">วันที่สะดวก</label>
-                  <input type="date" id="date" name="date" />
+                  <input type="date" id="date" name="date" data-i18n-lang lang="th" data-i18n-title="form_date_hint" title="ปี-เดือน-วัน" />
+                  <p class="form-field-hint" data-i18n="form_date_hint">ปี-เดือน-วัน</p>
                 </{d}>
                 <{d}>
                   <label for="time" data-i18n="form_time">เวลา</label>
-                  <input type="time" id="time" name="time" />
+                  <input type="time" id="time" name="time" data-i18n-lang lang="th" data-i18n-title="form_time_hint" title="ชั่วโมง:นาที" />
+                  <p class="form-field-hint" data-i18n="form_time_hint">ชั่วโมง:นาที</p>
                 </{d}>
               </{d}>
               <{d} class="form-row">

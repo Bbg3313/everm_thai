@@ -3,8 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="คลินิก EVERM — ศัลยกรรมโครงหน้าและขากรรไกรเฉพาะทาง วางแผนด้วย 3D ที่โซล เกาหลี" />
-  <title>EVERM Surgery Clinic | Maxillofacial &amp; Facial Contour Surgery</title>
+  <meta name="description" content="คลินิก EVERM — ผู้เชี่ยวชาญศัลยกรรมโครงหน้าและขากรรไกร วางแผนผ่าตัด 3D และทีมแพทย์ผู้เชี่ยวชาญที่โซล เกาหลี" />
+  <meta property="og:title" content="คลินิกศัลยกรรม EVERM | ศัลยกรรมโครงหน้าและขากรรไกร" />
+  <meta property="og:description" content="คลินิก EVERM — ผู้เชี่ยวชาญศัลยกรรมโครงหน้าและขากรรไกร วางแผนผ่าตัด 3D และทีมแพทย์ผู้เชี่ยวชาญที่โซล เกาหลี" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:title" content="คลินิกศัลยกรรม EVERM | ศัลยกรรมโครงหน้าและขากรรไกร" />
+  <meta name="twitter:description" content="คลินิก EVERM — ผู้เชี่ยวชาญศัลยกรรมโครงหน้าและขากรรไกร วางแผนผ่าตัด 3D และทีมแพทย์ผู้เชี่ยวชาญที่โซล เกาหลี" />
+  <title>คลินิกศัลยกรรม EVERM | ศัลยกรรมโครงหน้าและขากรรไกร</title>
+  <script>
+    (function () {
+      var META = {
+        th: {
+          title: "คลินิกศัลยกรรม EVERM | ศัลยกรรมโครงหน้าและขากรรไกร",
+          description:
+            "คลินิก EVERM — ผู้เชี่ยวชาญศัลยกรรมโครงหน้าและขากรรไกร วางแผนผ่าตัด 3D และทีมแพทย์ผู้เชี่ยวชาญที่โซล เกาหลี",
+        },
+        en: {
+          title: "EVERM Surgery Clinic | Maxillofacial & Facial Contour Surgery",
+          description:
+            "EverM Dental Clinic — specialist maxillofacial and facial contour surgery with 3D planning in Seoul, Korea.",
+        },
+        ko: {
+          title: "EVERM Surgery Clinic | 안면윤곽·악안면외과",
+          description: "에버엠치과의원 — 안면윤곽·악안면외과 전문, 3D 수술 계획과 전문 의료진",
+        },
+      };
+      var saved = localStorage.getItem("everm_lang");
+      var lang = META[saved] ? saved : "th";
+      var pack = META[lang];
+      document.documentElement.lang = lang === "ko" ? "ko" : lang === "th" ? "th" : "en";
+      document.title = pack.title;
+      var desc = document.querySelector('meta[name="description"]');
+      if (desc) desc.setAttribute("content", pack.description);
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute("content", pack.title);
+      var ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute("content", pack.description);
+      var twTitle = document.querySelector('meta[name="twitter:title"]');
+      if (twTitle) twTitle.setAttribute("content", pack.title);
+      var twDesc = document.querySelector('meta[name="twitter:description"]');
+      if (twDesc) twDesc.setAttribute("content", pack.description);
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -108,99 +148,11 @@
   </header>
 
   <main id="main">
-    <section class="hero hero--cinema" aria-labelledby="hero-title">
-      <div class="hero-media">
-        <div
-          class="hero-slider"
-          id="hero-slider"
-          role="region"
-          data-i18n-aria="hero_slider_aria"
-          aria-label="ภาพคลินิก EVERM"
-          aria-live="polite"
-        >
-          <div class="hero-slide active">
-            <img
-              src="images/clinic/hero/hero-01-waiting.png"
-              alt="ห้องรอและเลานจ์พรีเมียม"
-              data-i18n-alt="hero_slide1_alt"
-              width="1200"
-              height="900"
-              loading="eager"
-              decoding="async"
-            />
-          </div>
-          <div class="hero-slide">
-            <img
-              src="images/clinic/hero/hero-02-branding.png"
-              alt="EVERM DENTAL CLINIC ป้ายแบรนด์"
-              data-i18n-alt="hero_slide2_alt"
-              width="1200"
-              height="900"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="hero-slide">
-            <img
-              src="images/clinic/hero/hero-03-interior.png"
-              alt="ดีไซน์ภายในระดับพรีเมียม"
-              data-i18n-alt="hero_slide3_alt"
-              width="1200"
-              height="900"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="hero-slide">
-            <img
-              src="images/clinic/hero/hero-04-reception.png"
-              alt="โถงต้อนรับและเคาน์เตอร์"
-              data-i18n-alt="hero_slide4_alt"
-              width="1200"
-              height="900"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="hero-slide">
-            <img
-              src="images/clinic/hero/hero-05-exterior.png"
-              alt="อาคารคลินิก EVERM ย่านกังนัม"
-              data-i18n-alt="hero_slide5_alt"
-              width="1200"
-              height="900"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="hero-slide">
-            <img
-              src="images/clinic/hero/hero-06-consultation.png"
-              alt="แพทย์อธิบายแผนการรักษา 3D ระหว่างปรึกษา"
-              data-i18n-alt="hero_slide6_alt"
-              width="1200"
-              height="900"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="hero-slider-progress" aria-hidden="true">
-            <span class="hero-slider-progress-bar" id="hero-progress-bar"></span>
-          </div>
-          <div class="hero-slider-dots" role="tablist" data-i18n-aria="hero_dots_aria" aria-label="เลือกภาพ">
-            <button type="button" class="active" aria-selected="true" data-i18n-aria="hero_dot1" aria-label="ภาพ 1"></button>
-            <button type="button" aria-selected="false" data-i18n-aria="hero_dot2" aria-label="ภาพ 2"></button>
-            <button type="button" aria-selected="false" data-i18n-aria="hero_dot3" aria-label="ภาพ 3"></button>
-            <button type="button" aria-selected="false" data-i18n-aria="hero_dot4" aria-label="ภาพ 4"></button>
-            <button type="button" aria-selected="false" data-i18n-aria="hero_dot5" aria-label="ภาพ 5"></button>
-            <button type="button" aria-selected="false" data-i18n-aria="hero_dot6" aria-label="ภาพ 6"></button>
-          </div>
-        </div>
-      </div>
-
-      <div class="container hero-content-wrap">
-        <div class="hero-content hero-copy-panel">
-          <p class="eyebrow hero-eyebrow" data-i18n="hero_eyebrow">ศัลยกรรมโครงหน้า · ขากรรไกร · ทันตกรรมเฉพาะทาง</p>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow" data-i18n="hero_eyebrow">ศัลยกรรมโครงหน้า · ขากรรไกร · ทันตกรรมเฉพาะทาง</p>
           <h1 id="hero-title" data-i18n-html="hero_title">
             โครงหน้าที่สมดุล<br />
             <em>เริ่มจากการวางแผนที่แม่นยำ</em>
@@ -213,19 +165,6 @@
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact" data-i18n="hero_cta_primary">จองปรึกษาฟรี</a>
             <a class="btn btn-ghost" href="#services" data-i18n="hero_cta_secondary">ดูบริการของเรา</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-bottom">
-        <div class="container hero-bottom-inner">
-          <div class="hero-captions">
-            <p class="hero-photo-caption active" data-i18n="hero_slide1_caption">ห้องรอพรีเมียม · มาตรฐานโรงพยาบาล</p>
-            <p class="hero-photo-caption" data-i18n="hero_slide2_caption">EVERM DENTAL CLINIC · แบรนด์ระดับสากล</p>
-            <p class="hero-photo-caption" data-i18n="hero_slide3_caption">ดีไซน์ภายใน · ความสงบและหรูหรา</p>
-            <p class="hero-photo-caption" data-i18n="hero_slide4_caption">โถงต้อนรับ · บริการครบวงจร</p>
-            <p class="hero-photo-caption" data-i18n="hero_slide5_caption">คลินิกย่านกังนัม · เดินทางสะดวก</p>
-            <p class="hero-photo-caption" data-i18n="hero_slide6_caption">ปรึกษาโดยศัลยแพทย์เฉพาะทาง · วางแผน 3D อย่างละเอียด</p>
           </div>
           <ul class="hero-stats" data-i18n-aria="hero_stats_aria" aria-label="จุดเด่นของคลินิก">
             <li class="hero-stat">
@@ -266,8 +205,103 @@
             </li>
           </ul>
         </div>
+        <figure class="hero-visual">
+          <div
+            class="hero-slider"
+            id="hero-slider"
+            role="region"
+            data-i18n-aria="hero_slider_aria"
+            aria-label="ภาพคลินิก EVERM"
+            aria-live="polite"
+          >
+            <div class="hero-slide active">
+              <img
+                src="images/clinic/hero/hero-01-waiting.png"
+                alt="ห้องรอและเลานจ์พรีเมียม"
+                data-i18n-alt="hero_slide1_alt"
+                width="1200"
+                height="900"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+            <div class="hero-slide">
+              <img
+                src="images/clinic/hero/hero-02-branding.png"
+                alt="EVERM DENTAL CLINIC ป้ายแบรนด์"
+                data-i18n-alt="hero_slide2_alt"
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="hero-slide">
+              <img
+                src="images/clinic/hero/hero-03-interior.png"
+                alt="ดีไซน์ภายในระดับพรีเมียม"
+                data-i18n-alt="hero_slide3_alt"
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="hero-slide">
+              <img
+                src="images/clinic/hero/hero-04-reception.png"
+                alt="โถงต้อนรับและเคาน์เตอร์"
+                data-i18n-alt="hero_slide4_alt"
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="hero-slide">
+              <img
+                src="images/clinic/hero/hero-05-exterior.png"
+                alt="อาคารคลินิก EVERM ย่านกังนัม"
+                data-i18n-alt="hero_slide5_alt"
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="hero-slide">
+              <img
+                src="images/clinic/hero/hero-06-consultation.png"
+                alt="แพทย์อธิบายแผนการรักษา 3D ระหว่างปรึกษา"
+                data-i18n-alt="hero_slide6_alt"
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="hero-slider-progress" aria-hidden="true">
+              <span class="hero-slider-progress-bar" id="hero-progress-bar"></span>
+            </div>
+            <div class="hero-slider-dots" role="tablist" data-i18n-aria="hero_dots_aria" aria-label="เลือกภาพ">
+              <button type="button" class="active" aria-selected="true" data-i18n-aria="hero_dot1" aria-label="ภาพ 1"></button>
+              <button type="button" aria-selected="false" data-i18n-aria="hero_dot2" aria-label="ภาพ 2"></button>
+              <button type="button" aria-selected="false" data-i18n-aria="hero_dot3" aria-label="ภาพ 3"></button>
+              <button type="button" aria-selected="false" data-i18n-aria="hero_dot4" aria-label="ภาพ 4"></button>
+              <button type="button" aria-selected="false" data-i18n-aria="hero_dot5" aria-label="ภาพ 5"></button>
+              <button type="button" aria-selected="false" data-i18n-aria="hero_dot6" aria-label="ภาพ 6"></button>
+            </div>
+          </div>
+          <div class="hero-captions">
+            <p class="hero-photo-caption active" data-i18n="hero_slide1_caption">ห้องรอพรีเมียม · มาตรฐานโรงพยาบาล</p>
+            <p class="hero-photo-caption" data-i18n="hero_slide2_caption">EVERM DENTAL CLINIC · แบรนด์ระดับสากล</p>
+            <p class="hero-photo-caption" data-i18n="hero_slide3_caption">ดีไซน์ภายใน · ความสงบและหรูหรา</p>
+            <p class="hero-photo-caption" data-i18n="hero_slide4_caption">โถงต้อนรับ · บริการครบวงจร</p>
+            <p class="hero-photo-caption" data-i18n="hero_slide5_caption">คลินิกย่านกังนัม · เดินทางสะดวก</p>
+            <p class="hero-photo-caption" data-i18n="hero_slide6_caption">ปรึกษาโดยศัลยแพทย์เฉพาะทาง · วางแผน 3D อย่างละเอียด</p>
+          </div>
+        </figure>
       </div>
-
       <div class="hero-scroll" aria-hidden="true">
         <span data-i18n="hero_scroll">เลื่อนลง</span>
       </div>
@@ -1362,11 +1396,13 @@
               <div class="form-row two-col">
                 <div>
                   <label for="date" data-i18n="form_date">วันที่สะดวก</label>
-                  <input type="date" id="date" name="date" />
+                  <input type="date" id="date" name="date" data-i18n-lang lang="th" data-i18n-title="form_date_hint" title="ปี-เดือน-วัน" />
+                  <p class="form-field-hint" data-i18n="form_date_hint">ปี-เดือน-วัน</p>
                 </div>
                 <div>
                   <label for="time" data-i18n="form_time">เวลา</label>
-                  <input type="time" id="time" name="time" />
+                  <input type="time" id="time" name="time" data-i18n-lang lang="th" data-i18n-title="form_time_hint" title="ชั่วโมง:นาที" />
+                  <p class="form-field-hint" data-i18n="form_time_hint">ชั่วโมง:นาที</p>
                 </div>
               </div>
               <div class="form-row">

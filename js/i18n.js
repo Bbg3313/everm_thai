@@ -24,10 +24,27 @@
     var saved = localStorage.getItem(STORAGE_KEY);
     if (saved && SUPPORTED.indexOf(saved) !== -1) return saved;
     var nav = (navigator.language || navigator.userLanguage || "").toLowerCase();
-    if (nav.indexOf("ko") === 0) return "ko";
     if (nav.indexOf("th") === 0) return "th";
     if (nav.indexOf("en") === 0) return "en";
     return DEFAULT_LANG;
+  }
+
+  function updateDocumentMeta(lang) {
+    var title = t(lang, "meta_title");
+    var desc = t(lang, "meta_description");
+    if (title) document.title = title;
+    if (desc) {
+      var description = document.querySelector('meta[name="description"]');
+      if (description) description.setAttribute("content", desc);
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute("content", title || "");
+      var ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute("content", desc);
+      var twTitle = document.querySelector('meta[name="twitter:title"]');
+      if (twTitle) twTitle.setAttribute("content", title || "");
+      var twDesc = document.querySelector('meta[name="twitter:description"]');
+      if (twDesc) twDesc.setAttribute("content", desc);
+    }
   }
 
   function t(lang, key) {
@@ -131,17 +148,15 @@
     document.body.classList.remove("lang-ko", "lang-en", "lang-th");
     document.body.classList.add("lang-" + lang);
 
-    var title = t(lang, "meta_title");
-    var desc = t(lang, "meta_description");
-    if (title) document.title = title;
-    if (desc) {
-      var meta = document.querySelector('meta[name="description"]');
-      if (meta) meta.setAttribute("content", desc);
-    }
+    updateDocumentMeta(lang);
 
     queryI18nElements().forEach(function (el) {
       var key = getKey(el);
       if (key) applyToElement(el, lang, key);
+    });
+
+    document.querySelectorAll("[data-i18n-lang]").forEach(function (el) {
+      el.setAttribute("lang", lang === "ko" ? "ko" : lang === "th" ? "th" : "en");
     });
 
     updateLangDropdownUI(lang);
