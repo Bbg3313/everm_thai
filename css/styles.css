@@ -2291,10 +2291,11 @@ body.nav-open {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: auto auto;
   gap: 0.65rem;
-  align-self: center;
+  align-self: stretch;
+  align-content: end;
   width: 100%;
   min-width: 0;
-  height: auto;
+  height: 100%;
 }
 
 .tech-card {
@@ -2683,9 +2684,9 @@ body.nav-open {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 24%;
-  transform: scale(1.14);
-  transform-origin: center 22%;
+  object-position: center 6%;
+  transform: scale(1.05) translateY(-9%);
+  transform-origin: center 8%;
 }
 
 .doctor-profile {
@@ -5751,9 +5752,9 @@ body.lang-ko .accordion-answer__content p {
   }
 
   .team-banner img {
-    object-position: center 22%;
-    transform: scale(1.18);
-    transform-origin: center 20%;
+    object-position: center 4%;
+    transform: scale(1.08) translateY(-11%);
+    transform-origin: center 6%;
   }
 
   .doctor-profile__intro {
