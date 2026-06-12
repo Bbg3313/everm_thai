@@ -693,37 +693,40 @@
           <button type="button" class="facility-tab" data-filter="building" aria-selected="false" data-i18n="fac_building">อาคาร</button>
         </div>
 
-        <figure class="facility-tour reveal" id="facility-video">
-          <div class="featured-video__player facility-tour__player">
-            <video
-              class="video-autoplay"
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="auto"
-              data-playback-rate="1.2"
-              data-i18n-aria="facility_video_aria"
-              aria-label="Clinic facility tour video"
-            >
-              <source src="/videos/everm-clinic-tour.mp4" type="video/mp4" />
-            </video>
-          </div>
-          <figcaption class="facility-tour__caption" data-i18n="facility_video_caption">
-            ทัวร์คลินิก EVERM — ทางเข้าและพื้นที่ต้อนรับ
-          </figcaption>
-        </figure>
+        <div class="facilities-stage">
+          <figure class="facility-tour reveal" id="facility-video">
+            <div class="facility-media-frame facility-tour__frame">
+              <div class="facility-tour__player">
+                <video
+                  class="video-autoplay"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="auto"
+                  data-playback-rate="1.2"
+                  data-i18n-aria="facility_video_aria"
+                  aria-label="Clinic facility tour video"
+                >
+                  <source src="/videos/everm-clinic-tour.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+            <figcaption class="facility-tour__caption" data-i18n="facility_video_caption">
+              ทัวร์คลินิก EVERM — ทางเข้าและพื้นที่ต้อนรับ
+            </figcaption>
+          </figure>
 
-        <div
-          class="facility-carousel reveal"
-          id="facility-carousel"
-          aria-roledescription="carousel"
-          data-i18n-aria="fac_carousel_aria"
-          aria-label="ภาพสถานที่คลินิก"
-        >
-          <div class="facility-carousel__viewport">
-            <div class="facility-carousel__track" id="facility-track"></div>
-          </div>
+          <div
+            class="facility-carousel reveal"
+            id="facility-carousel"
+            aria-roledescription="carousel"
+            data-i18n-aria="fac_carousel_aria"
+            aria-label="ภาพสถานที่คลินิก"
+          >
+            <div class="facility-carousel__viewport facility-media-frame">
+              <div class="facility-carousel__track" id="facility-track"></div>
+            </div>
           <div class="facility-carousel__nav">
             <button
               type="button"
@@ -745,6 +748,7 @@
               <span aria-hidden="true">›</span>
             </button>
           </div>
+        </div>
         </div>
 
         <div class="facility-source" id="facility-source" hidden>
