@@ -2527,7 +2527,8 @@ body.nav-open {
 .team {
   position: relative;
   background: linear-gradient(180deg, #eef2fa 0%, var(--color-bg) 28%, var(--color-bg) 100%);
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .team::before {
@@ -2564,12 +2565,35 @@ body.nav-open {
   z-index: 1;
 }
 
+.doctor-director-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+.doctor-director-stack .doctor-profile--director {
+  border-bottom: none;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.doctor-director-stack .doctor-profile--director .doctor-profile__intro {
+  border-bottom: none;
+}
+
+.doctor-director-stack .doctor-profile--credentials {
+  border-top: 1px solid rgba(0, 48, 128, 0.08);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
 .team-banner {
+  position: relative;
+  left: 50%;
   width: 100vw;
   max-width: 100vw;
-  margin: 1.25rem calc(50% - 50vw);
+  margin: 0;
+  transform: translateX(-50%);
   line-height: 0;
-  overflow: hidden;
   background: linear-gradient(
     180deg,
     #2d63a3 0%,
@@ -2586,30 +2610,6 @@ body.nav-open {
   display: block;
   width: 100%;
   height: auto;
-  min-height: clamp(220px, 34vw, 560px);
-  object-fit: cover;
-  object-position: center center;
-}
-
-.doctor-profile:has(.team-banner) {
-  overflow: visible;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.doctor-profile:has(.team-banner) .doctor-profile__intro {
-  overflow: hidden;
-  border: 1px solid rgba(0, 48, 128, 0.1);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 2px 8px rgba(0, 32, 128, 0.05), 0 16px 40px rgba(0, 32, 128, 0.08);
-}
-
-.doctor-profile:has(.team-banner) .doctor-profile__credentials {
-  border: 1px solid rgba(0, 48, 128, 0.1);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 2px 8px rgba(0, 32, 128, 0.05), 0 16px 40px rgba(0, 32, 128, 0.08);
 }
 
 .doctor-profile {
@@ -5653,14 +5653,6 @@ body.lang-ko .accordion-answer__content p {
   /* Team */
   .team-doctors {
     gap: 1.75rem;
-  }
-
-  .team-banner {
-    margin: 1rem calc(50% - 50vw);
-  }
-
-  .team-banner img {
-    min-height: clamp(180px, 46vw, 420px);
   }
 
   .doctor-profile__intro {
