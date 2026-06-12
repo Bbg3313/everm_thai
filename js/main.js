@@ -282,7 +282,7 @@
 
   /* Scroll reveal */
   const revealEls = document.querySelectorAll(
-    ".section-head, .partner-care__card, .partner-care__steps li, .treatment-card, .featured-video, .process-roadmap__step, .doctor-profile, .results-showcase, .facility-carousel, .facility-tour, .tech-list li, .about-panel, .hero-visual, .hero-stat, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
+    ".section-head, .partner-care__card, .partner-care__steps li, .treatment-card, .featured-video, .process-roadmap__step, .doctor-profile, .results-gallery, .shorts-carousel, .facility-carousel, .facility-tour, .tech-list li, .about-panel, .hero-visual, .hero-stat, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
   );
 
   revealEls.forEach(function (el) {
@@ -474,96 +474,217 @@
     startFacilityTimer();
   }
 
-  /* Results carousel — Before & After clinical cases */
-  const resultsTrack = document.getElementById("results-track");
-  const resultsCarousel = document.getElementById("results-carousel");
-  const resultsPrev = document.getElementById("results-prev");
-  const resultsNext = document.getElementById("results-next");
-  const resultsCurrent = document.getElementById("results-current");
-  const resultsTotal = document.getElementById("results-total");
-  const resultsProgress = document.getElementById("results-progress");
-  const resultsCount = 32;
+  /* Results gallery — Before & After with FRONT / 45° views */
+  const resultsGallery = document.getElementById("results-gallery");
+  const resultsMainImg = document.getElementById("results-main-img");
+  const resultsThumbs = document.getElementById("results-thumbs");
+  const resultsThumbPrev = document.getElementById("results-thumb-prev");
+  const resultsThumbNext = document.getElementById("results-thumb-next");
+  const resultsAngleButtons = document.querySelectorAll(".results-gallery__angle");
 
-  if (resultsTrack) {
-    let resultsIndex = 0;
-    let resultsTimer;
-    const resultsIntervalMs = 4500;
-
-    for (let i = 1; i <= resultsCount; i += 1) {
-      const slide = document.createElement("figure");
-      slide.className = "results-slide";
-      slide.setAttribute("role", "group");
-      slide.setAttribute("aria-roledescription", "slide");
-      slide.setAttribute("aria-label", String(i));
-
-      const img = document.createElement("img");
-      const num = String(i).padStart(2, "0");
-      img.src = "images/cases/ba-" + num + ".jpg";
-      img.alt = "Before and after case " + i;
-      img.width = 780;
-      img.height = 505;
-      img.loading = i <= 2 ? "eager" : "lazy";
-      img.decoding = "async";
-      img.setAttribute("data-i18n-alt", "cases_img_alt");
-      slide.appendChild(img);
-      resultsTrack.appendChild(slide);
-    }
-
-    if (resultsTotal) {
-      resultsTotal.textContent = String(resultsCount).padStart(2, "0");
-    }
-
-    function padSlide(n) {
-      return String(n).padStart(2, "0");
-    }
-
-    function goResultsSlide(index) {
-      resultsIndex = (index + resultsCount) % resultsCount;
-      resultsTrack.style.transform = "translateX(-" + resultsIndex * 100 + "%)";
-      if (resultsCurrent) resultsCurrent.textContent = padSlide(resultsIndex + 1);
-      if (resultsProgress) {
-        resultsProgress.style.width = ((resultsIndex + 1) / resultsCount) * 100 + "%";
+  if (resultsGallery && resultsMainImg && resultsThumbs) {
+    const RESULTS_PAIRS = [];
+    for (let pair = 1; pair <= 16; pair += 1) {
+      const a = pair * 2 - 1;
+      const b = pair * 2;
+      if (pair % 2 === 1) {
+        RESULTS_PAIRS.push({ front: a, deg45: b });
+      } else {
+        RESULTS_PAIRS.push({ front: b, deg45: a });
       }
     }
 
-    function startResultsTimer() {
-      clearInterval(resultsTimer);
-      resultsTimer = setInterval(function () {
-        goResultsSlide(resultsIndex + 1);
-      }, resultsIntervalMs);
+    let resultsCaseIndex = 0;
+    let resultsAngle = "front";
+
+    function padCaseNum(n) {
+      return String(n).padStart(2, "0");
     }
 
-    if (resultsPrev) {
-      resultsPrev.addEventListener("click", function () {
-        goResultsSlide(resultsIndex - 1);
-        startResultsTimer();
+    function caseImageSrc(num) {
+      return "images/cases/ba-" + padCaseNum(num) + ".jpg";
+    }
+
+    function getCurrentImageNum() {
+      const pair = RESULTS_PAIRS[resultsCaseIndex];
+      return resultsAngle === "45" ? pair.deg45 : pair.front;
+    }
+
+    function updateResultsGallery() {
+      const imageNum = getCurrentImageNum();
+      resultsMainImg.classList.add("is-swapping");
+      resultsMainImg.src = caseImageSrc(imageNum);
+      resultsMainImg.setAttribute(
+        "alt",
+        (window.EvermI18n && window.EvermI18n.t("cases_img_alt")) ||
+          "Before and after orthognathic treatment"
+      );
+
+      resultsAngleButtons.forEach(function (btn) {
+        const active = btn.getAttribute("data-angle") === resultsAngle;
+        btn.classList.toggle("is-active", active);
+        btn.setAttribute("aria-selected", active ? "true" : "false");
+      });
+
+      resultsThumbs.querySelectorAll(".results-gallery__thumb").forEach(function (thumb, i) {
+        const active = i === resultsCaseIndex;
+        thumb.classList.toggle("is-active", active);
+        thumb.setAttribute("aria-selected", active ? "true" : "false");
+        if (active) {
+          thumb.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        }
       });
     }
 
-    if (resultsNext) {
-      resultsNext.addEventListener("click", function () {
-        goResultsSlide(resultsIndex + 1);
-        startResultsTimer();
+    resultsMainImg.addEventListener("load", function () {
+      resultsMainImg.classList.remove("is-swapping");
+    });
+
+    RESULTS_PAIRS.forEach(function (pair, index) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "results-gallery__thumb" + (index === 0 ? " is-active" : "");
+      btn.setAttribute("role", "tab");
+      btn.setAttribute("aria-selected", index === 0 ? "true" : "false");
+      btn.setAttribute("aria-label", "Case " + (index + 1));
+
+      const img = document.createElement("img");
+      img.src = caseImageSrc(pair.front);
+      img.alt = "";
+      img.width = 780;
+      img.height = 505;
+      img.loading = index < 4 ? "eager" : "lazy";
+      img.decoding = "async";
+      btn.appendChild(img);
+
+      btn.addEventListener("click", function () {
+        resultsCaseIndex = index;
+        updateResultsGallery();
+      });
+
+      resultsThumbs.appendChild(btn);
+    });
+
+    resultsAngleButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        resultsAngle = btn.getAttribute("data-angle") || "front";
+        updateResultsGallery();
+      });
+    });
+
+    if (resultsThumbPrev) {
+      resultsThumbPrev.addEventListener("click", function () {
+        resultsCaseIndex = (resultsCaseIndex - 1 + RESULTS_PAIRS.length) % RESULTS_PAIRS.length;
+        updateResultsGallery();
       });
     }
 
-    if (resultsCarousel) {
-      resultsCarousel.addEventListener("mouseenter", function () {
-        clearInterval(resultsTimer);
-      });
-      resultsCarousel.addEventListener("mouseleave", function () {
-        startResultsTimer();
-      });
-      resultsCarousel.addEventListener("focusin", function () {
-        clearInterval(resultsTimer);
-      });
-      resultsCarousel.addEventListener("focusout", function () {
-        startResultsTimer();
+    if (resultsThumbNext) {
+      resultsThumbNext.addEventListener("click", function () {
+        resultsCaseIndex = (resultsCaseIndex + 1) % RESULTS_PAIRS.length;
+        updateResultsGallery();
       });
     }
 
-    goResultsSlide(0);
-    startResultsTimer();
+    updateResultsGallery();
+  }
+
+  /* Shorts carousel — vertical clips slider */
+  const shortsTrack = document.getElementById("shorts-track");
+  const shortsViewport = document.getElementById("shorts-viewport");
+  const shortsPrev = document.getElementById("shorts-prev");
+  const shortsNext = document.getElementById("shorts-next");
+  const shortsDots = document.getElementById("shorts-dots");
+
+  if (shortsTrack && shortsViewport) {
+    const shortsSlides = Array.from(shortsTrack.querySelectorAll(".shorts-slide"));
+    const shortsVideos = shortsSlides.map(function (slide) {
+      return slide.querySelector("video");
+    });
+    let shortsIndex = 0;
+    let shortsTouchStartX = 0;
+    let shortsTouchDeltaX = 0;
+
+    function pauseShortsVideos(exceptIndex) {
+      shortsVideos.forEach(function (video, i) {
+        if (!video || i === exceptIndex) return;
+        video.pause();
+      });
+    }
+
+    function goShortsSlide(index) {
+      if (!shortsSlides.length) return;
+      shortsIndex = (index + shortsSlides.length) % shortsSlides.length;
+      shortsTrack.style.transform = "translateX(-" + shortsIndex * 100 + "%)";
+      shortsSlides.forEach(function (slide, i) {
+        slide.classList.toggle("is-active", i === shortsIndex);
+      });
+      if (shortsDots) {
+        shortsDots.querySelectorAll(".shorts-carousel__dot").forEach(function (dot, i) {
+          const active = i === shortsIndex;
+          dot.classList.toggle("is-active", active);
+          dot.setAttribute("aria-selected", active ? "true" : "false");
+        });
+      }
+      pauseShortsVideos(shortsIndex);
+    }
+
+    if (shortsDots) {
+      shortsSlides.forEach(function (_, i) {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "shorts-carousel__dot" + (i === 0 ? " is-active" : "");
+        dot.setAttribute("role", "tab");
+        dot.setAttribute("aria-label", String(i + 1));
+        dot.setAttribute("aria-selected", i === 0 ? "true" : "false");
+        dot.addEventListener("click", function () {
+          goShortsSlide(i);
+        });
+        shortsDots.appendChild(dot);
+      });
+    }
+
+    if (shortsPrev) {
+      shortsPrev.addEventListener("click", function () {
+        goShortsSlide(shortsIndex - 1);
+      });
+    }
+
+    if (shortsNext) {
+      shortsNext.addEventListener("click", function () {
+        goShortsSlide(shortsIndex + 1);
+      });
+    }
+
+    shortsViewport.addEventListener(
+      "touchstart",
+      function (event) {
+        if (!event.touches.length) return;
+        shortsTouchStartX = event.touches[0].clientX;
+        shortsTouchDeltaX = 0;
+      },
+      { passive: true }
+    );
+
+    shortsViewport.addEventListener(
+      "touchmove",
+      function (event) {
+        if (!event.touches.length) return;
+        shortsTouchDeltaX = event.touches[0].clientX - shortsTouchStartX;
+      },
+      { passive: true }
+    );
+
+    shortsViewport.addEventListener("touchend", function () {
+      if (Math.abs(shortsTouchDeltaX) < 40) return;
+      if (shortsTouchDeltaX < 0) {
+        goShortsSlide(shortsIndex + 1);
+      } else {
+        goShortsSlide(shortsIndex - 1);
+      }
+    });
+
+    goShortsSlide(0);
   }
 
   /* Video thumbnail at fixed timestamp; playback always starts at 0 */

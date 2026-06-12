@@ -1083,51 +1083,66 @@
         </div>
 
         <div
-          class="results-showcase reveal"
-          id="results-carousel"
+          class="results-gallery reveal"
+          id="results-gallery"
           role="region"
-          aria-roledescription="carousel"
           data-i18n-aria="cases_carousel_aria"
           aria-label="ผลลัพธ์ก่อน–หลัง"
         >
-          <div class="results-showcase__frame">
-            <div class="results-showcase__ribbon" data-i18n="cases_badge">Clinical Results</div>
-            <div class="results-showcase__labels" aria-hidden="true">
-              <span class="results-showcase__label results-showcase__label--before" data-i18n="cases_before">ก่อน</span>
-              <span class="results-showcase__label results-showcase__label--after" data-i18n="cases_after">หลัง</span>
-            </div>
-            <div class="results-showcase__viewport">
-              <div class="results-showcase__track" id="results-track"></div>
-            </div>
-            <div class="results-showcase__progress" aria-hidden="true">
-              <span class="results-showcase__progress-bar" id="results-progress"></span>
-            </div>
-            <div class="results-showcase__counter" aria-live="polite">
-              <span class="results-showcase__counter-current" id="results-current">01</span>
-              <span class="results-showcase__counter-sep">/</span>
-              <span class="results-showcase__counter-total" id="results-total">32</span>
+          <div class="results-gallery__stage">
+            <figure class="results-gallery__main">
+              <img
+                id="results-main-img"
+                src="images/cases/ba-01.jpg"
+                alt="Before and after case 1"
+                data-i18n-alt="cases_img_alt"
+                width="780"
+                height="505"
+                loading="eager"
+                decoding="async"
+              />
+            </figure>
+            <div class="results-gallery__angles" role="tablist" data-i18n-aria="cases_angles_aria" aria-label="มุมถ่ายภาพ">
+              <button
+                type="button"
+                class="results-gallery__angle is-active"
+                role="tab"
+                data-angle="front"
+                aria-selected="true"
+                data-i18n="cases_angle_front"
+              >FRONT</button>
+              <button
+                type="button"
+                class="results-gallery__angle"
+                role="tab"
+                data-angle="45"
+                aria-selected="false"
+                data-i18n="cases_angle_45"
+              >45°</button>
             </div>
           </div>
 
-          <div class="results-showcase__nav">
+          <p class="results-gallery__caption" data-i18n="cases_caption">Orthognathic · Facial contour · Real EVERM clinical cases</p>
+
+          <div class="results-gallery__thumbs-bar">
             <button
               type="button"
-              class="results-showcase__arrow results-showcase__arrow--prev"
-              id="results-prev"
+              class="results-gallery__arrow results-gallery__arrow--prev"
+              id="results-thumb-prev"
               data-i18n-aria="cases_prev"
-              aria-label="ภาพก่อนหน้า"
+              aria-label="เคสก่อนหน้า"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span aria-hidden="true">‹</span>
             </button>
-            <p class="results-showcase__nav-label" data-i18n="cases_nav_label">เลื่อนดูเคสจริงทั้งหมด</p>
+            <div class="results-gallery__thumbs" id="results-thumbs" role="tablist" data-i18n-aria="cases_thumbs_aria" aria-label="เลือกเคส"></div>
             <button
               type="button"
-              class="results-showcase__arrow results-showcase__arrow--next"
-              id="results-next"
+              class="results-gallery__arrow results-gallery__arrow--next"
+              id="results-thumb-next"
               data-i18n-aria="cases_next"
-              aria-label="ภาพถัดไป"
+              aria-label="เคสถัดไป"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span aria-hidden="true">›</span>
             </button>
           </div>
 
@@ -1135,6 +1150,86 @@
           <div class="results-cta">
             <a class="btn btn-primary" href="#contact" data-i18n="cases_cta">ปรึกษาเคสที่คล้ายกัน</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shorts" id="shorts" aria-labelledby="shorts-title">
+      <div class="container">
+        <div class="section-head center">
+          <p class="section-label" data-i18n="shorts_label">Short clips</p>
+          <h2 id="shorts-title" data-i18n="shorts_title">EVERM in 60 seconds</h2>
+          <p class="section-desc" data-i18n="shorts_desc">Quick looks at the clinic, care, and real patient stories.</p>
+        </div>
+
+        <div
+          class="shorts-carousel reveal"
+          id="shorts-carousel"
+          role="region"
+          data-i18n-aria="shorts_carousel_aria"
+          aria-label="EVERM short videos"
+        >
+          <button
+            type="button"
+            class="shorts-carousel__arrow shorts-carousel__arrow--prev"
+            id="shorts-prev"
+            data-i18n-aria="shorts_prev"
+            aria-label="Previous clip"
+          >
+            <span aria-hidden="true">‹</span>
+          </button>
+
+          <div class="shorts-carousel__viewport" id="shorts-viewport">
+            <div class="shorts-carousel__track" id="shorts-track">
+              <article class="shorts-slide is-active" role="group" aria-roledescription="slide" aria-label="1">
+                <div class="shorts-slide__player">
+                  <video controls playsinline preload="metadata" width="1080" height="1920" data-i18n-aria="shorts_video_aria" aria-label="EVERM short video 1">
+                    <source src="/videos/shorts/short-01.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </article>
+              <article class="shorts-slide" role="group" aria-roledescription="slide" aria-label="2">
+                <div class="shorts-slide__player">
+                  <video controls playsinline preload="metadata" width="1080" height="1920" data-i18n-aria="shorts_video_aria" aria-label="EVERM short video 2">
+                    <source src="/videos/shorts/short-02.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </article>
+              <article class="shorts-slide" role="group" aria-roledescription="slide" aria-label="3">
+                <div class="shorts-slide__player">
+                  <video controls playsinline preload="metadata" width="1080" height="1920" data-i18n-aria="shorts_video_aria" aria-label="EVERM short video 3">
+                    <source src="/videos/shorts/short-03.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </article>
+              <article class="shorts-slide" role="group" aria-roledescription="slide" aria-label="4">
+                <div class="shorts-slide__player">
+                  <video controls playsinline preload="metadata" width="1080" height="1920" data-i18n-aria="shorts_video_aria" aria-label="EVERM short video 4">
+                    <source src="/videos/shorts/short-04.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </article>
+              <article class="shorts-slide" role="group" aria-roledescription="slide" aria-label="5">
+                <div class="shorts-slide__player">
+                  <video controls playsinline preload="metadata" width="1080" height="1920" data-i18n-aria="shorts_video_aria" aria-label="EVERM short video 5">
+                    <source src="/videos/shorts/short-05.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="shorts-carousel__arrow shorts-carousel__arrow--next"
+            id="shorts-next"
+            data-i18n-aria="shorts_next"
+            aria-label="Next clip"
+          >
+            <span aria-hidden="true">›</span>
+          </button>
+
+          <div class="shorts-carousel__dots" id="shorts-dots" role="tablist" data-i18n-aria="shorts_dots_aria" aria-label="Select clip"></div>
         </div>
       </div>
     </section>
