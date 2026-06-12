@@ -649,14 +649,20 @@
       });
     }
 
+    function getShortsPosterTime(video) {
+      const posterTime = parseFloat(video && video.getAttribute("data-poster-time"));
+      return isFinite(posterTime) && posterTime >= 0 ? posterTime : 1;
+    }
+
     function resetShortsCard(media, video) {
       if (!media || !video) return;
+      const posterTime = getShortsPosterTime(video);
       media.classList.remove("is-playing");
       const fill = media.querySelector(".shorts-card__progress-fill");
       if (fill) fill.style.width = "0%";
-      if (!video.paused || video.currentTime > 0.2) {
+      if (!video.paused || Math.abs(video.currentTime - posterTime) > 0.2) {
         video.pause();
-        video.currentTime = 0.15;
+        video.currentTime = posterTime;
       }
     }
 
