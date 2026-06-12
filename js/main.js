@@ -251,13 +251,43 @@
   const techDots = document.querySelectorAll(".tech-slider-dots button");
   let techIndex = 0;
   let techTimer;
+  let techLeaveTimer;
+  const techIntervalMs = 5500;
+  const techFadeMs = 1200;
+
+  function restartTechKenBurns(slide) {
+    const img = slide && slide.querySelector("img");
+    if (!img) return;
+    img.style.animation = "none";
+    void img.offsetWidth;
+    img.style.animation = "";
+  }
 
   function showTechSlide(index) {
     if (!techSlides.length) return;
-    techIndex = (index + techSlides.length) % techSlides.length;
+    const prevIndex = techIndex;
+    const nextIndex = (index + techSlides.length) % techSlides.length;
+    if (prevIndex === nextIndex && techSlides[prevIndex].classList.contains("active")) return;
+
+    clearTimeout(techLeaveTimer);
+    techIndex = nextIndex;
+
     techSlides.forEach(function (slide, i) {
-      slide.classList.toggle("active", i === techIndex);
+      slide.classList.remove("is-leaving", "active");
+      if (i === techIndex) {
+        slide.classList.add("active");
+        restartTechKenBurns(slide);
+      } else if (i === prevIndex) {
+        slide.classList.add("is-leaving");
+      }
     });
+
+    techLeaveTimer = setTimeout(function () {
+      techSlides.forEach(function (slide) {
+        slide.classList.remove("is-leaving");
+      });
+    }, techFadeMs);
+
     techDots.forEach(function (dot, i) {
       dot.classList.toggle("active", i === techIndex);
       dot.setAttribute("aria-selected", i === techIndex ? "true" : "false");
@@ -268,7 +298,7 @@
     clearInterval(techTimer);
     techTimer = setInterval(function () {
       showTechSlide(techIndex + 1);
-    }, 2000);
+    }, techIntervalMs);
   }
 
   techDots.forEach(function (dot, i) {

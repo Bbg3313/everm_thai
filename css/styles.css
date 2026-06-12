@@ -2083,14 +2083,20 @@ body.nav-open {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 0.55s ease;
+  z-index: 0;
+  transition: opacity 1.15s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
 }
 
 .tech-slide.active {
   opacity: 1;
-  z-index: 1;
+  z-index: 2;
   pointer-events: auto;
+}
+
+.tech-slide.is-leaving {
+  opacity: 0;
+  z-index: 1;
 }
 
 .tech-slide img {
@@ -2099,6 +2105,41 @@ body.nav-open {
   display: block;
   object-fit: cover;
   object-position: center center;
+  transform: scale(1.06);
+  filter: brightness(0.97);
+  transition:
+    transform 1.35s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-slide.active img {
+  transform: scale(1);
+  filter: brightness(1);
+  animation: tech-ken-burns 5.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.tech-slide.is-leaving img {
+  transform: scale(1.03);
+  filter: brightness(1.02);
+}
+
+@keyframes tech-ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.045);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-slide,
+  .tech-slide img {
+    transition: opacity 0.35s ease;
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }
 
 .tech-slider-dots {
@@ -2121,13 +2162,23 @@ body.nav-open {
   background: rgba(255, 255, 255, 0.55);
   box-shadow: 0 1px 4px rgba(0, 32, 80, 0.25);
   cursor: pointer;
-  transition: background var(--transition), transform var(--transition);
+  transition:
+    background 0.35s ease,
+    transform 0.35s ease,
+    width 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 0.4s ease;
 }
 
-.tech-slider-dots button:hover,
+.tech-slider-dots button:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: scale(1.15);
+}
+
 .tech-slider-dots button.active {
+  width: 1.5rem;
+  border-radius: 4px;
   background: #fff;
-  transform: scale(1.2);
+  transform: scale(1);
 }
 
 /* Facilities gallery */
