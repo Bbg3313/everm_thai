@@ -597,6 +597,63 @@
     }
   });
 
+  /* Thai phone — 08X-XXX-XXXX (mobile) or 02-XXX-XXXX (Bangkok landline) */
+  function normalizeThaiPhoneDigits(value) {
+    var digits = String(value || "").replace(/\D/g, "");
+    if (digits.indexOf("66") === 0 && digits.length >= 11) {
+      digits = "0" + digits.slice(2);
+    }
+    return digits.slice(0, 10);
+  }
+
+  function formatThaiPhone(value) {
+    var digits = normalizeThaiPhoneDigits(value);
+    if (!digits.length) return "";
+    if (digits.indexOf("02") === 0) {
+      if (digits.length <= 2) return digits;
+      if (digits.length <= 5) return digits.slice(0, 2) + "-" + digits.slice(2);
+      return digits.slice(0, 2) + "-" + digits.slice(2, 5) + "-" + digits.slice(5, 9);
+    }
+    if (digits.length <= 3) return digits;
+    if (digits.length <= 6) return digits.slice(0, 3) + "-" + digits.slice(3);
+    return digits.slice(0, 3) + "-" + digits.slice(3, 6) + "-" + digits.slice(6);
+  }
+
+  function isValidThaiPhone(value) {
+    var digits = normalizeThaiPhoneDigits(value);
+    if (digits.length === 10 && /^0[6-9]/.test(digits)) return true;
+    if (digits.length === 9 && /^02/.test(digits)) return true;
+    return false;
+  }
+
+  function initThaiPhoneField(input) {
+    if (!input) return;
+
+    input.addEventListener("input", function () {
+      var formatted = formatThaiPhone(input.value);
+      if (formatted !== input.value) input.value = formatted;
+      input.setCustomValidity("");
+    });
+
+    input.addEventListener("blur", function () {
+      if (!input.value.trim()) {
+        input.setCustomValidity("");
+        return;
+      }
+      if (!isValidThaiPhone(input.value)) {
+        var msg =
+          window.EvermI18n && typeof window.EvermI18n.t === "function"
+            ? window.EvermI18n.t("form_phone_invalid")
+            : "Invalid Thai phone number";
+        input.setCustomValidity(msg || "Invalid Thai phone number");
+      } else {
+        input.setCustomValidity("");
+      }
+    });
+  }
+
+  initThaiPhoneField(document.getElementById("phone"));
+
   /* Appointment form — POST to /api/inquiry (email via Resend) */
   const formError = document.getElementById("form-error");
   const formSubmitBtn = document.getElementById("form-submit-btn");
@@ -618,6 +675,17 @@
       e.preventDefault();
       setFormMessage(null);
 
+      const phoneInput = form.querySelector("#phone");
+      if (phoneInput && phoneInput.value.trim() && !isValidThaiPhone(phoneInput.value)) {
+        var phoneMsg =
+          window.EvermI18n && typeof window.EvermI18n.t === "function"
+            ? window.EvermI18n.t("form_phone_invalid")
+            : "Invalid Thai phone number";
+        phoneInput.setCustomValidity(phoneMsg || "Invalid Thai phone number");
+      } else if (phoneInput) {
+        phoneInput.setCustomValidity("");
+      }
+
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
@@ -625,7 +693,8 @@
 
       const payload = {
         name: (form.querySelector("#name") || {}).value || "",
-        phone: (form.querySelector("#phone") || {}).value || "",
+        phone: formatThaiPhone((form.querySelector("#phone") || {}).value || ""),
+        line_id: (form.querySelector("#line_id") || {}).value || "",
         service: getSelectedServiceLabel(),
         date: (form.querySelector("#date") || {}).value || "",
         time: (form.querySelector("#time") || {}).value || "",
@@ -658,6 +727,9 @@
         .then(function (result) {
           if (result.ok) {
             form.reset();
+            document.querySelectorAll(".form-datetime-input").forEach(function (input) {
+              syncNativeDatetimeEmptyState(input);
+            });
             setFormMessage("success");
             setTimeout(function () {
               if (formSuccess) formSuccess.hidden = true;

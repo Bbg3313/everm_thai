@@ -55,13 +55,14 @@ export default async function handler(req, res) {
 
   const name = String(payload.name || "").trim();
   const phone = String(payload.phone || "").trim();
+  const lineId = String(payload.line_id || "").trim();
   const service = String(payload.service || "").trim();
   const date = String(payload.date || "").trim();
   const time = String(payload.time || "").trim();
   const message = String(payload.message || "").trim();
   const lang = String(payload.lang || "").trim();
 
-  if (!name || !phone || !service) {
+  if (!name || !phone || !lineId || !service) {
     return res.status(400).json({ ok: false, error: "missing_fields" });
   }
 
@@ -70,7 +71,8 @@ export default async function handler(req, res) {
     <h2>에버엠치과 웹사이트 상담 문의</h2>
     <table cellpadding="8" cellspacing="0" style="border-collapse:collapse;font-family:sans-serif;font-size:14px;">
       <tr><td><strong>이름</strong></td><td>${escapeHtml(name)}</td></tr>
-      <tr><td><strong>연락처</strong></td><td>${escapeHtml(phone)}</td></tr>
+      <tr><td><strong>전화번호</strong></td><td>${escapeHtml(phone)}</td></tr>
+      <tr><td><strong>LINE ID</strong></td><td>${escapeHtml(lineId)}</td></tr>
       <tr><td><strong>관심 진료</strong></td><td>${escapeHtml(service)}</td></tr>
       <tr><td><strong>희망 날짜</strong></td><td>${escapeHtml(date || "—")}</td></tr>
       <tr><td><strong>희망 시간</strong></td><td>${escapeHtml(time || "—")}</td></tr>
@@ -86,7 +88,8 @@ export default async function handler(req, res) {
     "에버엠치과 웹사이트 상담 문의",
     "",
     `이름: ${name}`,
-    `연락처: ${phone}`,
+    `전화번호: ${phone}`,
+    `LINE ID: ${lineId}`,
     `관심 진료: ${service}`,
     `희망 날짜: ${date || "—"}`,
     `희망 시간: ${time || "—"}`,

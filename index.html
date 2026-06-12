@@ -1414,9 +1414,38 @@
                 <label for="name" data-i18n="form_name">ชื่อ-นามสกุล *</label>
                 <input type="text" id="name" name="name" data-i18n-placeholder="form_name_ph" required autocomplete="name" placeholder="ชื่อของคุณ" />
               </div>
-              <div class="form-row">
-                <label for="phone" data-i18n="form_phone">เบอร์โทร / Line ID *</label>
-                <input type="tel" id="phone" name="phone" data-i18n-placeholder="form_phone_ph" required autocomplete="tel" placeholder="08x-xxx-xxxx" />
+              <div class="form-row two-col">
+                <div>
+                  <label for="phone" data-i18n="form_phone">เบอร์โทร *</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="form-phone-input"
+                    data-i18n-placeholder="form_phone_ph"
+                    data-i18n-title="form_phone_hint"
+                    required
+                    autocomplete="tel"
+                    inputmode="tel"
+                    maxlength="12"
+                    placeholder="08X-XXX-XXXX"
+                    title="รูปแบบเบอร์โทรไทย 08X-XXX-XXXX"
+                  />
+                </div>
+                <div>
+                  <label for="line_id" data-i18n="form_line">LINE ID *</label>
+                  <input
+                    type="text"
+                    id="line_id"
+                    name="line_id"
+                    data-i18n-placeholder="form_line_ph"
+                    required
+                    autocomplete="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                    placeholder="@lineid"
+                  />
+                </div>
               </div>
               <div class="form-row">
                 <label for="service" data-i18n="form_service">บริการที่สนใจ *</label>
