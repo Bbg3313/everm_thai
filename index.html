@@ -91,6 +91,7 @@
           <li><a href="#facilities" data-i18n="nav_facilities">สถานที่</a></li>
           <li><a href="#process" data-i18n="nav_process">ขั้นตอนการรักษา</a></li>
           <li><a href="#team" data-i18n="nav_team">ทีมแพทย์</a></li>
+          <li><a href="#cases" data-i18n="nav_results">ผลลัพธ์</a></li>
           <li><a href="#faq" data-i18n="nav_faq">คำถามที่พบบ่อย</a></li>
         </ul>
         <a class="btn btn-primary btn-sm nav-cta" href="#contact" data-i18n="nav_contact">นัดปรึกษา</a>
@@ -1084,36 +1085,68 @@
       </div>
     </section>
 
-    <section class="section cases" id="cases" aria-labelledby="cases-title">
+    <section class="section results" id="cases" aria-labelledby="cases-title">
       <div class="container">
-        <div class="section-head">
-          <p class="section-label" data-i18n="cases_label">ไฮไลท์สถานที่</p>
-          <h2 id="cases-title" data-i18n="cases_title">พื้นที่สำคัญของคลินิก</h2>
-          <p class="section-desc" data-i18n="cases_desc">ตั้งแต่ห้องปรึกษา ห้องรักษา ไปจนถึงห้องผ่าตัดและพักฟื้น</p>
+        <div class="section-head center results-head">
+          <p class="section-label" data-i18n="cases_label">ผลลัพธ์การรักษา</p>
+          <h2 id="cases-title" data-i18n="cases_title">Before &amp; After</h2>
+          <p class="section-desc" data-i18n="cases_desc">เคสจริงหลังผ่าตัดเลื่อนขากรรไกรและจัดฟัน — ภาพเปรียบเทียบก่อน–หลังจากคลินิก EVERM</p>
         </div>
-        <div class="cases-grid">
-          <article class="case-card">
-            <img src="images/clinic/facilities/fac-01-exterior.png" data-i18n-alt="case1_alt" alt="병원 외관" class="case-photo" width="1200" height="800" loading="lazy" decoding="async" />
-            <h3 data-i18n="case1_title">병원 외관</h3>
-            <p data-i18n="case1_desc">에버엠 구강악안면외과 클리닉 건물</p>
-          </article>
-          <article class="case-card">
-            <img src="images/clinic/facilities/fac-02-lobby.png" data-i18n-alt="case2_alt" alt="병원 로비" class="case-photo" width="1200" height="800" loading="lazy" decoding="async" />
-            <h3 data-i18n="case2_title">병원 로비</h3>
-            <p data-i18n="case2_desc">프리미엄 접수·대기 공간</p>
-          </article>
-          <article class="case-card">
-            <img src="images/clinic/facilities/fac-03-operating-room.png" data-i18n-alt="case3_alt" alt="수술실" class="case-photo" width="1200" height="800" loading="lazy" decoding="async" />
-            <h3 data-i18n="case3_title">수술실</h3>
-            <p data-i18n="case3_desc">수술등·마취 시스템 완비</p>
-          </article>
-          <article class="case-card">
-            <img src="images/clinic/facilities/fac-04-recovery.png" data-i18n-alt="case4_alt" alt="수술 후 회복실" class="case-photo" width="1200" height="800" loading="lazy" decoding="async" />
-            <h3 data-i18n="case4_title">수술 후 회복실</h3>
-            <p data-i18n="case4_desc">밀착 사후 관리</p>
-          </article>
+
+        <div
+          class="results-showcase reveal"
+          id="results-carousel"
+          role="region"
+          aria-roledescription="carousel"
+          data-i18n-aria="cases_carousel_aria"
+          aria-label="ผลลัพธ์ก่อน–หลัง"
+        >
+          <div class="results-showcase__frame">
+            <div class="results-showcase__ribbon" data-i18n="cases_badge">Clinical Results</div>
+            <div class="results-showcase__labels" aria-hidden="true">
+              <span class="results-showcase__label results-showcase__label--before" data-i18n="cases_before">ก่อน</span>
+              <span class="results-showcase__label results-showcase__label--after" data-i18n="cases_after">หลัง</span>
+            </div>
+            <div class="results-showcase__viewport">
+              <div class="results-showcase__track" id="results-track"></div>
+            </div>
+            <div class="results-showcase__progress" aria-hidden="true">
+              <span class="results-showcase__progress-bar" id="results-progress"></span>
+            </div>
+            <div class="results-showcase__counter" aria-live="polite">
+              <span class="results-showcase__counter-current" id="results-current">01</span>
+              <span class="results-showcase__counter-sep">/</span>
+              <span class="results-showcase__counter-total" id="results-total">32</span>
+            </div>
+          </div>
+
+          <div class="results-showcase__nav">
+            <button
+              type="button"
+              class="results-showcase__arrow results-showcase__arrow--prev"
+              id="results-prev"
+              data-i18n-aria="cases_prev"
+              aria-label="ภาพก่อนหน้า"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="results-showcase__nav-label" data-i18n="cases_nav_label">เลื่อนดูเคสจริงทั้งหมด</p>
+            <button
+              type="button"
+              class="results-showcase__arrow results-showcase__arrow--next"
+              id="results-next"
+              data-i18n-aria="cases_next"
+              aria-label="ภาพถัดไป"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+
+          <p class="results-disclaimer" data-i18n="cases_disclaimer">ผลลัพธ์แตกต่างกันตามสภาพของแต่ละบุคคล · ภาพถ่ายด้วยความยินยอมของผู้ป่วย</p>
+          <div class="results-cta">
+            <a class="btn btn-primary" href="#contact" data-i18n="cases_cta">ปรึกษาเคสที่คล้ายกัน</a>
+          </div>
         </div>
-        <p class="highlights-more"><a class="text-link" href="#facilities" data-i18n="cases_more">ดูภาพสถานที่ทั้งหมด →</a></p>
       </div>
     </section>
 

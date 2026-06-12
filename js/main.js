@@ -228,7 +228,7 @@
 
   /* Scroll reveal */
   const revealEls = document.querySelectorAll(
-    ".section-head, .partner-care__card, .partner-care__steps li, .treatment-card, .featured-video, .process-roadmap__step, .doctor-profile, .case-card, .facility-carousel, .facility-tour, .tech-list li, .about-panel, .hero-visual, .hero-stat, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
+    ".section-head, .partner-care__card, .partner-care__steps li, .treatment-card, .featured-video, .process-roadmap__step, .doctor-profile, .results-showcase, .facility-carousel, .facility-tour, .tech-list li, .about-panel, .hero-visual, .hero-stat, .tech-slider, .faq-panel, .accordion-item, .faq-trust-list li"
   );
 
   revealEls.forEach(function (el) {
@@ -418,6 +418,98 @@
 
     renderFacilityCarousel();
     startFacilityTimer();
+  }
+
+  /* Results carousel — Before & After clinical cases */
+  const resultsTrack = document.getElementById("results-track");
+  const resultsCarousel = document.getElementById("results-carousel");
+  const resultsPrev = document.getElementById("results-prev");
+  const resultsNext = document.getElementById("results-next");
+  const resultsCurrent = document.getElementById("results-current");
+  const resultsTotal = document.getElementById("results-total");
+  const resultsProgress = document.getElementById("results-progress");
+  const resultsCount = 32;
+
+  if (resultsTrack) {
+    let resultsIndex = 0;
+    let resultsTimer;
+    const resultsIntervalMs = 4500;
+
+    for (let i = 1; i <= resultsCount; i += 1) {
+      const slide = document.createElement("figure");
+      slide.className = "results-slide";
+      slide.setAttribute("role", "group");
+      slide.setAttribute("aria-roledescription", "slide");
+      slide.setAttribute("aria-label", String(i));
+
+      const img = document.createElement("img");
+      const num = String(i).padStart(2, "0");
+      img.src = "images/cases/ba-" + num + ".jpg";
+      img.alt = "Before and after case " + i;
+      img.width = 780;
+      img.height = 505;
+      img.loading = i <= 2 ? "eager" : "lazy";
+      img.decoding = "async";
+      img.setAttribute("data-i18n-alt", "cases_img_alt");
+      slide.appendChild(img);
+      resultsTrack.appendChild(slide);
+    }
+
+    if (resultsTotal) {
+      resultsTotal.textContent = String(resultsCount).padStart(2, "0");
+    }
+
+    function padSlide(n) {
+      return String(n).padStart(2, "0");
+    }
+
+    function goResultsSlide(index) {
+      resultsIndex = (index + resultsCount) % resultsCount;
+      resultsTrack.style.transform = "translateX(-" + resultsIndex * 100 + "%)";
+      if (resultsCurrent) resultsCurrent.textContent = padSlide(resultsIndex + 1);
+      if (resultsProgress) {
+        resultsProgress.style.width = ((resultsIndex + 1) / resultsCount) * 100 + "%";
+      }
+    }
+
+    function startResultsTimer() {
+      clearInterval(resultsTimer);
+      resultsTimer = setInterval(function () {
+        goResultsSlide(resultsIndex + 1);
+      }, resultsIntervalMs);
+    }
+
+    if (resultsPrev) {
+      resultsPrev.addEventListener("click", function () {
+        goResultsSlide(resultsIndex - 1);
+        startResultsTimer();
+      });
+    }
+
+    if (resultsNext) {
+      resultsNext.addEventListener("click", function () {
+        goResultsSlide(resultsIndex + 1);
+        startResultsTimer();
+      });
+    }
+
+    if (resultsCarousel) {
+      resultsCarousel.addEventListener("mouseenter", function () {
+        clearInterval(resultsTimer);
+      });
+      resultsCarousel.addEventListener("mouseleave", function () {
+        startResultsTimer();
+      });
+      resultsCarousel.addEventListener("focusin", function () {
+        clearInterval(resultsTimer);
+      });
+      resultsCarousel.addEventListener("focusout", function () {
+        startResultsTimer();
+      });
+    }
+
+    goResultsSlide(0);
+    startResultsTimer();
   }
 
   /* Video thumbnail at fixed timestamp; playback always starts at 0 */
