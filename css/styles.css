@@ -2768,8 +2768,10 @@ body.nav-open {
 }
 
 .team-accreditation {
+  position: relative;
   width: 100%;
   max-width: 100vw;
+  height: min(48vh, 427px);
   margin: 0 0 2.5rem;
   padding: 0;
   line-height: 0;
@@ -2777,15 +2779,18 @@ body.nav-open {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #a8b0bc;
+  background: url("../images/clinic/team-accreditation-banner-wide.png") center center / cover no-repeat;
 }
 
 .team-accreditation img {
+  position: relative;
+  z-index: 1;
   display: block;
-  max-width: 100%;
+  height: 100%;
   width: auto;
-  height: auto;
-  max-height: min(48vh, 427px);
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center center;
 }
 
 .doctor-profile {
@@ -5873,8 +5878,8 @@ body.lang-ko .accordion-answer__content p {
     margin-bottom: 1.75rem;
   }
 
-  .team-accreditation img {
-    max-height: min(40vh, 320px);
+  .team-accreditation {
+    height: min(40vh, 320px);
   }
 
   .doctor-profile__intro {
