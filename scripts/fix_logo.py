@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Build EVERM Surgery Clinic logo PNGs from black-background master."""
+"""Build transparent EVERM Surgery Clinic logo PNGs from black-background master."""
 from __future__ import annotations
 
 from collections import deque
@@ -60,7 +60,7 @@ def flood_edge_black(im: Image.Image) -> list[list[bool]]:
     return bg
 
 
-def near_blue(im: Image.Image, x: int, y: int, radius: int = 5) -> bool:
+def near_blue(im: Image.Image, x: int, y: int, radius: int = 6) -> bool:
     px = im.load()
     w, h = im.size
     for yy in range(max(0, y - radius), min(h, y + radius + 1)):
@@ -70,13 +70,13 @@ def near_blue(im: Image.Image, x: int, y: int, radius: int = 5) -> bool:
     return False
 
 
-def build_white_logo(raw: Image.Image) -> Image.Image:
+def build_transparent_logo(raw: Image.Image) -> Image.Image:
     src = raw.convert("RGB")
     w, h = src.size
     px = src.load()
     bg = flood_edge_black(src)
 
-    out = Image.new("RGBA", (w, h), (255, 255, 255, 255))
+    out = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     op = out.load()
     for y in range(h):
         for x in range(w):
@@ -88,8 +88,8 @@ def build_white_logo(raw: Image.Image) -> Image.Image:
                 continue
             if y >= SUBTITLE_Y and x >= SUBTITLE_X:
                 continue
-            if not bg[y][x] or near_blue(src, x, y, radius=6):
-                op[x, y] = (r, g, b, 255)
+            if not bg[y][x] or near_blue(src, x, y):
+                op[x, y] = (35, 24, 21, 255)
 
     bbox = out.getbbox()
     return out.crop(bbox) if bbox else out
@@ -114,12 +114,12 @@ def main() -> None:
     if not SOURCE.is_file():
         raise SystemExit(f"Source not found: {SOURCE}")
 
-    logo = trim_pad(build_white_logo(Image.open(SOURCE)), pad=6)
+    logo = trim_pad(build_transparent_logo(Image.open(SOURCE)), pad=6)
     logo.save(OUT, "PNG", optimize=True)
 
     logo_2x = logo.resize((logo.width * 2, logo.height * 2), Image.Resampling.LANCZOS)
     logo_2x.save(OUT_2X, "PNG", optimize=True)
-    print("Saved", OUT, logo.size)
+    print("Saved", OUT, logo.size, "mode=RGBA transparent")
 
 
 if __name__ == "__main__":
