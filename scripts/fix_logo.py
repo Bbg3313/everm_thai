@@ -11,21 +11,27 @@ ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "images" / "logo-source.png"
 OUT = ROOT / "images" / "logo.png"
 OUT_2X = ROOT / "images" / "logo@2x.png"
-OUT_SVG = ROOT / "images" / "logo.svg"
-OUT_FOOTER_SVG = ROOT / "images" / "logo-footer.svg"
 
-VIEW_W = 1000
-VIEW_H = 333
+SUBTITLE_X = 360
+SUBTITLE_Y = 205
 
 
 def is_black(r: int, g: int, b: int) -> bool:
-    return r < 14 and g < 14 and b < 14
+    return r < 16 and g < 16 and b < 16
 
 
-def is_content(r: int, g: int, b: int) -> bool:
-    if not is_black(r, g, b):
-        return True
-    return False
+def is_blue(r: int, g: int, b: int) -> bool:
+    return b >= 40 and b > r + 10
+
+
+def is_grey(r: int, g: int, b: int) -> bool:
+    avg = (r + g + b) / 3
+    spread = max(r, g, b) - min(r, g, b)
+    return 50 <= avg <= 150 and spread <= 40
+
+
+def is_colored(r: int, g: int, b: int) -> bool:
+    return is_blue(r, g, b) or is_grey(r, g, b) or max(r, g, b) >= 20
 
 
 def flood_edge_black(im: Image.Image) -> list[list[bool]]:
@@ -54,6 +60,16 @@ def flood_edge_black(im: Image.Image) -> list[list[bool]]:
     return bg
 
 
+def near_blue(im: Image.Image, x: int, y: int, radius: int = 5) -> bool:
+    px = im.load()
+    w, h = im.size
+    for yy in range(max(0, y - radius), min(h, y + radius + 1)):
+        for xx in range(max(0, x - radius), min(w, x + radius + 1)):
+            if is_blue(*px[xx, yy]):
+                return True
+    return False
+
+
 def build_white_logo(raw: Image.Image) -> Image.Image:
     src = raw.convert("RGB")
     w, h = src.size
@@ -65,7 +81,14 @@ def build_white_logo(raw: Image.Image) -> Image.Image:
     for y in range(h):
         for x in range(w):
             r, g, b = px[x, y]
-            if is_content(r, g, b) or (is_black(r, g, b) and not bg[y][x]):
+            if is_colored(r, g, b):
+                op[x, y] = (r, g, b, 255)
+                continue
+            if not is_black(r, g, b):
+                continue
+            if y >= SUBTITLE_Y and x >= SUBTITLE_X:
+                continue
+            if not bg[y][x] or near_blue(src, x, y, radius=6):
                 op[x, y] = (r, g, b, 255)
 
     bbox = out.getbbox()
@@ -87,27 +110,6 @@ def trim_pad(im: Image.Image, pad: int = 8) -> Image.Image:
     )
 
 
-def fit_to_view(im: Image.Image, view_w: int, view_h: int) -> Image.Image:
-    canvas = Image.new("RGBA", (view_w, view_h), (255, 255, 255, 255))
-    pad_x, pad_y = 0.04, 0.08
-    max_w = int(view_w * (1 - pad_x * 2))
-    max_h = int(view_h * (1 - pad_y * 2))
-    ratio = min(max_w / im.width, max_h / im.height)
-    nw, nh = max(1, int(im.width * ratio)), max(1, int(im.height * ratio))
-    resized = im.resize((nw, nh), Image.Resampling.LANCZOS)
-    canvas.paste(resized, ((view_w - nw) // 2, (view_h - nh) // 2), resized)
-    return canvas
-
-
-def write_svg(path: Path, png_name: str) -> None:
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {VIEW_W} {VIEW_H}">
-  <title>EVERM Surgery Clinic</title>
-  <image href="{png_name}" x="0" y="0" width="{VIEW_W}" height="{VIEW_H}" preserveAspectRatio="xMidYMid meet"/>
-</svg>
-"""
-    path.write_text(svg, encoding="utf-8")
-
-
 def main() -> None:
     if not SOURCE.is_file():
         raise SystemExit(f"Source not found: {SOURCE}")
@@ -117,9 +119,6 @@ def main() -> None:
 
     logo_2x = logo.resize((logo.width * 2, logo.height * 2), Image.Resampling.LANCZOS)
     logo_2x.save(OUT_2X, "PNG", optimize=True)
-
-    write_svg(OUT_SVG, "logo.png")
-    write_svg(OUT_FOOTER_SVG, "logo.png")
     print("Saved", OUT, logo.size)
 
 
