@@ -519,7 +519,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: clamp(1.25rem, 2.5vw, 2.75rem);
+    gap: clamp(1.35rem, 2.8vw, 3rem);
     width: min(1240px, 96vw);
   }
 
@@ -553,7 +553,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     justify-content: flex-end;
     align-items: center;
     flex-wrap: nowrap;
-    gap: clamp(0.45rem, 0.9vw, 1.1rem);
+    gap: clamp(0.55rem, 1.1vw, 1.25rem);
     min-width: 0;
     margin: 0;
     padding: 0;
@@ -595,7 +595,21 @@ ul { margin: 0; padding: 0; list-style: none; }
 
   .header-lang {
     flex: 0 0 auto;
-    margin-left: clamp(0.5rem, 1vw, 1rem);
+    margin-left: clamp(0.75rem, 1.25vw, 1.35rem);
+  }
+
+  body.lang-th .header-inner {
+    gap: clamp(1.5rem, 3.2vw, 3.5rem);
+  }
+
+  body.lang-th .site-nav > ul,
+  body.lang-th .site-nav__list {
+    gap: clamp(0.65rem, 1.2vw, 1.4rem);
+  }
+
+  body.lang-th .site-nav > ul a {
+    padding: 0.4rem 0.6rem;
+    letter-spacing: 0;
   }
 
   .nav-toggle {
@@ -605,7 +619,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 @media (min-width: 769px) and (max-width: 1080px) {
   .header-inner {
-    gap: 1rem;
+    gap: 1.35rem;
   }
 
   .logo-collab .logo-img {
@@ -614,12 +628,25 @@ ul { margin: 0; padding: 0; list-style: none; }
 
   .site-nav > ul,
   .site-nav__list {
-    gap: 0.35rem;
+    gap: 0.55rem;
   }
 
   .site-nav > ul a {
     font-size: 0.76rem;
-    padding: 0.35rem 0.45rem;
+    padding: 0.35rem 0.5rem;
+  }
+
+  body.lang-th .header-inner {
+    gap: 1.6rem;
+  }
+
+  body.lang-th .site-nav > ul,
+  body.lang-th .site-nav__list {
+    gap: 0.7rem;
+  }
+
+  body.lang-th .site-nav > ul a {
+    padding: 0.35rem 0.55rem;
   }
 }
 
