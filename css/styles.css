@@ -416,9 +416,9 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .logo-collab__partner {
   display: block;
-  height: calc(var(--logo-h) * 1.14);
+  height: var(--logo-h);
   width: auto;
-  max-width: min(5.5rem, 19vw);
+  max-width: min(220px, 34vw);
   object-fit: contain;
   object-position: center;
   flex-shrink: 0;
@@ -537,12 +537,9 @@ ul { margin: 0; padding: 0; list-style: none; }
     min-width: 0;
   }
 
-  .logo-collab .logo-img {
-    max-width: min(160px, 16vw);
-  }
-
+  .logo-collab .logo-img,
   .logo-collab__partner {
-    max-width: min(4.75rem, 14vw);
+    max-width: min(160px, 16vw);
   }
 
   .site-nav {
@@ -620,12 +617,9 @@ ul { margin: 0; padding: 0; list-style: none; }
     max-width: min(250px, 26vw);
   }
 
-  body.lang-th .logo-collab .logo-img {
-    max-width: min(120px, 11.5vw);
-  }
-
+  body.lang-th .logo-collab .logo-img,
   body.lang-th .logo-collab__partner {
-    max-width: min(3.25rem, 8.5vw);
+    max-width: min(120px, 11.5vw);
   }
 
   body.lang-th .site-nav {
@@ -653,7 +647,8 @@ ul { margin: 0; padding: 0; list-style: none; }
     column-gap: 1.15rem;
   }
 
-  .logo-collab .logo-img {
+  .logo-collab .logo-img,
+  .logo-collab__partner {
     max-width: min(150px, 16vw);
   }
 
@@ -675,12 +670,9 @@ ul { margin: 0; padding: 0; list-style: none; }
     max-width: min(220px, 24vw);
   }
 
-  body.lang-th .logo-collab .logo-img {
-    max-width: min(100px, 10vw);
-  }
-
+  body.lang-th .logo-collab .logo-img,
   body.lang-th .logo-collab__partner {
-    max-width: min(2.85rem, 7.5vw);
+    max-width: min(100px, 10vw);
   }
 
   body.lang-th .site-nav {
@@ -5317,8 +5309,8 @@ body.lang-ko .accordion-answer__content p {
   }
 
   .logo-collab__partner {
-    height: calc(var(--logo-h) * 1.12);
-    max-width: min(4.15rem, 17vw);
+    height: var(--logo-h);
+    max-width: min(140px, 32vw);
   }
 
   .logo-collab__mark {
@@ -6290,8 +6282,8 @@ body.lang-ko .accordion-answer__content p {
   }
 
   .logo-collab__partner {
-    height: calc(var(--logo-h) * 1.1);
-    max-width: min(3.65rem, 16vw);
+    height: var(--logo-h);
+    max-width: min(118px, 30vw);
   }
 
   .logo-collab .logo-img {
