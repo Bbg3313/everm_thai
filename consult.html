@@ -27,7 +27,7 @@
     href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="css/consult.css?v=20260709" />
+  <link rel="stylesheet" href="css/consult.css?v=20260709b" />
 </head>
 <body class="consult-page lang-th">
   <div class="consult-shell">
@@ -192,7 +192,19 @@
                 <span data-i18n="q3_label">วันที่วางแผนจะผ่าตัด</span> *
               </label>
               <p class="consult-field__hint" data-i18n="q3_hint">หากยังไม่แน่ใจ ระบุช่วงเวลาที่คาดไว้</p>
-              <input type="date" id="consult-date" name="surgery_date" required />
+              <div class="consult-datetime-field">
+                <input
+                  type="date"
+                  id="consult-date"
+                  name="surgery_date"
+                  class="consult-datetime-input is-empty"
+                  data-i18n-lang
+                  data-i18n-title="q3_date_hint"
+                  lang="th"
+                  required
+                />
+                <span class="consult-datetime-placeholder" aria-hidden="true" data-i18n="q3_date_hint">ปี-เดือน-วัน</span>
+              </div>
             </div>
 
             <fieldset class="consult-field">
@@ -253,6 +265,6 @@
     </footer>
   </div>
 
-  <script src="js/consult.js?v=20260709" defer></script>
+  <script src="js/consult.js?v=20260709b" defer></script>
 </body>
 </html>

@@ -31,6 +31,7 @@
       q2_ph: "ระบุประวัติการปรึกษา ผ่าตัด หรือการรักษาที่เกี่ยวข้อง",
       q3_label: "วันที่วางแผนจะผ่าตัด",
       q3_hint: "หากยังไม่แน่ใจ ระบุช่วงเวลาที่คาดไว้",
+      q3_date_hint: "ปี-เดือน-วัน",
       q4_label: "มีปัญหาฟันไม่เรียง / เคยจัดฟันหรือไม่?",
       malo_yes: "มี / เคยจัดฟัน",
       malo_no: "ไม่มี",
@@ -76,6 +77,7 @@
       q2_ph: "List any related consultations, surgeries, or treatments",
       q3_label: "Planned surgery date",
       q3_hint: "If unsure, enter your expected timeframe",
+      q3_date_hint: "Year-Month-Day",
       q4_label: "Malocclusion / orthodontic history?",
       malo_yes: "Yes / orthodontic history",
       malo_no: "No",
@@ -133,6 +135,13 @@
       el.placeholder = t(el.getAttribute("data-i18n-placeholder"));
     });
 
+    document.querySelectorAll("[data-i18n-lang]").forEach(function (el) {
+      var langCode = currentLang === "en" ? "en" : "th";
+      el.setAttribute("lang", langCode);
+      var titleKey = el.getAttribute("data-i18n-title");
+      if (titleKey) el.setAttribute("title", t(titleKey));
+    });
+
     document.title = t("meta_title");
     var desc = document.querySelector('meta[name="description"]');
     if (desc) desc.setAttribute("content", t("meta_description"));
@@ -187,6 +196,23 @@
       successWrap.setAttribute("tabindex", "-1");
       successWrap.focus();
     }
+  }
+
+  function syncDateEmptyState(input) {
+    if (!input) return;
+    input.classList.toggle("is-empty", !input.value);
+  }
+
+  function initDateField() {
+    var dateInput = document.getElementById("consult-date");
+    if (!dateInput) return;
+    syncDateEmptyState(dateInput);
+    dateInput.addEventListener("input", function () {
+      syncDateEmptyState(dateInput);
+    });
+    dateInput.addEventListener("change", function () {
+      syncDateEmptyState(dateInput);
+    });
   }
 
   function initForm() {
@@ -298,6 +324,7 @@
     applyStrings();
     syncLangButtons();
     initLang();
+    initDateField();
     initForm();
   });
 })();

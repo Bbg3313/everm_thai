@@ -314,7 +314,6 @@ body.consult-page.lang-en {
 
 .consult-field input[type="text"],
 .consult-field input[type="tel"],
-.consult-field input[type="date"],
 .consult-field textarea,
 .consult-field select {
   width: 100%;
@@ -328,6 +327,60 @@ body.consult-page.lang-en {
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+.consult-datetime-field {
+  position: relative;
+}
+
+.consult-datetime-field .consult-datetime-input {
+  width: 100%;
+  padding: 0.72rem 0.9rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--consult-text);
+  background: #fff;
+  border: 1px solid rgba(0, 48, 128, 0.16);
+  border-radius: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  z-index: 1;
+}
+
+.consult-datetime-field .consult-datetime-input.is-empty::-webkit-datetime-edit,
+.consult-datetime-field .consult-datetime-input.is-empty::-webkit-datetime-edit-fields-wrapper,
+.consult-datetime-field .consult-datetime-input.is-empty::-webkit-datetime-edit-text,
+.consult-datetime-field .consult-datetime-input.is-empty::-webkit-datetime-edit-month-field,
+.consult-datetime-field .consult-datetime-input.is-empty::-webkit-datetime-edit-day-field,
+.consult-datetime-field .consult-datetime-input.is-empty::-webkit-datetime-edit-year-field {
+  color: transparent;
+}
+
+.consult-datetime-field .consult-datetime-input.is-empty {
+  color: transparent;
+}
+
+.consult-datetime-field .consult-datetime-input:not(.is-empty),
+.consult-datetime-field .consult-datetime-input:focus {
+  color: var(--consult-text);
+}
+
+.consult-datetime-placeholder {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: rgba(80, 80, 80, 0.55);
+  pointer-events: none;
+  z-index: 2;
+  line-height: 1;
+}
+
+.consult-datetime-input:not(.is-empty) + .consult-datetime-placeholder,
+.consult-datetime-input:focus + .consult-datetime-placeholder {
+  display: none;
+}
+
 .consult-field textarea {
   min-height: 96px;
   resize: vertical;
@@ -335,7 +388,8 @@ body.consult-page.lang-en {
 
 .consult-field input:focus,
 .consult-field textarea:focus,
-.consult-field select:focus {
+.consult-field select:focus,
+.consult-datetime-field .consult-datetime-input:focus {
   outline: none;
   border-color: var(--consult-primary);
   box-shadow: 0 0 0 3px rgba(0, 48, 128, 0.12);
